@@ -1,11 +1,11 @@
 using System;
+using System.Collections.Generic;
 
 namespace Game.Guess
 {
     public class Guess
     {
         public List<int> _guessProgress;
-// cat character a
         public void CheckGuess(char userGuess, string hangManWord)
         {
             if (char.IsLetter(userGuess))
