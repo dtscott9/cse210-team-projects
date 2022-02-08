@@ -5,7 +5,8 @@ namespace word
     public class Word
     {
        private string[] randWord = {"python", "java", "javacript", "mysql", "function", "class", 
-       "object", "variable", "loop", "visualstudio", "instance", "csharp", "statement"};
+       "object", "variable", "loop", "visualstudio", "instance", "csharp", "statement", "script",
+       "method", "code", "program", "software"};
 
         public Word()
         {

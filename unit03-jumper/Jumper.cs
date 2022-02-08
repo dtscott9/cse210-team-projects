@@ -13,7 +13,7 @@ namespace jumper
 
         public void jumpMan() 
         {
-            Random word = new Random();
+            
 
             
         }
