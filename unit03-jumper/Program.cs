@@ -1,4 +1,5 @@
 ﻿using System;
+using word;
 
 namespace unit03_jumper
 {
@@ -6,7 +7,8 @@ namespace unit03_jumper
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Word w = new Word();
+            w.genWord();
         }
     }
 }
