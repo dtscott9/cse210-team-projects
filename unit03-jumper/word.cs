@@ -1,24 +1,22 @@
-using System;
 
-namespace word 
+namespace word
 {
     public class Word
     {
-       private string[] randWord = {"python", "java", "javacript", "mysql", "function", "class", 
-       "object", "variable", "loop", "visualstudio", "instance", "csharp", "statement"};
+        private string _hangManWord;
+        char _userGuess;
 
-        public Word()
-        {
-            
-        }
 
-        public void genWord()
-        {
-           Random rand = new Random();
-           int index = rand.Next(randWord.Length);
-           Console.WriteLine($"{randWord[index]}");
-        }
-        
-        
+
+
+        // public String getHangManWord() 
+        // {
+        //     return _hangManWord;
+        // }
+
+        // public void setHangManWord(string word)
+        // {
+        //     this._hangManWord = word;
+        // }
     }
 }
