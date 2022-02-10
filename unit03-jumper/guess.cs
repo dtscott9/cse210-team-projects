@@ -10,7 +10,7 @@ namespace Game.Guess
         {
             if (char.IsLetter(userGuess))
             {
-                _guessProgress.Add(hangManWord.IndexOf(userGuess));
+                _guessProgress.Add(15);
             }
         }
     }
