@@ -19,6 +19,14 @@ namespace terminal
             {
                 Console.WriteLine("Sorry, your guess is too long");
             }
+            _playerGuess = Console.ReadLine();
+            // if (playerGuess.Length == 1)
+            // {
+            //     _playerGuess = playerGuess;
+            // } else
+            // {
+            //     Console.WriteLine("Sorry, your guess is too long");
+            // }
         }
 
         public string GetPlayerGuess()
@@ -33,6 +41,8 @@ namespace terminal
             {
                 tempWord = tempWord + "_";
             }
+
+            Console.WriteLine(tempWord);
             return tempWord;
         }
     }

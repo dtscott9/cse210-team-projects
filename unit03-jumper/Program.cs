@@ -13,6 +13,7 @@ namespace unit03_jumper
         {
             Director dir = new Director();
             dir.GetInputs();
+            dir.CreateWord();
         }
     }
 }
