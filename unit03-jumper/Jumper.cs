@@ -6,7 +6,9 @@ namespace jumper
 
     public class Jumper 
     {
-        
+        public int playerLives = 5;
+
+        private List<string> man = new List<string>();
         
         public Jumper()
         {
@@ -65,10 +67,31 @@ namespace jumper
                             
             
         }
-        // public void display()
-        // {
-        //     Console.WriteLine($"{man[1]}");
-        // }
+        public void checkLife() 
+        {
+            
+            
+            if (playerLives == 4)
+            {
+                Console.WriteLine($"{man[1]}");
+            }
+            else if (playerLives == 3) 
+            {
+                Console.WriteLine($"{man[2]}");
+            }
+            else if (playerLives == 2) 
+            {
+                Console.WriteLine($"{man[3]}");
+            }
+            else if (playerLives == 1) 
+            {
+                Console.WriteLine($"{man[4]}");
+            }
+            else if (playerLives == 0) 
+            {
+                Console.WriteLine($"{man[5]}");
+            }
+        }
     }
 }
 

@@ -1,23 +1,26 @@
 using System;
 using System.Collections.Generic;
+using word;
 using jumper;
 
 namespace director
 {
     public class Director
     {
-        public void main()
-        {
-            List<string> man = new List<string>();
-            
-            Jumper jumper = new Jumper();
-            jumper.jumpMan(man);
+        
+       
+        
+        Jumper jumper = new Jumper();
+        
+        bool playerGuess = true;
 
-            Console.WriteLine($"{man[0]}");
         
 
-            
+
         }
+
+            
+        
         
         
         
