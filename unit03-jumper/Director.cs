@@ -16,6 +16,7 @@ namespace director
         Jumper jumper = new Jumper();
         
         bool playerGuess = true;
+        bool keepPlaying = true;
 
         // Terminal t = new Terminal();
         // t.GetPlayerGuess();
@@ -33,6 +34,15 @@ namespace director
   
 
           terminal.CreateDisplayWord(guessWord);
+        }
+
+        public void gameStart()
+        {
+          CreateWord();
+          while (keepPlaying == true)
+          {
+            
+          }
         }
 
 
