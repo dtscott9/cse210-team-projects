@@ -1,15 +1,29 @@
+using System;
+
 namespace terminal
 {
     public class Terminal
     {
         private string displayWord;
+        private string _playerGuess;
 
-
-        // public SetDisplayWord()
-        // {
-
-        // }
-
+        public void SetPlayerGuess(string playerGuess)
+        {
+            Console.WriteLine("Guess a chararacter");
+            playerGuess = Console.ReadLine();
+            if (playerGuess.Length == 1)
+            {
+                _playerGuess = playerGuess;
+            } else
+            {
+                Console.WriteLine("Sorry, your guess is too long");
+            }
+        }
+        
+        public string GetPlayerGuess()
+        {
+            return _playerGuess;
+        }
         public string CreateDisplayWord(string guessWord) //gues word is the word the user trys to guess
         {
             string tempWord = "";
@@ -19,5 +33,6 @@ namespace terminal
             }
             return tempWord;
         }
+
     }
 }

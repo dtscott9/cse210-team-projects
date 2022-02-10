@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using jumper;
 using word;
 using Game.Guess;
+using terminal;
 
 namespace director
 {
@@ -15,14 +16,14 @@ namespace director
             Jumper jumper = new Jumper();
             jumper.jumpMan(man);
 
-            Console.WriteLine($"{man[0]}");
-
             Word w = new Word();
             w.genWord();
-            string userWord = w._wordToGuess;
+
+            Terminal t = new Terminal();
+            t.GetPlayerGuess();
 
             Guess g = new Guess();
-            g.CheckGuess(w._wordToGuess);
+            g.CheckGuess(t.GetPlayerGuess(), w._wordToGuess);
             g.CheckWin();
 
         }
