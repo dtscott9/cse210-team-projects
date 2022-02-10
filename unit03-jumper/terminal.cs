@@ -14,7 +14,8 @@ namespace terminal
             if (playerGuess.Length == 1)
             {
                 _playerGuess = playerGuess;
-            } else
+            }
+            else
             {
                 Console.WriteLine("Sorry, your guess is too long");
             }
@@ -34,6 +35,5 @@ namespace terminal
             }
             return tempWord;
         }
-
     }
 }

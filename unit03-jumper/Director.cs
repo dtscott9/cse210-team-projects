@@ -24,19 +24,16 @@ namespace director
 
         public void GetInputs()
         {
-<<<<<<< HEAD
             //get word we are guessing
             //get guess from player
             terminal.SetPlayerGuess();
             guess.CheckGuess(terminal.GetPlayerGuess(), word._wordToGuess);
             guess.CheckWin();
-=======
-          word.genWord();
-          string guessWord = word._wordToGuess;
+            word.genWord();
+            string guessWord = word._wordToGuess;
 
-          terminal.CreateDisplayWord(guessWord);
->>>>>>> 44fc82beac33614db83cd3b446b276271cb11490
-        }
+            terminal.CreateDisplayWord(guessWord);
+        }   
 
 
         public string CreateWord()
