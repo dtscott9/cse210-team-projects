@@ -9,11 +9,12 @@ namespace Game.Guess
         
         
 // cat character a
-        public void CheckGuess(char userGuess, string hangManWord)
+        public void CheckGuess(string userGuess, string hangManWord)
         {//TODO ADD CHECK FOR LETTER later
             if (hangManWord.Contains(userGuess))
             {
-                _guessProgress.Add(hangManWord[userGuess]);
+                _guessProgress.Add(hangManWord.IndexOf(userGuess));
+                Console.WriteLine(hangManWord.IndexOf(userGuess));
             }
         }
 
