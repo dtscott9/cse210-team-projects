@@ -22,18 +22,23 @@ namespace director
         
         bool playerGuess = true;
 
+
         public void GetInputs()
         {
             //get word we are guessing
             //get guess from player
             terminal.SetPlayerGuess();
+            string guessWord = CreateWord();
             guess.CheckGuess(terminal.GetPlayerGuess(), word._wordToGuess);
             guess.CheckWin();
-            word.genWord();
-            string guessWord = word._wordToGuess;
-
+            
             terminal.CreateDisplayWord(guessWord);
         }   
+
+        public void doCalculations()
+        {
+
+        }
 
 
         public string CreateWord()
