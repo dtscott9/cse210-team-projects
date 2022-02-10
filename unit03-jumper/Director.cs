@@ -28,9 +28,9 @@ namespace director
         {
             //get word we are guessing
             //get guess from player
-            terminal.SetPlayerGuess();
             string guessWord = CreateWord();
-            guess.CheckGuess(terminal.GetPlayerGuess(), word._wordToGuess);
+            terminal.SetPlayerGuess();
+            guess.CheckGuess(terminal.GetPlayerGuess(), guessWord);
             guess.CheckWin();
             
             terminal.CreateDisplayWord(guessWord);
@@ -43,18 +43,8 @@ namespace director
         // Guess g = new Guess();
         // g.CheckGuess(t.GetPlayerGuess(), w._wordToGuess);
         // g.CheckWin();
-        }
-
-        
-        
-        public void CreateWord()
-        {
-          word.genWord();
-          string guessWord = word._wordToGuess;
+        }     
   
-
-        }
-
         public void gameStart()
         {
           CreateWord();
@@ -64,28 +54,18 @@ namespace director
           }
         }
 
-
-        
-
-
         public string CreateWord()
         {
           string temp = word.genWord();
-          terminal.CreateDisplayWord(word._wordToGuess);
           return temp;
+        }
+
+        public void DisplayWord()
+        {
+            terminal.CreateDisplayWord(word._wordToGuess);
         }
     
             // Word w = new Word();
-            // w.genWord();
-
-
-
-            
-        
-        
-        
-        
-
-        
+            // w.genWord();        
     }
 }

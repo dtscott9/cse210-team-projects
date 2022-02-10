@@ -19,7 +19,6 @@ namespace terminal
             {
                 Console.WriteLine("Sorry, your guess is too long");
             }
-            _playerGuess = Console.ReadLine();
             // if (playerGuess.Length == 1)
             // {
             //     _playerGuess = playerGuess;
