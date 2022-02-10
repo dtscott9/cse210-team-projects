@@ -11,10 +11,15 @@ namespace Game.Guess
 // cat character a
         public void CheckGuess(char userGuess, string hangManWord)
         {
-            if (char.IsLetter(userGuess))
+            if (char.IsLetter(userGuess) & hangManWord.Contains(userGuess))
             {
-                _guessProgress.Add(15);
+                _guessProgress.Add(hangManWord[userGuess]);
             }
+        }
+
+        public void CheckWin()
+        {
+            Console.WriteLine(_guessProgress);
         }
     }
 }

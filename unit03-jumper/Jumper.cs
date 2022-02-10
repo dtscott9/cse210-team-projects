@@ -60,10 +60,7 @@ namespace jumper
                     
                       x
                      /|\
-                     / \");
-
-                            
-            
+                     / \"); 
         }
         // public void display()
         // {
