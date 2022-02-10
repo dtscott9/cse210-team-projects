@@ -1,6 +1,12 @@
 ﻿using System;
 using word;
+<<<<<<< HEAD
 using Game.Guess;
+=======
+using jumper;
+using director;
+using System.Collections.Generic;
+>>>>>>> b0cfa68dc8a45b80af8b2d0e81cdd3836daaf062
 
 namespace unit03_jumper
 {
@@ -8,12 +14,8 @@ namespace unit03_jumper
     {
         static void Main(string[] args)
         {
-            
-            Word w = new Word();
-            w.genWord();
-
-            Guess g = new Guess();
-            g.CheckGuess('c', "Catco");
+            Director dir = new Director();
+            dir.main();
         }
     }
 }
