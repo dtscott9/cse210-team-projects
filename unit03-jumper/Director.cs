@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using word;
-using terminal;
 using jumper;
 using word;
 using Game.Guess;
@@ -10,12 +8,23 @@ namespace director
 {
     public class Director
     {
+        public void main()
+        {
+            List<string> man = new List<string>();
 
+            Jumper jumper = new Jumper();
+            jumper.jumpMan(man);
 
+            Console.WriteLine($"{man[0]}");
 
-        Jumper jumper = new Jumper();
+            Word w = new Word();
+            w.genWord();
+            string userWord = w._wordToGuess;
 
-        bool playerGuess = true;
+            Guess g = new Guess();
+            g.CheckGuess(w._wordToGuess);
+            g.CheckWin();
 
+        }
     }
 }
