@@ -1,5 +1,8 @@
 ﻿using System;
 using word;
+using jumper;
+using director;
+using System.Collections.Generic;
 
 namespace unit03_jumper
 {
@@ -7,8 +10,10 @@ namespace unit03_jumper
     {
         static void Main(string[] args)
         {
-            Word w = new Word();
-            w.genWord();
+            Director dir = new Director();
+            dir.main();
+          
+            
         }
     }
 }

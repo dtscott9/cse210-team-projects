@@ -1,12 +1,20 @@
+using System;
+using System.Collections.Generic;
 using jumper;
 
 namespace director
 {
-    public class director
+    public class Director
     {
-        static void main()
+        public void main()
         {
+            List<string> man = new List<string>();
+            
             Jumper jumper = new Jumper();
+            jumper.jumpMan(man);
+
+            Console.WriteLine($"{man[0]}");
+        
 
             
         }

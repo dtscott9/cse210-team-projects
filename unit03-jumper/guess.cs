@@ -7,6 +7,7 @@ namespace Game.Guess
     {
         public List<int> _guessProgress = new List<int>();
         
+        
 // cat character a
         public void CheckGuess(char userGuess, string hangManWord)
         {

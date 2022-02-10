@@ -6,20 +6,69 @@ namespace jumper
 
     public class Jumper 
     {
-        private List<string> man = new List<string>();
-
+        
         
         public Jumper()
         {
-
+            
         }
 
-        public void jumpMan() 
+        public void jumpMan(List<string> man) 
         {
-            
+        
+          
+           man.Add(@"
+                     ---
+                    /   \
+                     ---
+                    \   /
+                     \ /
+                      0
+                     /|\
+                     / \");
+            man.Add(@"
+                     
+                    /   \
+                     ---
+                    \   /
+                     \ /
+                      0
+                     /|\
+                     / \");
+            man.Add(@"
+                     
+                     ---
+                    \   /
+                     \ /
+                      0
+                     /|\
+                     / \");
+            man.Add(@"
+                     
+                    \   /
+                     \ /
+                      0
+                     /|\
+                     / \");
+            man.Add(@"
+                    
+                     \ /
+                      0
+                     /|\
+                     / \");
+            man.Add(@"
+                    
+                      x
+                     /|\
+                     / \");
 
+                            
             
         }
+        // public void display()
+        // {
+        //     Console.WriteLine($"{man[1]}");
+        // }
     }
 }
 
