@@ -25,7 +25,8 @@ namespace director
 
         public void CreateWord()
         {
-          string guessWord = word.genWord();
+          word.genWord();
+          string guessWord = word._wordToGuess;
 
           terminal.CreateDisplayWord(guessWord);
         }
