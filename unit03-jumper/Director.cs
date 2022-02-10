@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using jumper;
 using word;
 using terminal;
-using jumper;
+using Game.Guess;
 
 namespace director
 {
@@ -22,9 +23,19 @@ namespace director
         public void CreateWord()
         {
           string guessWord = word.genWord();
+
+          terminal.CreateDisplayWord(guessWord);
         }
         
 
+    
+            Word w = new Word();
+            w.genWord();
+            string userWord = w._wordToGuess;
+
+            Guess g = new Guess();
+            g.CheckGuess(w._wordToGuess);
+            g.CheckWin();
 
 
             
