@@ -10,8 +10,8 @@ namespace Game.Guess
         
 // cat character a
         public void CheckGuess(char userGuess, string hangManWord)
-        {
-            if (char.IsLetter(userGuess) & hangManWord.Contains(userGuess))
+        {//TODO ADD CHECK FOR LETTER later
+            if (hangManWord.Contains(userGuess))
             {
                 _guessProgress.Add(hangManWord[userGuess]);
             }

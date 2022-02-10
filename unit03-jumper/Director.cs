@@ -4,7 +4,6 @@ using jumper;
 using word;
 using terminal;
 using Game.Guess;
-using terminal;
 
 namespace director
 {
@@ -18,6 +17,12 @@ namespace director
         
         bool playerGuess = true;
 
+        Terminal t = new Terminal();
+        t.GetPlayerGuess();
+        Guess g = new Guess();
+        g.CheckGuess(t.GetPlayerGuess(), w._wordToGuess);
+        g.CheckWin();
+
         public void CreateWord()
         {
           string guessWord = word.genWord();
@@ -30,12 +35,6 @@ namespace director
             // Word w = new Word();
             // w.genWord();
 
-            // Terminal t = new Terminal();
-            // t.GetPlayerGuess();
-
-            // Guess g = new Guess();
-            // g.CheckGuess(t.GetPlayerGuess(), w._wordToGuess);
-            // g.CheckWin();
 
 
             
