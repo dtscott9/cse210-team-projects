@@ -14,13 +14,11 @@ namespace word
             
         }
 
-        public void genWord()
+        public string genWord()
         {
            Random rand = new Random();
            int index = rand.Next(randWord.Length);
-           _wordToGuess = randWord[index];
-           
-        //    return wordIndex;
+           return randWord[index];
         }
         
         

@@ -10,14 +10,14 @@ namespace terminal
         public void SetPlayerGuess()
         {
             Console.WriteLine("Guess a chararacter");
-            char playerGuess = Console.ReadLine();
-            // if (playerGuess.Length == 1)
-            // {
-            //     _playerGuess = playerGuess;
-            // } else
-            // {
-            //     Console.WriteLine("Sorry, your guess is too long");
-            // }
+            string playerGuess = Console.ReadLine();
+            if (playerGuess.Length == 1)
+            {
+                _playerGuess = playerGuess;
+            } else
+            {
+                Console.WriteLine("Sorry, your guess is too long");
+            }
         }
 
         public string GetPlayerGuess()

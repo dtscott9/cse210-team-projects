@@ -9,7 +9,12 @@ namespace director
 {
     public class Director
     {
+
+        public void main()
+        {
+        }
         Word word = new Word();
+        Guess guess = new Guess();
 
         Terminal terminal = new Terminal();
 
@@ -17,20 +22,22 @@ namespace director
         
         bool playerGuess = true;
 
-        Terminal t = new Terminal();
-        t.GetPlayerGuess();
-        Guess g = new Guess();
-        g.CheckGuess(t.GetPlayerGuess(), w._wordToGuess);
-        g.CheckWin();
-
-        public void CreateWord()
+        public void GetInputs()
         {
-          string guessWord = word.genWord();
-
-          terminal.CreateDisplayWord(guessWord);
+            //get word we are guessing
+            //get guess from player
+            terminal.SetPlayerGuess();
+            guess.CheckGuess(terminal.GetPlayerGuess(), word._wordToGuess);
+            guess.CheckWin();
         }
-        
 
+
+        public string CreateWord()
+        {
+          string temp = word.genWord();
+          terminal.CreateDisplayWord(word._wordToGuess);
+          return temp;
+        }
     
             // Word w = new Word();
             // w.genWord();
