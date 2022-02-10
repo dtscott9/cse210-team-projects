@@ -2,6 +2,7 @@
 using word;
 using jumper;
 using director;
+using Game.Guess;
 using System.Collections.Generic;
 
 namespace unit03_jumper

@@ -62,10 +62,7 @@ namespace jumper
                     
                       x
                      /|\
-                     / \");
-
-                            
-            
+                     / \"); 
         }
         public void checkLife() 
         {

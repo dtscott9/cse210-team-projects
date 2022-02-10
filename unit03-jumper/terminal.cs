@@ -8,6 +8,7 @@ namespace terminal
         // {
 
         // }
+        
         public string CreateDisplayWord(string guessWord) //gues word is the word the user trys to guess
         {
             string tempWord = "";
