@@ -17,19 +17,25 @@ namespace director
         
         bool playerGuess = true;
 
-        Terminal t = new Terminal();
-        t.GetPlayerGuess();
-        Guess g = new Guess();
-        g.CheckGuess(t.GetPlayerGuess(), w._wordToGuess);
-        g.CheckWin();
+        // Terminal t = new Terminal();
+        // t.GetPlayerGuess();
+        // Guess g = new Guess();
+        // g.CheckGuess(t.GetPlayerGuess(), w._wordToGuess);
+        // g.CheckWin();
 
+
+        
+        
         public void CreateWord()
         {
           word.genWord();
           string guessWord = word._wordToGuess;
+  
 
           terminal.CreateDisplayWord(guessWord);
         }
+
+
         
 
     

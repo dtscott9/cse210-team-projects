@@ -12,7 +12,7 @@ namespace unit03_jumper
         static void Main(string[] args)
         {
             Director dir = new Director();
-            // dir.main();     
+            dir.CreateWord();
         }
     }
 }

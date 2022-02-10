@@ -10,7 +10,7 @@ namespace terminal
         public void SetPlayerGuess()
         {
             Console.WriteLine("Guess a chararacter");
-            char playerGuess = Console.ReadLine();
+            _playerGuess = Console.ReadLine();
             // if (playerGuess.Length == 1)
             // {
             //     _playerGuess = playerGuess;
@@ -32,6 +32,8 @@ namespace terminal
             {
                 tempWord = tempWord + "_";
             }
+
+            Console.WriteLine(tempWord);
             return tempWord;
         }
 
