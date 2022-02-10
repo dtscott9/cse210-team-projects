@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using jumper;
+using word;
+using Game.Guess;
 
 namespace director
 {
@@ -14,6 +16,15 @@ namespace director
             jumper.jumpMan(man);
 
             Console.WriteLine($"{man[0]}");
+
+            Word w = new Word();
+            w.genWord();
+            string userWord = w._wordToGuess;
+
+            Guess g = new Guess();
+            g.CheckGuess();
+            g.CheckWin();
+
         }
     }
 }

@@ -14,9 +14,8 @@ namespace unit03_jumper
             Director dir = new Director();
             dir.main();
 
-            Guess g = new Guess();
-            g.CheckGuess();
-            g.CheckWin();
+
+
         }
     }
 }
