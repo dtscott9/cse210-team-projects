@@ -62,25 +62,9 @@ namespace director
           terminal.SetPlayerGuess();
           while (keepPlaying == true)
           {
-            
             trackGuess(tempword, guess, guessWord);
             Console.WriteLine(tempword);
           }
-        }
-
-
-        
-
-    
-
-
-
-            
-        
-        
-        
-        
-
-        
+        }        
     }
 }
