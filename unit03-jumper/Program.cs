@@ -9,6 +9,7 @@ namespace unit03_jumper
 {
     class Program
     {
+        // The class method gameStart is called from director, and the game is started.
         static void Main(string[] args)
         {
             Director dir = new Director();
