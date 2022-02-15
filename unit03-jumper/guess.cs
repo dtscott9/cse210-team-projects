@@ -25,15 +25,11 @@ namespace Game.Guess
                 }
                 
             }
-            
     
         }
         public void CheckWin()
         {
-             foreach (object item in _guessProgress)
-                {
-                    Console.WriteLine(item);
-                }
+            Console.WriteLine(_guessProgress);
         }
     }
 }
