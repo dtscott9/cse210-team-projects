@@ -15,6 +15,8 @@ namespace director
 
         Jumper jumper = new Jumper();
         
+        Guess guess = new Guess();
+        
         bool playerGuess = true;
         bool keepPlaying = true;
 
@@ -25,23 +27,44 @@ namespace director
         // g.CheckWin();
 
 
-        
+        public void trackGuess(char[] tempword, char userGuess, string guessWord)
+        {
+          
+          guess.CheckGuess(tempword, userGuess, guessWord);
+          
+        }
         
         public void CreateWord()
         {
           word.genWord();
-          string guessWord = word._wordToGuess;
-  
+        }
 
-          terminal.CreateDisplayWord(guessWord);
+        public void dashWord(char[] tempword, string guessWord)
+        { 
+          terminal.CreateDisplayWord(tempword, guessWord);
+        }
+
+        public void displayMan()
+        {
+          jumper.checkLife();
         }
 
         public void gameStart()
         {
+          char guess = terminal._playerGuess;
           CreateWord();
+          string guessWord = word._wordToGuess;
+          char[] tempword = new char[guessWord.Length];
+          
+          displayMan();
+          Console.WriteLine(guessWord);
+          
+          terminal.SetPlayerGuess();
           while (keepPlaying == true)
           {
-            
+            dashWord(tempword, guessWord);
+            trackGuess(tempword, guess, guessWord);
+            Console.WriteLine(tempword);
           }
         }
 
@@ -49,8 +72,6 @@ namespace director
         
 
     
-            // Word w = new Word();
-            // w.genWord();
 
 
 
