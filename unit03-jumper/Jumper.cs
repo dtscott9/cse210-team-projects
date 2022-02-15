@@ -20,7 +20,7 @@ namespace jumper
             playerLives -= 1;
         }
 
-        public void jumpMan(List<string> man) 
+        public void jumpMan() 
         {
         
           
@@ -71,7 +71,11 @@ namespace jumper
         }
         public void checkLife() 
         {
-            
+            jumpMan();
+            if (playerLives == 5)
+            {
+                Console.WriteLine($"{man[0]}");
+            }
             
             if (playerLives == 4)
             {

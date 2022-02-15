@@ -9,63 +9,78 @@ namespace director
 {
     public class Director
     {
-
-        public void main()
-        {
-        }
         Word word = new Word();
-        Guess guess = new Guess();
 
         Terminal terminal = new Terminal();
 
         Jumper jumper = new Jumper();
         
+        Guess guess = new Guess();
+        
         bool playerGuess = true;
         bool keepPlaying = true;
 
-
-        public void GetInputs()
-        {
-            //get word we are guessing
-            //get guess from player
-            string guessWord = CreateWord();
-            terminal.SetPlayerGuess();
-            guess.CheckGuess(terminal.GetPlayerGuess(), guessWord);
-            guess.CheckWin();
-            
-            terminal.CreateDisplayWord(guessWord);
-        }   
-
-        public void doCalculations()
-        {
         // Terminal t = new Terminal();
         // t.GetPlayerGuess();
         // Guess g = new Guess();
         // g.CheckGuess(t.GetPlayerGuess(), w._wordToGuess);
         // g.CheckWin();
-        }     
-  
+
+
+        public void trackGuess(char[] tempword, char userGuess, string guessWord)
+        {
+          
+          guess.CheckGuess(tempword, userGuess, guessWord);
+          
+        }
+        
+        public void CreateWord()
+        {
+          word.genWord();
+        }
+
+        public void dashWord(char[] tempword, string guessWord)
+        { 
+          terminal.CreateDisplayWord(tempword, guessWord);
+        }
+
+        public void displayMan()
+        {
+          jumper.checkLife();
+        }
+
         public void gameStart()
         {
+          char guess = terminal._playerGuess;
           CreateWord();
+          string guessWord = word._wordToGuess;
+          char[] tempword = new char[guessWord.Length];
+          
+          displayMan();
+          Console.WriteLine(guessWord);
+          dashWord(tempword, guessWord);
+          terminal.SetPlayerGuess();
           while (keepPlaying == true)
           {
             
+            trackGuess(tempword, guess, guessWord);
+            Console.WriteLine(tempword);
           }
         }
 
-        public string CreateWord()
-        {
-          string temp = word.genWord();
-          return temp;
-        }
 
-        public void DisplayWord()
-        {
-            terminal.CreateDisplayWord(word._wordToGuess);
-        }
+        
+
     
-            // Word w = new Word();
-            // w.genWord();        
+
+
+
+            
+        
+        
+        
+        
+
+        
     }
 }

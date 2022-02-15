@@ -10,21 +10,26 @@ namespace Game.Guess
         
         
 // cat character a
-        public void CheckGuess(string userGuess, string hangManWord)
+        public void CheckGuess(char[] tempword, char userGuess, string hangManWord)
         {//TODO ADD CHECK FOR LETTER later
-            if (hangManWord.Contains(userGuess))
-            {
-                _guessProgress.Add(hangManWord.IndexOf(userGuess));
-                Console.WriteLine(hangManWord.IndexOf(userGuess));
-            }
-        }
 
+            userGuess = char.Parse(Console.ReadLine());
+
+            char[] letters = hangManWord.ToCharArray();
+
+             for (int w = 0; w < hangManWord.Length; w++)
+            {
+                if (userGuess == hangManWord[w])
+                {
+                    tempword[w] = userGuess;
+                }
+                
+            }
+    
+        }
         public void CheckWin()
         {
-             foreach (object item in _guessProgress)
-                {
-                    Console.WriteLine(item);
-                }
+            Console.WriteLine(_guessProgress);
         }
     }
 }

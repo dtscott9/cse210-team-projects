@@ -5,44 +5,33 @@ namespace terminal
     public class Terminal
     {
         private string displayWord;
-        private string _playerGuess;
+        public char _playerGuess;
 
-        public void SetPlayerGuess()
+        public char SetPlayerGuess()
         {
             Console.WriteLine("Guess a chararacter");
-            string playerGuess = Console.ReadLine();
-            if (playerGuess.Length == 1)
-            {
-                _playerGuess = playerGuess;
-            }
-            else
-            {
-                Console.WriteLine("Sorry, your guess is too long");
-            }
-            // if (playerGuess.Length == 1)
-            // {
-            //     _playerGuess = playerGuess;
-            // } else
-            // {
-            //     Console.WriteLine("Sorry, your guess is too long");
-            // }
+            _playerGuess = char.Parse(Console.ReadLine());
+
+            return _playerGuess;
+        
         }
 
-        public string GetPlayerGuess()
+        public char GetPlayerGuess()
         {
             return _playerGuess;
         }
         //TODO input guess
-        public string CreateDisplayWord(string guessWord) //gues word is the word the user trys to guess
+        public char[] CreateDisplayWord(char[] tempword,string guessWord) //gues word is the word the user trys to guess
         {
-            string tempWord = "";
+            
             for (int i = 0; i < guessWord.Length; i++)
             {
-                tempWord = tempWord + "_";
+                tempword[i] = '_';
             }
 
-            Console.WriteLine(tempWord);
-            return tempWord;
+            Console.WriteLine(tempword);
+            return tempword;
         }
+
     }
 }
