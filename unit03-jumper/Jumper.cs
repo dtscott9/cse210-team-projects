@@ -8,9 +8,7 @@ namespace jumper
     {
         private int playerLives = 5;
 
-        private List<string> man = new List<string>();
-
-        
+        private List<string> man = new List<string>();        
         
         public Jumper()
         {

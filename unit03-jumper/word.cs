@@ -17,7 +17,7 @@ namespace word
             
         }
 
-        public void genWord()
+        public string genWord()
         {
            Random rand = new Random();
            int index = rand.Next(randWord.Length);
@@ -25,7 +25,7 @@ namespace word
 
           
            
-        //    return wordIndex;
+           return _wordToGuess;
         }
         
         

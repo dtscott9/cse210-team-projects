@@ -58,11 +58,11 @@ namespace director
           
           displayMan();
           Console.WriteLine(guessWord);
-          
+          dashWord(tempword, guessWord);
           terminal.SetPlayerGuess();
           while (keepPlaying == true)
           {
-            dashWord(tempword, guessWord);
+            
             trackGuess(tempword, guess, guessWord);
             Console.WriteLine(tempword);
           }

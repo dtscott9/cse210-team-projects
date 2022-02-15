@@ -30,7 +30,10 @@ namespace Game.Guess
         }
         public void CheckWin()
         {
-            Console.WriteLine(_guessProgress);
+             foreach (object item in _guessProgress)
+                {
+                    Console.WriteLine(item);
+                }
         }
     }
 }
