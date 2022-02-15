@@ -10,78 +10,41 @@ namespace director
     public class Director
     {
         Word word = new Word();
-
         Terminal terminal = new Terminal();
-
         Jumper jumper = new Jumper();
-        
-        Guess guess = new Guess();
-        
         bool playerGuess = true;
         bool keepPlaying = true;
 
-        // Terminal t = new Terminal();
-        // t.GetPlayerGuess();
-        // Guess g = new Guess();
-        // g.CheckGuess(t.GetPlayerGuess(), w._wordToGuess);
-        // g.CheckWin();
+        bool status;
 
-
-        public void trackGuess(char[] tempword, char userGuess, string guessWord)
+        // This will take the player's guess, and determine if it belongs in the word.
+        // If not, the loseLife() function will subtract a life from the player.
+        public void trackGuess(char[] tempword, string guessWord)
         {
-          
-          guess.CheckGuess(tempword, userGuess, guessWord);
-          guess.check(userGuess, guessWord);
-          
-        }
-        
-        public void CreateWord()
-        {
-          word.genWord();
-        }
-
-        public void dashWord(char[] tempword, string guessWord)
-        { 
-          terminal.CreateDisplayWord(tempword, guessWord);
-        }
-
-        public void displayMan()
-        {
-          jumper.checkLife();
-        }
-
-        public void gameStart()
-        {
-          char guess = terminal._playerGuess;
-          CreateWord();
-          string guessWord = word._wordToGuess;
-          char[] tempword = new char[guessWord.Length];
-          
-          displayMan();
-          Console.WriteLine(guessWord);
-          dashWord(tempword, guessWord);
-          while (keepPlaying == true)
+          terminal.CheckGuess(tempword, guessWord, status);
+          if (status == false)
           {
-            
-            trackGuess(tempword, guess, guessWord);
-            displayMan();
-            Console.WriteLine(tempword);
+            jumper.loseLife();
           }
         }
-
-
-        
-
-    
-
-
-
+      
+        // This is where all of the functions are brought together to make the game
+        // correctly run. 
+        public void gameStart()
+        {
+          word.genWord();
+          string guessWord = word._wordToGuess;
+          char[] tempword = new char[guessWord.Length];
+          jumper.checkLife(keepPlaying);
+          Console.WriteLine(guessWord);
+          terminal.CreateDisplayWord(tempword, guessWord);
+          while (keepPlaying != false)
+          {
+            trackGuess(tempword, guessWord);
+            jumper.checkLife(keepPlaying);
+            Console.WriteLine(tempword);
             
-        
-        
-        
-        
-
-        
+          }
+        }
     }
 }

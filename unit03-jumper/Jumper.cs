@@ -19,11 +19,9 @@ namespace jumper
         {
             playerLives -= 1;
         }
-
+        // Adds each of the different possible diplays to the man list.
         public void jumpMan() 
         {
-        
-          
            man.Add(@"
                      ---
                     /   \
@@ -67,9 +65,13 @@ namespace jumper
                     
                       x
                      /|\
-                     / \"); 
+                     / \
+                  Game Over"); 
         }
-        public void checkLife() 
+        
+        // This will determine which display needs to be in the terminal. The display depends on how
+        // many lives or guesses the player has left.
+        public void checkLife(bool keepPlaying) 
         {
             jumpMan();
             if (playerLives == 5)
@@ -96,6 +98,7 @@ namespace jumper
             else if (playerLives == 0) 
             {
                 Console.WriteLine($"{man[5]}");
+                keepPlaying = false;
             }
         }
     }
