@@ -9,9 +9,7 @@ namespace terminal
 
         public char SetPlayerGuess()
         {
-            Console.WriteLine("Guess a chararacter");
-            _playerGuess = char.Parse(Console.ReadLine());
-
+            
             return _playerGuess;
         
         }

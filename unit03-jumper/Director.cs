@@ -31,6 +31,7 @@ namespace director
         {
           
           guess.CheckGuess(tempword, userGuess, guessWord);
+          guess.check(userGuess, guessWord);
           
         }
         
@@ -59,11 +60,11 @@ namespace director
           displayMan();
           Console.WriteLine(guessWord);
           dashWord(tempword, guessWord);
-          terminal.SetPlayerGuess();
           while (keepPlaying == true)
           {
             
             trackGuess(tempword, guess, guessWord);
+            displayMan();
             Console.WriteLine(tempword);
           }
         }

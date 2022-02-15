@@ -15,7 +15,7 @@ namespace jumper
             
         }
 
-        public void loseLife(string guess)
+        public void loseLife()
         {
             playerLives -= 1;
         }
