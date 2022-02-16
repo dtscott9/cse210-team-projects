@@ -4,12 +4,14 @@ namespace terminal
 {
     public class Terminal
     {
+        public bool status;
         public char _playerGuess;
         // Checks to see if the player's guess is contained in the word. If so, it adds that 
         // letter to the char[] which contains all the letters of the word. If not, status will
         // be false which will lead to the player losing a life. 
-        public void CheckGuess(char[] tempword, string hangManWord, bool status)
+        public void CheckGuess(char[] tempword, string hangManWord)
         {
+            status = false;
             Console.WriteLine("Guess a chararacter");
             _playerGuess = char.Parse(Console.ReadLine());
 
@@ -18,10 +20,7 @@ namespace terminal
                 if (_playerGuess == hangManWord[w])
                 {
                     tempword[w] = _playerGuess;
-                } 
-                else if (_playerGuess != hangManWord[w])
-                {
-                    status = false;
+                    status = true;
                 }
             
             } 
@@ -40,6 +39,5 @@ namespace terminal
             Console.WriteLine(tempword);
             return tempword;
         }
-
     }
 }

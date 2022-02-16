@@ -66,7 +66,7 @@ namespace jumper
                       x
                      /|\
                      / \
-                  Game Over"); 
+                  Game Over");
         }
         
         // This will determine which display needs to be in the terminal. The display depends on how
@@ -100,7 +100,7 @@ namespace jumper
                 Console.WriteLine($"{man[5]}");
                 keepPlaying = false;
             }
-        }
+        }        
     }
 }
 
