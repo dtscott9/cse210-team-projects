@@ -7,14 +7,12 @@ namespace jumper
     public class Jumper 
     {
         private int playerLives = 5;
-
         private List<string> man = new List<string>();        
         
         public Jumper()
         {
             
         }
-
         public void loseLife()
         {
             playerLives -= 1;
