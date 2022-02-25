@@ -23,9 +23,13 @@ namespace unit04_greed
         private static int ROWS = 40;
         private static string CAPTION = "Greed";
         private static int Score = 0;
+        private static string gem = "*";
+        private static string rock = "o";
+
+
     
         private static Color WHITE = new Color(255, 255, 255);
-        private static int DEFAULT_ARTIFACTS = 40;
+        private static int DEFAULT_ARTIFACTS = 15;
 
 
         /// <summary>
@@ -52,34 +56,17 @@ namespace unit04_greed
             score.SetPosition(new Point(10, 10));
             cast.AddActor("score", score);
 
-
-            // create the artifacts
-            Random random = new Random();
             for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
             {
-                string[] gem_rock = {"*", "o"};
+                Artifact Gem = new Artifact();
+                Artifact Rock = new Artifact();
+                Gem.makeGem(COLS, CELL_SIZE, FONT_SIZE, gem);
+                Gem.objectFalling();
+                Rock.makeGem(COLS, CELL_SIZE, FONT_SIZE, rock);
+                Rock.objectFalling();
 
-                int index = random.Next(gem_rock.Length);
-
-                string text = gem_rock[index];
-            
-
-                int x = random.Next(1, COLS);
-                int y = 0;
-                Point position = new Point(x, y);
-                position = position.Scale(CELL_SIZE);
-
-                int r = random.Next(0, 256);
-                int g = random.Next(0, 256);
-                int b = random.Next(0, 256);
-                Color color = new Color(r, g, b);
-
-                Artifact artifact = new Artifact();
-                artifact.SetText(text);
-                artifact.SetFontSize(FONT_SIZE);
-                artifact.SetColor(color);
-                artifact.SetPosition(position);
-                cast.AddActor("artifacts", artifact);
+                cast.AddActor("artifacts", Gem);
+                cast.AddActor("artifacts", Rock);
             }
 
             // start the game

@@ -6,7 +6,5 @@ namespace unit04_greed.Game.Casting
         {
 
         }
-
-        
     }
 }

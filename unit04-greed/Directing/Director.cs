@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using unit04_greed.Game.Casting;
 using unit04_greed.Services;
@@ -60,6 +61,7 @@ namespace unit04_greed.Directing
         /// <param name="cast">The given cast.</param>
         private void DoUpdates(Cast cast)
         {
+            Console.WriteLine("DoUpdates ran");
             Actor robot = cast.GetFirstActor("robot");
             List<Actor> artifacts = cast.GetActors("artifacts");
 
@@ -68,8 +70,16 @@ namespace unit04_greed.Directing
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
 
-            foreach (Actor actor in artifacts)
+            foreach (Artifact actor in artifacts)
             {
+                // Update position of falling artifacts
+                actor.MoveNext(maxX, maxY);
+                Point position = actor.GetPosition();
+                int x = position.GetX();
+                int y = position.GetY();
+                Console.WriteLine("New X: " + x.ToString());
+                Console.WriteLine("New Y: " + y.ToString());
+
                 if (robot.GetPosition().Equals(actor.GetPosition()))
                 {
                     Artifact artifact = (Artifact) actor;
