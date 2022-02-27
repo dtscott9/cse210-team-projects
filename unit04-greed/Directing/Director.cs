@@ -35,13 +35,13 @@ namespace unit04_greed.Directing
         /// Starts the game by running the main game loop for the given cast.
         /// </summary>
         /// <param name="cast">The given cast.</param>
-        public void StartGame(Cast cast)
+        public void StartGame(Cast cast, int sco)
         {
             videoService.OpenWindow();
             while (videoService.IsWindowOpen())
             {
                 GetInputs(cast);
-                DoUpdates(cast, status);
+                DoUpdates(cast, sco);
                 DoOutputs(cast);
             }
             videoService.CloseWindow();
@@ -64,19 +64,18 @@ namespace unit04_greed.Directing
         /// <param name="cast">The given cast.</param>
         Program program;
         
-        private void DoUpdates(Cast cast, bool status)
+        private void DoUpdates(Cast cast, int sco)
         {
             Actor robot = cast.GetFirstActor("robot");
             List<Actor> artifacts = cast.GetActors("artifacts");
             Actor score = cast.GetFirstActor("score");
             
-            
-            
+           
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
             
-
+            
             foreach (Actor actor in artifacts)
             {
                 // Update position of falling artifacts
@@ -86,7 +85,9 @@ namespace unit04_greed.Directing
                 {
                     Artifact artifact = (Artifact) actor;
                     cast.RemoveActor("artifacts", artifact);
-                    status = false;
+                    sco += 100;
+                    score.SetText($"Score: {sco}");
+                    
                     
                 }
             } 

@@ -79,11 +79,8 @@ namespace unit04_greed
             VideoService videoService 
                 = new VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE, false);
             Director director = new Director(keyboardService, videoService);
-               if (director.status == false)
-            {
-              score.AddScore();
-            }
-            director.StartGame(cast);
+           
+            director.StartGame(cast, Score);
          
             // test comment
         }
