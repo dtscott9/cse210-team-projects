@@ -17,6 +17,9 @@ namespace unit04_greed.Directing
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
 
+        public bool status = false;
+
+
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
         /// </summary>
@@ -38,7 +41,7 @@ namespace unit04_greed.Directing
             while (videoService.IsWindowOpen())
             {
                 GetInputs(cast);
-                DoUpdates(cast);
+                DoUpdates(cast, status);
                 DoOutputs(cast);
             }
             videoService.CloseWindow();
@@ -59,30 +62,31 @@ namespace unit04_greed.Directing
         /// Updates the robot's position and resolves any collisions with artifacts.
         /// </summary>
         /// <param name="cast">The given cast.</param>
-        private void DoUpdates(Cast cast)
+        Program program;
+        
+        private void DoUpdates(Cast cast, bool status)
         {
-            Console.WriteLine("DoUpdates ran");
             Actor robot = cast.GetFirstActor("robot");
             List<Actor> artifacts = cast.GetActors("artifacts");
-
+            Actor score = cast.GetFirstActor("score");
+            
+            
             
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
+            score.SetText("");
 
-            foreach (Artifact actor in artifacts)
+            foreach (Actor actor in artifacts)
             {
                 // Update position of falling artifacts
                 actor.MoveNext(maxX, maxY);
-                Point position = actor.GetPosition();
-                int x = position.GetX();
-                int y = position.GetY();
-                Console.WriteLine("New X: " + x.ToString());
-                Console.WriteLine("New Y: " + y.ToString());
-
-                if (robot.GetPosition().Equals(actor.GetPosition()))
+            
+                  if (robot.GetPosition().Equals(actor.GetPosition()))
                 {
                     Artifact artifact = (Artifact) actor;
+                    cast.RemoveActor("artifacts", artifact);
+                    status = false;
                     
                 }
             } 

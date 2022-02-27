@@ -18,15 +18,14 @@ namespace unit04_greed
         private static int MAX_X = 900;
         private static int MAX_Y = 600;
         private static int CELL_SIZE = 15;
-        private static int FONT_SIZE = 15;
+        private static int FONT_SIZE = 25;
         private static int COLS = 60;
-        private static int ROWS = 40;
         private static string CAPTION = "Greed";
-        private static int Score = 0;
+
         private static string gem = "*";
         private static string rock = "o";
 
-
+        
     
         private static Color WHITE = new Color(255, 255, 255);
         private static int DEFAULT_ARTIFACTS = 15;
@@ -38,6 +37,8 @@ namespace unit04_greed
         /// <param name="args">The given arguments.</param>
         static void Main(string[] args)
         {
+            ScoreBoard score = new ScoreBoard();
+            int Score = score.GetScore();
             // create the cast
             Cast cast = new Cast();
 
@@ -46,10 +47,9 @@ namespace unit04_greed
             robot.SetText("#");
             robot.SetFontSize(FONT_SIZE);
             robot.SetColor(WHITE);
-            robot.SetPosition(new Point(MAX_X / 2, MAX_Y + 575));
+            robot.SetPosition(new Point(MAX_X / 2, 575));
             cast.AddActor("robot", robot);
 
-            ScoreBoard score = new ScoreBoard();
             score.SetText($"Score: {Score}");
             score.SetFontSize(20);
             score.SetColor(WHITE);
@@ -64,18 +64,27 @@ namespace unit04_greed
                 Gem.objectFalling();
                 Rock.makeGem(COLS, CELL_SIZE, FONT_SIZE, rock);
                 Rock.objectFalling();
-
                 cast.AddActor("artifacts", Gem);
                 cast.AddActor("artifacts", Rock);
+                
             }
+
+            
+               
+
+            
 
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
             VideoService videoService 
                 = new VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE, false);
             Director director = new Director(keyboardService, videoService);
+               if (director.status == false)
+            {
+              score.AddScore();
+            }
             director.StartGame(cast);
-
+         
             // test comment
         }
     }
