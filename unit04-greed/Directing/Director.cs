@@ -75,7 +75,7 @@ namespace unit04_greed.Directing
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
-            score.SetText("");
+            
 
             foreach (Actor actor in artifacts)
             {
