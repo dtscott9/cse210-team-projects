@@ -75,9 +75,9 @@ namespace unit04_greed.Directing
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
             
-            
+            bool status = true;
             foreach (Actor actor in artifacts)
-            {
+            {   
                 // Update position of falling artifacts
                 actor.MoveNext(maxX, maxY);
             
@@ -86,11 +86,16 @@ namespace unit04_greed.Directing
                     Artifact artifact = (Artifact) actor;
                     cast.RemoveActor("artifacts", artifact);
                     sco += 100;
-                    score.SetText($"Score: {sco}");
+                    status = false;
                     
                     
                 }
+        
             } 
+             if (status == false)
+                {   
+                    score.SetText($"Score: {sco}");
+                }
         }
 
         /// <summary>

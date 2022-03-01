@@ -42,7 +42,7 @@ namespace unit04_greed.Game.Casting
         /// <returns>True if both x and y are equal; false if otherwise.</returns>
         public bool Equals(Point other)
         {
-            return this.x == other.GetX() && this.y == other.GetY();
+            return this.x == other.GetX() && this.y == 575;
         }
 
         /// <summary>
