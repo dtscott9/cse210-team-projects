@@ -2,6 +2,7 @@
 using unit05_cycle.Game.Directing;
 using unit05_cycle.Game.Scripting;
 using unit05_cycle.Game.Services;
+using unit05_cycle.Game;
 
 
 namespace unit05_cycle
@@ -11,15 +12,18 @@ namespace unit05_cycle
     /// </summary>
     class Program
     {
+        
         /// <summary>
         /// Starts the program using the given arguments.
         /// </summary>
         /// <param name="args">The given arguments.</param>
         static void Main(string[] args)
         {
+            
+            int x = Constants.MAX_X / 4;
             // create the cast
             Cast cast = new Cast();
-            cast.AddActor("Cycle", new Cycle());
+            cast.AddActor("Cycle", new Cycle(x, Constants.GREEN));
             cast.AddActor("score", new Score());
 
             // create the services
