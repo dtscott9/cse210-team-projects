@@ -87,33 +87,39 @@ namespace unit05_cycle.Game.Casting
         /// Turns the head of the snake in the given direction.
         /// </summary>
         /// <param name="velocity">The given direction.</param>
-        public void TurnHead(Point direction)
+        // public void TurnHead(Point direction)
+        // {
+        //     segments[0].SetVelocity(direction);
+        // }
+
+        private void PrepareBody(int x)
         {
-            segments[0].SetVelocity(direction);
+            int y = Constants.MAX_Y / 2;
+
+            Point position = new Point(x, y);
         }
 
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
-        private void PrepareBody()
-        {
-            int x = Constants.MAX_X / 2;
-            int y = Constants.MAX_Y / 2;
+        // private void PrepareBody()
+        // {
+        //     int y = Constants.MAX_Y / 2;
 
-            for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
-            {
-                Point position = new Point(x - i * Constants.CELL_SIZE, y);
-                Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
-                string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+        //     for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
+        //     {
+        //         Point position = new Point(x - i * Constants.CELL_SIZE, y);
+        //         Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
+        //         string text = i == 0 ? "8" : "#";
+        //         Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
 
-                Actor segment = new Actor();
-                segment.SetPosition(position);
-                segment.SetVelocity(velocity);
-                segment.SetText(text);
-                segment.SetColor(color);
-                segments.Add(segment);
-            }
-        }
+        //         Actor segment = new Actor();
+        //         segment.SetPosition(position);
+        //         segment.SetVelocity(velocity);
+        //         segment.SetText(text);
+        //         segment.SetColor(color);
+        //         segments.Add(segment);
+        //     }
+        // }
     }
 }
