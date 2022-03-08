@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;ss
+using System.Linq;
 
 namespace unit05_cycle.Game.Casting
 {
@@ -11,9 +11,10 @@ namespace unit05_cycle.Game.Casting
         /// <summary>
         /// Constructs a new instance of a Cycle.
         /// </summary>
-        public Cycle()
+        public Cycle(int x, Color color)
         {
-            PrepareBody();
+            SetColor(color);
+            PrepareBody(x);
         }
 
         /// <summary>
