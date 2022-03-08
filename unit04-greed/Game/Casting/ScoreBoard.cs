@@ -5,7 +5,7 @@ namespace unit04_greed.Game.Casting
         private int score;
         public ScoreBoard()
         {
-
+            score = 0;
         }
 
         public int GetScore()

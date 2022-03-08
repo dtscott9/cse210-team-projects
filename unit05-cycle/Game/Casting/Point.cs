@@ -1,13 +1,9 @@
-namespace unit04_greed.Game.Casting
+using System;
+using System.Collections.Generic;
+
+namespace unit05_cycle.Game.Casting
 {
-    /// <summary>
-    /// <para>A distance from a relative origin (0, 0).</para>
-    /// <para>
-    /// The responsibility of Point is to hold and provide information about itself. Point has a few 
-    /// convenience methods for adding, scaling, and comparing them.
-    /// </para>
-    /// </summary>
-    public class Point
+    public class Point 
     {
         private int x = 0;
         private int y = 0;
@@ -63,6 +59,17 @@ namespace unit04_greed.Game.Casting
             return y;
         }
 
+        /// <summary>
+        /// Reverses the point by inverting both x and y values.
+        /// </summary>
+        /// <returns>A new point that is reversed.</returns>
+        public Point Reverse()
+        {
+            int x = this.x * -1;
+            int y = this.y * -1;
+            return new Point(x, y);
+        }
+        
         /// <summary>
         /// Scales the point by multiplying the x and y values by the provided factor.
         /// </summary>
