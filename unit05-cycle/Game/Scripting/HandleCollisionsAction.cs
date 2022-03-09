@@ -16,7 +16,8 @@ namespace unit05_cycle.Game.Scripting
     /// </summary>
     public class HandleCollisionsAction : Action
     {
-        private bool isGameOver = false;
+        private bool player1Win = false;
+        private bool player2Win = false;
 
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
@@ -28,7 +29,7 @@ namespace unit05_cycle.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            if (isGameOver == false)
+            if (player1Win == false && player2Win == false)
             {
                 HandleFoodCollisions(cast);
                 HandleSegmentCollisions(cast);
@@ -55,21 +56,36 @@ namespace unit05_cycle.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             Cycle cycle = (Cycle)cast.GetFirstActor("Cycle");
+            cycle.GrowTail(1, Constants.GREEN);
+            Cycle cycle1 = (Cycle)cast.GetFirstActor("Cycle1");
+            cycle1.GrowTail(1, Constants.RED);
             Actor head = cycle.GetHead();
             List<Actor> body = cycle.GetBody();
+            
+            Actor head1 = cycle1.GetHead();
+            List<Actor> body1 = cycle1.GetBody();
+            
 
             foreach (Actor segment in body)
             {
-                if (segment.GetPosition().Equals(head.GetPosition()))
+                if (segment.GetPosition().Equals(head1.GetPosition()))
                 {
-                    isGameOver = true;
+                    player1Win = true;
+                }
+            }
+
+            foreach (Actor segment1 in body1)
+            {
+                if (segment1.GetPosition().Equals(head.GetPosition()))
+                {
+                    player2Win = true;
                 }
             }
         }
 
         private void HandleGameOver(Cast cast)
         {
-            if (isGameOver == true)
+            if (player2Win == true)
             {
                 Cycle cycle = (Cycle)cast.GetFirstActor("Cycle");
                 List<Actor> segments = cycle.GetSegments();
@@ -78,16 +94,41 @@ namespace unit05_cycle.Game.Scripting
                 int x = Constants.MAX_X / 2;
                 int y = Constants.MAX_Y / 2;
                 Point position = new Point(x, y);
-
+                
                 Actor message = new Actor();
-                message.SetText("Game Over!");
+                message.SetText("Player 2 Wins!");
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
+                
 
                 // make everything white
                 foreach (Actor segment in segments)
                 {
                     segment.SetColor(Constants.WHITE);
+                
+                }
+                
+            }
+
+            else if (player1Win == true)
+            {
+                Cycle cycle1 = (Cycle)cast.GetFirstActor("Cycle1");
+                List<Actor> segments1 = cycle1.GetSegments();
+            
+                // create a "game over" message
+                int x = Constants.MAX_X / 2;
+                int y = Constants.MAX_Y / 2;
+                Point position = new Point(x, y);
+
+                Actor message = new Actor();
+                message.SetText("Player 1 Wins!");
+                message.SetPosition(position);
+                cast.AddActor("messages", message);
+
+                // make everything white
+                foreach (Actor segment1 in segments1)
+                {
+                    segment1.SetColor(Constants.WHITE);
                 }
                 
             }

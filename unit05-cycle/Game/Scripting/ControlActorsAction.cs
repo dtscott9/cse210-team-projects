@@ -14,6 +14,7 @@ namespace unit05_cycle.Game.Scripting
     {
         private KeyboardService keyboardService;
         private Point direction = new Point(Constants.CELL_SIZE, 0);
+        private Point direction1 = new Point(Constants.CELL_SIZE, 0);
 
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
@@ -50,8 +51,36 @@ namespace unit05_cycle.Game.Scripting
                 direction = new Point(0, Constants.CELL_SIZE);
             }
 
+            // left
+            if (keyboardService.IsKeyDown("j"))
+            {
+                direction1 = new Point(-Constants.CELL_SIZE, 0);
+            }
+
+            // right
+            if (keyboardService.IsKeyDown("l"))
+            {
+                direction1 = new Point(Constants.CELL_SIZE, 0);
+            }
+
+            // up
+            if (keyboardService.IsKeyDown("i"))
+            {
+                direction1 = new Point(0, -Constants.CELL_SIZE);
+            }
+
+            // down
+            if (keyboardService.IsKeyDown("k"))
+            {
+                direction1 = new Point(0, Constants.CELL_SIZE);
+            }
+
             Cycle cycle = (Cycle)cast.GetFirstActor("Cycle");
             cycle.TurnHead(direction);
+            
+            Cycle cycle1 = (Cycle)cast.GetFirstActor("Cycle1");
+            cycle1.TurnHead(direction1);
+            
 
         }
     }

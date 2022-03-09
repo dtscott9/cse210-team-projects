@@ -21,10 +21,13 @@ namespace unit05_cycle
         {
             
             int x = Constants.MAX_X / 4;
+
+            int x1 = Constants.MAX_X / 4 * 3;
             // create the cast
             Cast cast = new Cast();
             cast.AddActor("Cycle", new Cycle(x, Constants.GREEN));
             cast.AddActor("score", new Score());
+            cast.AddActor("Cycle1", new Cycle(x1, Constants.RED));
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();
