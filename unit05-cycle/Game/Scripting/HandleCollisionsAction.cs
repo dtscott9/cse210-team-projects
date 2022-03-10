@@ -73,12 +73,27 @@ namespace unit05_cycle.Game.Scripting
                     player1Win = true;
                 }
             }
+             foreach (Actor segment in body)
+            {
+                if (segment.GetPosition().Equals(head.GetPosition()))
+                {
+                    player2Win = true;
+                }
+            }
 
             foreach (Actor segment1 in body1)
             {
                 if (segment1.GetPosition().Equals(head.GetPosition()))
                 {
                     player2Win = true;
+                }
+            }
+
+             foreach (Actor segment1 in body1)
+            {
+                if (segment1.GetPosition().Equals(head1.GetPosition()))
+                {
+                    player1Win = true;
                 }
             }
         }
