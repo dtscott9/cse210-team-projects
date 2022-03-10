@@ -9,7 +9,7 @@ namespace unit05_cycle.Game.Directing
     /// <summary>
     /// <para>A person who directs the game.</para>
     /// <para>
-    /// The responsibility of a Director is to control the sequence of play.
+    /// The responsibility of a Director is to ` the sequence of play.
     /// </para>
     /// </summary>
     public class Director
