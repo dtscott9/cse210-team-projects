@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using unit06_game.Game.Casting;
 
 
-namespace Unit06
+namespace unit06_game
 {
     public class Constants
     {
@@ -11,7 +11,7 @@ namespace Unit06
         // ----------------------------------------------------------------------------------------- 
 
         // GAME
-        public static string GAME_NAME = "Batter";
+        public static string GAME_NAME = "Turrets and Zombies";
         public static int FRAME_RATE = 60;
 
         // SCREEN
