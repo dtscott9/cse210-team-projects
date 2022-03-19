@@ -4,7 +4,7 @@ using unit06_game.Game.Scripting;
 using unit06_game.Game.Services;
 
 
-namespace Unit06.Game.Directing
+namespace unit06_game.Game.Directing
 {
     /// <summary>
     /// A person who directs the game.
