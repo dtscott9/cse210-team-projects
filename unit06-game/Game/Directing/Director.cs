@@ -9,7 +9,7 @@ namespace unit06_game.Game.Directing
     /// <summary>
     /// A person who directs the game.
     /// </summary>
-    public class Director : ActionCallback
+    public class Director 
     {
         private Cast cast;
         private Script script;
@@ -57,7 +57,7 @@ namespace unit06_game.Game.Directing
             List<Action> actions = script.GetActions(group);
             foreach(Action action in actions)
             {
-                action.Execute(cast, script, this);
+                action.Execute(cast, script);
             }
         }
     }
