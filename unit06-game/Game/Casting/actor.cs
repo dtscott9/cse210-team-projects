@@ -1,4 +1,4 @@
-namespace Unit06.Game.Casting
+namespace unit06_game.Game.Casting
 {
     /// <summary>
     /// A thing that participates in the game.

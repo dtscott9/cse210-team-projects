@@ -1,17 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Unit06.Game.Casting;
-using Unit06.Game.Scripting;
-using Unit06.Game.Services;
+using unit06_game.Game.Casting;
+using unit06_game.Game.Scripting;
+using unit06_game.Game.Services;
 
 
-namespace Unit06.Game.Directing
+namespace unit06_game.Game.Directing
 {
     public class SceneManager
     {
         public static AudioService AudioService = new RaylibAudioService();
-        public static KeyboardService KeyboardService = new RaylibKeyboardService();
         public static MouseService MouseService = new RaylibMouseService();
         public static PhysicsService PhysicsService = new RaylibPhysicsService();
         public static VideoService VideoService = new RaylibVideoService(Constants.GAME_NAME,
