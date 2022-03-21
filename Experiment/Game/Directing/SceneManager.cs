@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using unit06_game.Game.Casting;
-using unit06_game.Game.Scripting;
-using unit06_game.Game.Services;
+using Unit06.Game.Casting;
+using Unit06.Game.Scripting;
+using Unit06.Game.Services;
 
 
-namespace unit06_game.Game.Directing
+namespace Unit06.Game.Directing
 {
     public class SceneManager
     {
@@ -47,14 +47,9 @@ namespace unit06_game.Game.Directing
 
         private void PrepareNewGame(Cast cast, Script script)
         {
-            AddStats(cast);
-            AddLevel(cast);
-            AddScore(cast);
-            AddLives(cast);
+            
             AddBall(cast);
-            AddBricks(cast);
-            AddRacket(cast);
-            AddDialog(cast, Constants.ENTER_TO_START);
+         
 
             script.ClearAllActions();
             AddInitActions(script);
@@ -70,7 +65,7 @@ namespace unit06_game.Game.Directing
 
         private void ActivateBall(Cast cast)
         {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
+            Turret ball = (Turret)cast.GetFirstActor(Constants.BALL_GROUP);
             ball.Release();
         }
 
@@ -109,7 +104,7 @@ namespace unit06_game.Game.Directing
 
         private void PrepareInPlay(Cast cast, Script script)
         {
-            ActivateBall(cast);
+            // ActivateBall(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
@@ -153,7 +148,7 @@ namespace unit06_game.Game.Directing
         
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.BALL_IMAGE);
-            Ball ball = new Ball(body, image, false);
+            Turret ball = new Turret(body, image, false);
         
             cast.AddActor(Constants.BALL_GROUP, ball);
         }
@@ -300,7 +295,7 @@ namespace unit06_game.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawTurretAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
