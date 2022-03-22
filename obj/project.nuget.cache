@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "hOuzb496V2iQ9B7i3o8G9kUynLeVDk7HqVIdr8RSjnK7OoSge4X9CCUpZZYmPztp4EAYaXjt5z/uw42VoyClhg==",
+  "success": true,
+  "projectFilePath": "/Users/jeffatron/Desktop/data/BYUI Classes/CSE210 programming with classes/Final Project (use this)/cse210-team-projects-main/Experiment/Unit06.csproj",
+  "expectedPackageFiles": [
+    "/Users/jeffatron/.nuget/packages/raylib-cs/3.7.0.1/raylib-cs.3.7.0.1.nupkg.sha512",
+    "/Users/jeffatron/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

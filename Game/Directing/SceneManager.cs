@@ -39,6 +39,7 @@ namespace Unit06.Game.Directing
             }
             else if (scene == Constants.IN_PLAY)
             {
+                //TODO, this needs to be called to add actions
                 PrepareInPlay(cast, script);
             }
             else if (scene == Constants.GAME_OVER)
@@ -212,7 +213,7 @@ namespace Unit06.Game.Directing
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
-            Point velocity = new Point(0, 0);
+            Point velocity = new Point(20, 0);
 
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.ENEMY_IMAGE);
@@ -326,6 +327,16 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
 
+        private void AddUpdateActions(Script script)
+        {
+            script.AddAction(Constants.UPDATE, new MoveBallAction());
+            script.AddAction(Constants.UPDATE, new MoveEnemyAction());
+            // script.AddAction(Constants.UPDATE, new MoveRacketAction());
+            // script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
+            // script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
+            // script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
+            // script.AddAction(Constants.UPDATE, new CheckOverAction());     
+        }    
         private void AddUnloadActions(Script script)
         {
             script.AddAction(Constants.UNLOAD, new UnloadAssetsAction(AudioService, VideoService));
