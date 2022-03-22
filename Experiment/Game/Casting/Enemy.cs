@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace Unit06.Game.Casting
 {
-    
-    public class Tower : Actor
+
+    public class Enemy : Actor
     {
-        private int health;
-        private static Random random = new Random();
+        private int _health;
+        private int _damageDealt;
 
         private Body body;
         private Image image;
@@ -16,7 +16,7 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Tower(Body body, Image image, bool debug = false) : base(debug)
+        public Enemy(Body body, Image image, bool debug = false) : base(debug)
         {
             this.body = body;
             this.image = image;
@@ -40,10 +40,25 @@ namespace Unit06.Game.Casting
             return image;
         }
 
+        public void SetHealth(int health)
+        {
+            _health = health;
+        }
         public int GetHealth()
         {
-            return health;
+            return _health;
         }
+
+        public void SetDamageDealt(int damageDealt)
+        {
+            _damageDealt = damageDealt;
+        }
+
+        public int GetDamageDealt()
+        {
+            return _damageDealt;
+        }
+
 
     }
 }

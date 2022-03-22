@@ -46,6 +46,7 @@ namespace Unit06
         public static Color WHITE = new Color(255, 255, 255);
         public static Color PURPLE = new Color(255, 0, 255);
         public static Color BLUE = new Color(0, 0, 255);
+        public static Color GREEN = new Color(34,139,34);
 
         // KEYS
         public static string LEFT = "left";
@@ -106,81 +107,22 @@ namespace Unit06
         // TOWER
         public static string TOWER_GROUP = "towers";
         public static string TOWER_IMAGE = "";
-        public static int TOWER_WIDTH = 210;
-        public static int TOWER_HEIGHT = 650;
+        public static int TOWER_WIDTH = 300;
+        public static int TOWER_HEIGHT = 480;
 
+        // WALL
+        public static string WALL_GROUP = "walls";
+        public static string WALL_GROUP1 = "walls1";
+        public static string WALL_IMAGE = " ";
+        public static int WALL_WIDTH = 1040;
+        public static int WALL_HEIGHT = 150;
 
-        // RACKET
-        public static string RACKET_GROUP = "rackets";
-        
-        public static List<string> RACKET_IMAGES
-            = new List<string>() {
-                "Assets/Images/100.png",
-                "Assets/Images/101.png",
-                "Assets/Images/102.png"
-            };
+        // ENEMY
+        public static string ENEMY_GROUP = "enemies";
+        public static string ENEMY_IMAGE = "";
+        public static int ENEMY_WIDTH = 50;
+        public static int ENEMY_HEIGHT = 60;
 
-        public static int RACKET_WIDTH = 106;
-        public static int RACKET_HEIGHT = 28;
-        public static int RACKET_RATE = 6;
-        public static int RACKET_VELOCITY = 7;
-
-        // BRICK
-        public static string BRICK_GROUP = "bricks";
-        
-        public static Dictionary<string, List<string>> BRICK_IMAGES
-            = new Dictionary<string, List<string>>() {
-                { "b", new List<string>() {
-                    "Assets/Images/010.png",
-                    "Assets/Images/011.png",
-                    "Assets/Images/012.png",
-                    "Assets/Images/013.png",
-                    "Assets/Images/014.png",
-                    "Assets/Images/015.png",
-                    "Assets/Images/016.png",
-                    "Assets/Images/017.png",
-                    "Assets/Images/018.png"
-                } },
-                { "g", new List<string>() {
-                    "Assets/Images/020.png",
-                    "Assets/Images/021.png",
-                    "Assets/Images/022.png",
-                    "Assets/Images/023.png",
-                    "Assets/Images/024.png",
-                    "Assets/Images/025.png",
-                    "Assets/Images/026.png",
-                    "Assets/Images/027.png",
-                    "Assets/Images/028.png"
-                } },
-                { "p", new List<string>() {
-                    "Assets/Images/030.png",
-                    "Assets/Images/031.png",
-                    "Assets/Images/032.png",
-                    "Assets/Images/033.png",
-                    "Assets/Images/034.png",
-                    "Assets/Images/035.png",
-                    "Assets/Images/036.png",
-                    "Assets/Images/037.png",
-                    "Assets/Images/038.png"
-                } },
-                { "y", new List<string>() {
-                    "Assets/Images/040.png",
-                    "Assets/Images/041.png",
-                    "Assets/Images/042.png",
-                    "Assets/Images/043.png",
-                    "Assets/Images/044.png",
-                    "Assets/Images/045.png",
-                    "Assets/Images/046.png",
-                    "Assets/Images/047.png",
-                    "Assets/Images/048.png"
-                } }
-        };
-
-        public static int BRICK_WIDTH = 80;
-        public static int BRICK_HEIGHT = 28;
-        public static double BRICK_DELAY = 0.5;
-        public static int BRICK_RATE = 4;
-        public static int BRICK_POINTS = 50;
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

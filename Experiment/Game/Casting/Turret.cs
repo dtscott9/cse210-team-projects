@@ -4,11 +4,10 @@ using System.Collections.Generic;
 
 namespace Unit06.Game.Casting
 {
-    /// <summary>
-    /// 
-    /// </summary>
+    
     public class Turret : Actor
     {
+        private Point radius;
         private static Random random = new Random();
 
         private Body body;
@@ -23,32 +22,6 @@ namespace Unit06.Game.Casting
             this.image = image;
         }
 
-        /// <summary>
-        /// Bounces the ball horizontally.
-        /// </summary>
-        public void BounceX()
-        {
-            Point velocity = body.GetVelocity();
-            double rn = (random.NextDouble() * (1.2 - 0.8) + 0.8);
-            double vx = velocity.GetX() * -1;
-            double vy = velocity.GetY();
-            Point newVelocity = new Point((int)vx, (int)vy);
-            body.SetVelocity(newVelocity);
-        }
-
-        /// <summary>
-        /// Bounces the ball vertically.
-        /// </summary>
-        public void BounceY()
-        {
-            Point velocity = body.GetVelocity();
-            double rn = (random.NextDouble() * (1.2 - 0.8) + 0.8);
-            double vx = velocity.GetX();
-            double vy = velocity.GetY() * -1;
-            Point newVelocity = new Point((int)vx, (int)vy);
-            body.SetVelocity(newVelocity);
-        }
-        
         /// <summary>
         /// Gets the body.
         /// </summary>
@@ -65,6 +38,11 @@ namespace Unit06.Game.Casting
         public Image GetImage()
         {
             return image;
+        }
+
+        public Point GetRadius()
+        {
+            return radius;
         }
 
       

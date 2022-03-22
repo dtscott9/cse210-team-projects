@@ -17,6 +17,8 @@ namespace Unit06.Game.Directing
         public static VideoService VideoService = new RaylibVideoService(Constants.GAME_NAME,
             Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, Constants.BLACK);
 
+
+
         public SceneManager()
         {
         }
@@ -50,6 +52,9 @@ namespace Unit06.Game.Directing
             
             AddTurret(cast);
             AddTower(cast);
+            AddWallTop(cast);
+            AddWallBottom(cast);
+            AddEnemy(cast);
          
 
             script.ClearAllActions();
@@ -93,8 +98,7 @@ namespace Unit06.Game.Directing
             
             TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 2, DateTime.Now);
             script.AddAction(Constants.INPUT, ta);
-            
-            AddUpdateActions(script);
+      
             AddOutputActions(script);
         }
 
@@ -107,7 +111,7 @@ namespace Unit06.Game.Directing
 
 
 
-            AddUpdateActions(script);    
+           
             AddOutputActions(script);
         
         }
@@ -134,8 +138,8 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.TURRET_GROUP);
         
-            int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH * 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.TOWER_HEIGHT - Constants.TURRET_HEIGHT + 150;
+            int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH;
+            int y = Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25;
         
             Point position = new Point(x, y);
             Point size = new Point(Constants.TURRET_WIDTH, Constants.TURRET_HEIGHT);
@@ -165,6 +169,59 @@ namespace Unit06.Game.Directing
 
             cast.AddActor(Constants.TOWER_GROUP, tower);
         }
+
+        private void AddWallTop(Cast cast)
+        {
+        
+
+            int x = 0;
+            int y = 0;
+
+            Point position = new Point(x, y);
+            Point size = new Point(Constants.WALL_WIDTH, Constants.WALL_HEIGHT);
+            Point velocity = new Point(0, 0);
+
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.WALL_IMAGE);
+            Wall wallTop = new Wall(body, image, false);
+
+            cast.AddActor(Constants.WALL_GROUP, wallTop);
+        }
+
+        private void AddWallBottom(Cast cast)
+        {
+
+            int x = 0;
+            int y = 550;
+
+            Point position = new Point(x, y);
+            Point size = new Point(Constants.WALL_WIDTH, Constants.WALL_HEIGHT);
+            Point velocity = new Point(0, 0);
+
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.WALL_IMAGE);
+            Wall wallBottom = new Wall(body, image, false);
+
+            cast.AddActor(Constants.WALL_GROUP, wallBottom);
+        }
+
+        private void AddEnemy(Cast cast)
+        {   
+            int x = 100;
+            int y = 300;
+
+            Point position = new Point(x, y);
+            Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
+            Point velocity = new Point(0, 0);
+
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.ENEMY_IMAGE);
+            Enemy enemy = new Enemy(body, image, false);
+
+            cast.AddActor(Constants.ENEMY_GROUP, enemy);
+        }
+
+
 
        
 
@@ -262,6 +319,9 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawTurret(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawWEnemy(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
@@ -277,13 +337,6 @@ namespace Unit06.Game.Directing
                 VideoService));
         }
 
-        private void AddUpdateActions(Script script)
-        {
-            script.AddAction(Constants.UPDATE, new MoveBallAction());
-            script.AddAction(Constants.UPDATE, new MoveRacketAction());
-            script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CheckOverAction());     
-        }
+ 
     }
 }
