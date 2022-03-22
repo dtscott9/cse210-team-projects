@@ -157,7 +157,7 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.TOWER_GROUP);
 
             int x = 800;
-            int y = 100;
+            int y = 150;
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.TOWER_WIDTH, Constants.TOWER_HEIGHT);
