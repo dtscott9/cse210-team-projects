@@ -48,7 +48,8 @@ namespace Unit06.Game.Directing
         private void PrepareNewGame(Cast cast, Script script)
         {
             
-            AddBall(cast);
+            AddTurret(cast);
+            AddTower(cast);
          
 
             script.ClearAllActions();
@@ -63,17 +64,12 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-        private void ActivateBall(Cast cast)
-        {
-            Turret ball = (Turret)cast.GetFirstActor(Constants.BALL_GROUP);
-            ball.Release();
-        }
+      
 
         private void PrepareNextLevel(Cast cast, Script script)
         {
-            AddBall(cast);
-            AddBricks(cast);
-            AddRacket(cast);
+            
+            
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -89,8 +85,8 @@ namespace Unit06.Game.Directing
 
         private void PrepareTryAgain(Cast cast, Script script)
         {
-            AddBall(cast);
-            AddRacket(cast);
+            
+            
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -109,8 +105,7 @@ namespace Unit06.Game.Directing
 
             script.ClearAllActions();
 
-            ControlRacketAction action = new ControlRacketAction(KeyboardService);
-            script.AddAction(Constants.INPUT, action);
+
 
             AddUpdateActions(script);    
             AddOutputActions(script);
@@ -119,8 +114,8 @@ namespace Unit06.Game.Directing
 
         private void PrepareGameOver(Cast cast, Script script)
         {
-            AddBall(cast);
-            AddRacket(cast);
+           
+           
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
             script.ClearAllActions();
@@ -135,57 +130,43 @@ namespace Unit06.Game.Directing
         // casting methods
         // -----------------------------------------------------------------------------------------
 
-        private void AddBall(Cast cast)
+        private void AddTurret(Cast cast)
         {
-            cast.ClearActors(Constants.BALL_GROUP);
+            cast.ClearActors(Constants.TURRET_GROUP);
         
-            int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
+            int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH * 2;
+            int y = Constants.SCREEN_HEIGHT - Constants.TOWER_HEIGHT - Constants.TURRET_HEIGHT + 150;
         
             Point position = new Point(x, y);
-            Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
+            Point size = new Point(Constants.TURRET_WIDTH, Constants.TURRET_HEIGHT);
             Point velocity = new Point(0, 0);
         
             Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.BALL_IMAGE);
+            Image image = new Image(Constants.TURRET_IMAGE);
             Turret ball = new Turret(body, image, false);
         
-            cast.AddActor(Constants.BALL_GROUP, ball);
+            cast.AddActor(Constants.TURRET_GROUP, ball);
         }
 
-        private void AddBricks(Cast cast)
+        private void AddTower(Cast cast)
         {
-            cast.ClearActors(Constants.BRICK_GROUP);
+            cast.ClearActors(Constants.TOWER_GROUP);
 
-            Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
-            int level = stats.GetLevel() % Constants.BASE_LEVELS;
-            string filename = string.Format(Constants.LEVEL_FILE, level);
-            List<List<string>> rows = LoadLevel(filename);
+            int x = 800;
+            int y = 100;
 
-            for (int r = 0; r < rows.Count; r++)
-            {
-                for (int c = 0; c < rows[r].Count; c++)
-                {
-                    int x = Constants.FIELD_LEFT + c * Constants.BRICK_WIDTH;
-                    int y = Constants.FIELD_TOP + r * Constants.BRICK_HEIGHT;
+            Point position = new Point(x, y);
+            Point size = new Point(Constants.TOWER_WIDTH, Constants.TOWER_HEIGHT);
+            Point velocity = new Point(0, 0);
 
-                    string color = rows[r][c][0].ToString();
-                    int frames = (int)Char.GetNumericValue(rows[r][c][1]);
-                    int points = Constants.BRICK_POINTS;
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.TOWER_IMAGE);
+            Tower tower = new Tower(body, image, false);
 
-                    Point position = new Point(x, y);
-                    Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
-                    Point velocity = new Point(0, 0);
-                    List<string> images = Constants.BRICK_IMAGES[color].GetRange(0, frames);
-
-                    Body body = new Body(position, size, velocity);
-                    Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
-                    
-                    Brick brick = new Brick(body, animation, points, false);
-                    cast.AddActor(Constants.BRICK_GROUP, brick);
-                }
-            }
+            cast.AddActor(Constants.TOWER_GROUP, tower);
         }
+
+       
 
         private void AddDialog(Cast cast, string message)
         {
@@ -224,23 +205,7 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.LIVES_GROUP, label);   
         }
 
-        private void AddRacket(Cast cast)
-        {
-            cast.ClearActors(Constants.RACKET_GROUP);
-        
-            int x = Constants.CENTER_X - Constants.RACKET_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT;
-        
-            Point position = new Point(x, y);
-            Point size = new Point(Constants.RACKET_WIDTH, Constants.RACKET_HEIGHT);
-            Point velocity = new Point(0, 0);
-        
-            Body body = new Body(position, size, velocity);
-            Animation animation = new Animation(Constants.RACKET_IMAGES, Constants.RACKET_RATE, 0);
-            Racket racket = new Racket(body, animation, false);
-        
-            cast.AddActor(Constants.RACKET_GROUP, racket);
-        }
+  
 
         private void AddScore(Cast cast)
         {
@@ -295,9 +260,8 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawTurretAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawTurret(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
@@ -317,7 +281,6 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.UPDATE, new MoveBallAction());
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
-            script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     

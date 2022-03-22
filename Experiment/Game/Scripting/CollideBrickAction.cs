@@ -18,7 +18,7 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Turret ball = (Turret)cast.GetFirstActor(Constants.BALL_GROUP);
+            Turret ball = (Turret)cast.GetFirstActor(Constants.TURRET_GROUP);
             List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
             

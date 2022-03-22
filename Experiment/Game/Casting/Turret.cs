@@ -67,18 +67,6 @@ namespace Unit06.Game.Casting
             return image;
         }
 
-        /// <summary>
-        /// Releases ball in random horizontal direction.
-        /// </summary>
-        public void Release()
-        {
-            Point velocity = body.GetVelocity();
-            List<int> velocities = new List<int> {Constants.BALL_VELOCITY, Constants.BALL_VELOCITY};
-            int index = random.Next(velocities.Count);
-            double vx = velocities[index];
-            double vy = -Constants.BALL_VELOCITY;
-            Point newVelocity = new Point((int)vx, (int)vy);
-            body.SetVelocity(newVelocity);
-        }
+      
     }
 }

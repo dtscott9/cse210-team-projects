@@ -45,6 +45,7 @@ namespace Unit06
         public static Color BLACK = new Color(0, 0, 0);
         public static Color WHITE = new Color(255, 255, 255);
         public static Color PURPLE = new Color(255, 0, 255);
+        public static Color BLUE = new Color(0, 0, 255);
 
         // KEYS
         public static string LEFT = "left";
@@ -95,12 +96,19 @@ namespace Unit06
         public static string LIVES_FORMAT = "LIVES: {0}";
         public static string SCORE_FORMAT = "SCORE: {0}";
 
-        // BALL
-        public static string BALL_GROUP = "balls";
-        public static string BALL_IMAGE = "Assets/Images/000.png";
-        public static int BALL_WIDTH = 28;
-        public static int BALL_HEIGHT = 28;
-        public static int BALL_VELOCITY = 6;
+        // TURRET
+        public static string TURRET_GROUP = "turrets";
+        public static string TURRET_IMAGE = "Assets/Images/000.png";
+        public static int TURRET_WIDTH = 28;
+        public static int TURRET_HEIGHT = 28;
+        public static int TURRET_VELOCITY = 6;
+
+        // TOWER
+        public static string TOWER_GROUP = "towers";
+        public static string TOWER_IMAGE = "";
+        public static int TOWER_WIDTH = 210;
+        public static int TOWER_HEIGHT = 650;
+
 
         // RACKET
         public static string RACKET_GROUP = "rackets";

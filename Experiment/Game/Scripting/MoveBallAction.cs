@@ -9,7 +9,7 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Turret ball = (Turret)cast.GetFirstActor(Constants.BALL_GROUP);
+            Turret ball = (Turret)cast.GetFirstActor(Constants.TURRET_GROUP);
             Body body = ball.GetBody();
             Point position = body.GetPosition();
             Point velocity = body.GetVelocity();
