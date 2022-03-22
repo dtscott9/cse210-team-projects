@@ -15,14 +15,15 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Wall wall = (Wall)cast.GetFirstActor(Constants.WALL_GROUP);
+            foreach(Wall wall in cast.GetActors(Constants.WALL_GROUP))
+            {
             Body body = wall.GetBody();
 
             Rectangle rectangle = body.GetRectangle();
             Point size = rectangle.GetSize();
             Point pos = rectangle.GetPosition();
             videoService.DrawRectangle(size, pos, Constants.GREEN, false);
-        
+            }
 
             // Image image = wall.GetImage();
             // Point position = body.GetPosition();

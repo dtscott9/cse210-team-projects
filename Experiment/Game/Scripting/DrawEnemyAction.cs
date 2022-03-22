@@ -15,14 +15,15 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Enemy enemy = (Enemy)cast.GetFirstActor(Constants.ENEMY_GROUP);
+            foreach(Enemy enemy in cast.GetActors(Constants.ENEMY_GROUP))
+            {
             Body body = enemy.GetBody();
 
             Rectangle rectangle = body.GetRectangle();
             Point size = rectangle.GetSize();
             Point pos = rectangle.GetPosition();
             videoService.DrawRectangle(size, pos, Constants.WHITE, false);
-        
+            }
 
             // Image image = wall.GetImage();
             // Point position = body.GetPosition();

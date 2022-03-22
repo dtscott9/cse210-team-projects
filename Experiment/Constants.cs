@@ -112,7 +112,6 @@ namespace Unit06
 
         // WALL
         public static string WALL_GROUP = "walls";
-        public static string WALL_GROUP1 = "walls1";
         public static string WALL_IMAGE = " ";
         public static int WALL_WIDTH = 1040;
         public static int WALL_HEIGHT = 150;
