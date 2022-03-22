@@ -51,7 +51,7 @@ namespace Unit06.Game.Directing
         {
             
             AddTurret(cast);
-            AddTower(cast);
+            // AddTower(cast);
             AddWallTop(cast);
             AddWallBottom(cast);
             AddEnemy(cast);
@@ -318,8 +318,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawTurret(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
+            // script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWEnemy(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
