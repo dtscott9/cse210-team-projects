@@ -229,7 +229,7 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.WALL_GROUP, wallBottom);
         }
 
-        private void AddEnemy(Cast cast, string message)
+        private void AddEnemy(Cast cast)
         {   
             for (int e = 0; e < Constants.ENEMY_WAVE_1; e++)
             {
@@ -250,13 +250,13 @@ namespace Unit06.Game.Directing
             Image image = new Image(Constants.ENEMY_IMAGE);
             Enemy enemy = new Enemy(body, image, false);
 
-            Text text = new Text(message, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(Constants.ENEMY_HEALTH_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
             Constants.ALIGN_CENTER, Constants.WHITE);
-            Point pos = new Point(x, y);
+            Point pos = new Point(50, y);
 
 
-            Label label = new Label(text, position);
-            cast.AddActor(Constants.ENE, label);  
+            Label label = new Label(text, pos);
+            cast.AddActor(Constants.ENEMY_HEALTH_GROUP, label);  
 
             cast.AddActor(Constants.ENEMY_GROUP, enemy);
             }

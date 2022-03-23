@@ -124,6 +124,8 @@ namespace Unit06
         public static int ENEMY_WIDTH = 50;
         public static int ENEMY_HEIGHT = 60;
         public static int ENEMY_WAVE_1 = 10;
+        public static string ENEMY_HEALTH_GROUP = "enemy_health";
+        public static string ENEMY_HEALTH_FORMAT = "{0}/20";
 
 
         // DIALOG
