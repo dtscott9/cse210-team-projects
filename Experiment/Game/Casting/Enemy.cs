@@ -9,6 +9,9 @@ namespace Unit06.Game.Casting
     {
         private int _health = 20;
         private int _damageDealt = 10;
+        private int _xCoordinate;
+        private int _yCoordinate;
+
 
         private Body body;
         private Image image;
@@ -26,6 +29,15 @@ namespace Unit06.Game.Casting
         /// Gets the body.
         /// </summary>
         /// <returns>The body.</returns>
+
+        public int GetXCoordinate()
+        {
+            return _xCoordinate;
+        }
+        public int GetYCoordinate()
+        {
+            return _yCoordinate;
+        }
         public Body GetBody()
         {
             return body;
