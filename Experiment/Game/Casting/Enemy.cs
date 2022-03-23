@@ -7,7 +7,7 @@ namespace Unit06.Game.Casting
 
     public class Enemy : Actor
     {
-        private int _health;
+        private int _health = 20;
         private int _damageDealt = 10;
 
         private Body body;
@@ -40,10 +40,10 @@ namespace Unit06.Game.Casting
             return image;
         }
 
-        public void SetHealth(int health)
-        {
-            _health = health;
-        }
+        // public void SetHealth(int health)
+        // {
+        //     _health = health;
+        // }
         public int GetHealth()
         {
             return _health;

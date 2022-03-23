@@ -9,6 +9,7 @@ namespace Unit06.Game.Casting
     {
         private Point radius;
         private static Random random = new Random();
+        private int damageDealt = 10;
 
         private Body body;
         private Image image;
