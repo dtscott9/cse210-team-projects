@@ -262,10 +262,6 @@ namespace Unit06.Game.Directing
             }
         }
 
-
-
-       
-
         private void AddDialog(Cast cast, string message)
         {
             cast.ClearActors(Constants.DIALOG_GROUP);
@@ -383,6 +379,14 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
               
         }
+
+
+        private void AddEnemyHealth(Cast cast)
+        {
+            
+        }
+
+
 
  
     }
