@@ -79,6 +79,8 @@ namespace Unit06.Game.Directing
         private void PrepareNextLevel(Cast cast, Script script)
         {
            
+
+
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
             
             
