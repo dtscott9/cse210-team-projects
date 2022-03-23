@@ -22,7 +22,11 @@ namespace Unit06.Game.Scripting
             Point size = rectangle.GetSize();
             Point pos = rectangle.GetPosition();
             videoService.DrawRectangle(size, pos, Constants.PURPLE, false);
-        
+
+            if (tower.GetHealth() == 0)
+            {
+                videoService.DrawRectangle(size, pos, Constants.BLACK, false);
+            }
 
             // Image image = ball.GetImage();
             // Point position = body.GetPosition();

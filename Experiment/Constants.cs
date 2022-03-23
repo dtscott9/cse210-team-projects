@@ -93,9 +93,8 @@ namespace Unit06
         public static string LEVEL_GROUP = "level";
         public static string LIVES_GROUP = "lives";
         public static string SCORE_GROUP = "score";
-        public static string LEVEL_FORMAT = "LEVEL: {0}";
-        public static string LIVES_FORMAT = "LIVES: {0}";
-        public static string SCORE_FORMAT = "SCORE: {0}";
+        public static string LEVEL_FORMAT = "ROUND: {0}";
+        public static string SCORE_FORMAT = "GOLD: {0}";
 
         // TURRET
         public static string TURRET_GROUP = "turrets";
@@ -108,8 +107,10 @@ namespace Unit06
         // TOWER
         public static string TOWER_GROUP = "towers";
         public static string TOWER_IMAGE = "";
-        public static int TOWER_WIDTH = 300;
-        public static int TOWER_HEIGHT = 480;
+        public static int TOWER_WIDTH = 30;
+        public static int TOWER_HEIGHT = 381;
+        public static string TOWER_HEALTH_GROUP = "tower_health";
+        public static string TOWER_HEALTH_FORMAT = "HEALTH: {0}/100";
 
         // WALL
         public static string WALL_GROUP = "walls";
@@ -129,7 +130,7 @@ namespace Unit06
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
         public static string PREP_TO_LAUNCH = "DEFEND THE TOWER!";
-        public static string WAS_GOOD_GAME = "GAME OVER";
+        public static string WAS_GOOD_GAME = "TOWER DESTROYED \n GAME OVER";
 
     }
 }

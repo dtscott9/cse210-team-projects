@@ -51,11 +51,15 @@ namespace Unit06.Game.Directing
         {
             
             AddTurret(cast);
-            // AddTower(cast);
+            AddTower(cast);
             AddWallTop(cast);
             AddWallBottom(cast);
             AddEnemy(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
+            AddTowerHealth(cast);
+            AddStats(cast);
+            AddScore(cast);
+            AddLevel(cast);
          
 
             script.ClearAllActions();
@@ -145,7 +149,7 @@ namespace Unit06.Game.Directing
             int[] yCor = {Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25, 502};
             Random random1 = new Random();
             Random random2 = new Random();
-            int randx = random1.Next(0, Constants.SCREEN_WIDTH);
+            int randx = random1.Next(0, Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH);
             int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH;
             int randy = random2.Next(yCor[0], yCor[1]);
             if (randy <= 340)
@@ -174,7 +178,7 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.TOWER_GROUP);
 
-            int x = 800;
+            int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH;
             int y = 150;
 
             Point position = new Point(x, y);
@@ -238,7 +242,7 @@ namespace Unit06.Game.Directing
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
-            Point velocity = new Point(randXVel, 0);
+            Point velocity = new Point(1, 0);
 
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.ENEMY_IMAGE);
@@ -276,17 +280,17 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.LEVEL_GROUP, label);
         }
 
-        private void AddLives(Cast cast)
+        private void AddTowerHealth(Cast cast)
         {
-            cast.ClearActors(Constants.LIVES_GROUP);
+            cast.ClearActors(Constants.TOWER_HEALTH_GROUP);
 
-            Text text = new Text(Constants.LIVES_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(Constants.TOWER_HEALTH_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
                 Constants.ALIGN_RIGHT, Constants.WHITE);
             Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN, 
                 Constants.HUD_MARGIN);
 
             Label label = new Label(text, position);
-            cast.AddActor(Constants.LIVES_GROUP, label);   
+            cast.AddActor(Constants.TOWER_HEALTH_GROUP, label);   
         }
 
   
@@ -345,7 +349,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawTurret(VideoService));
-            // script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWEnemy(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
@@ -366,6 +370,7 @@ namespace Unit06.Game.Directing
         private void AddUpdateActions(Script script)
         {
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
+            script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
               
         }
 

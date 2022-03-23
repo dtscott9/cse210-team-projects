@@ -7,7 +7,7 @@ namespace Unit06.Game.Casting
     
     public class Tower : Actor
     {
-        private int health;
+        private int health = 100;
         private static Random random = new Random();
 
         private Body body;
@@ -43,6 +43,11 @@ namespace Unit06.Game.Casting
         public int GetHealth()
         {
             return health;
+        }
+
+        public void TakeDamage(int dmg)
+        {
+            health -= dmg;
         }
 
     }
