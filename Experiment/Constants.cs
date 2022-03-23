@@ -11,7 +11,7 @@ namespace Unit06
         // ----------------------------------------------------------------------------------------- 
 
         // GAME
-        public static string GAME_NAME = "Batter";
+        public static string GAME_NAME = "TOWER DEFENSE";
         public static int FRAME_RATE = 60;
 
         // SCREEN
@@ -93,7 +93,7 @@ namespace Unit06
         public static string LEVEL_GROUP = "level";
         public static string LIVES_GROUP = "lives";
         public static string SCORE_GROUP = "score";
-        public static string LEVEL_FORMAT = "ROUND: {0}";
+        public static string LEVEL_FORMAT = "WAVE: {0}";
         public static string SCORE_FORMAT = "GOLD: {0}";
 
         // TURRET
