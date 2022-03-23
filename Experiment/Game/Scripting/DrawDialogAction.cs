@@ -16,14 +16,14 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            // List<Actor> actors = cast.GetActors(Constants.DIALOG_GROUP);
-            // foreach (Actor actor in actors)
-            // {
-            //     Label label = (Label)actor;
-            //     Text text = label.GetText();
-            //     Point position = label.GetPosition();
-            //     videoService.DrawText(text, position);
-            // }
+            List<Actor> actors = cast.GetActors(Constants.DIALOG_GROUP);
+            foreach (Actor actor in actors)
+            {
+                Label label = (Label)actor;
+                Text text = label.GetText();
+                Point position = label.GetPosition();
+                videoService.DrawText(text, position);
+            }
         }
     }
 }

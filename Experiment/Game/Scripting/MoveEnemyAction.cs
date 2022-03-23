@@ -1,20 +1,22 @@
 using Unit06.Game.Casting;
 namespace Unit06.Game.Scripting
 {
-    public class MoveBallAction : Action
+    public class MoveEnemyAction : Action
     {
-        public MoveBallAction()
+        public MoveEnemyAction()
         {
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Turret ball = (Turret)cast.GetFirstActor(Constants.TURRET_GROUP);
-            Body body = ball.GetBody();
+            foreach(Enemy enemy in cast.GetActors(Constants.ENEMY_GROUP))
+            {
+            Body body = enemy.GetBody();
             Point position = body.GetPosition();
             Point velocity = body.GetVelocity();
             position = position.Add(velocity);
             body.SetPosition(position);
+            }
         }
     }
 }

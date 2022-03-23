@@ -15,14 +15,15 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Turret ball = (Turret)cast.GetFirstActor(Constants.TURRET_GROUP);
-            Body body = ball.GetBody();
+            foreach(Turret turret in cast.GetActors(Constants.TURRET_GROUP))
+            {
+            Body body = turret.GetBody();
 
             Rectangle rectangle = body.GetRectangle();
             Point size = rectangle.GetSize();
             Point pos = rectangle.GetPosition();
             videoService.DrawRectangle(size, pos, Constants.BLUE, false);
-        
+            }
 
             // Image image = ball.GetImage();
             // Point position = body.GetPosition();

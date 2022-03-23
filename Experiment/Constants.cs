@@ -15,7 +15,7 @@ namespace Unit06
         public static int FRAME_RATE = 60;
 
         // SCREEN
-        public static int SCREEN_WIDTH = 1040;
+        public static int SCREEN_WIDTH = 1100;
         public static int SCREEN_HEIGHT = 680;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
@@ -103,6 +103,7 @@ namespace Unit06
         public static int TURRET_WIDTH = 28;
         public static int TURRET_HEIGHT = 28;
         public static int TURRET_VELOCITY = 6;
+        public static int TURRET_COUNT = 3;
 
         // TOWER
         public static string TOWER_GROUP = "towers";
@@ -113,7 +114,7 @@ namespace Unit06
         // WALL
         public static string WALL_GROUP = "walls";
         public static string WALL_IMAGE = " ";
-        public static int WALL_WIDTH = 1040;
+        public static int WALL_WIDTH = Constants.SCREEN_WIDTH;
         public static int WALL_HEIGHT = 150;
 
         // ENEMY
@@ -121,12 +122,13 @@ namespace Unit06
         public static string ENEMY_IMAGE = "";
         public static int ENEMY_WIDTH = 50;
         public static int ENEMY_HEIGHT = 60;
+        public static int ENEMY_WAVE_1 = 10;
 
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
-        public static string PREP_TO_LAUNCH = "PREPARING TO LAUNCH";
+        public static string PREP_TO_LAUNCH = "DEFEND THE TOWER!";
         public static string WAS_GOOD_GAME = "GAME OVER";
 
     }
