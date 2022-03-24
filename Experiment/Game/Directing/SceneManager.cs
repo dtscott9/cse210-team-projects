@@ -244,23 +244,20 @@ namespace Unit06.Game.Directing
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
-            Point velocity = new Point(7, 0);
+            Point velocity = new Point(2, 0);
 
-            Text text = new Text(Constants.ENEMY_HEALTH_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Point Pos = new Point(x, y+50);
+            Text text = new Text(Constants.ENEMY_HEALTH_FORMAT, Constants.FONT_FILE, Constants.ENEMY_FONT_SIZE, 
             Constants.ALIGN_CENTER, Constants.WHITE);
-            Point pos = new Point(50, y);
-
-
-            Label label = new Label(text, pos);
-            cast.AddActor(Constants.ENEMY_HEALTH_GROUP, label);  
-
-            
+            Label label = new Label(text, Pos, velocity);
+            cast.AddActor(Constants.ENEMY_HEALTH_GROUP, label); 
 
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.ENEMY_IMAGE);
-            Enemy enemy = new Enemy(body, image,false);
-
+            Enemy enemy = new Enemy(body, image, label, false);
             cast.AddActor(Constants.ENEMY_GROUP, enemy);
+ 
+
             }
         }
 
@@ -271,8 +268,8 @@ namespace Unit06.Game.Directing
             Text text = new Text(message, Constants.FONT_FILE, Constants.FONT_SIZE, 
                 Constants.ALIGN_CENTER, Constants.WHITE);
             Point position = new Point(Constants.CENTER_X, Constants.CENTER_Y);
-
-            Label label = new Label(text, position);
+            Point velocity = new Point(0, 0);
+            Label label = new Label(text, position, velocity);
             cast.AddActor(Constants.DIALOG_GROUP, label);   
         }
 
@@ -283,8 +280,9 @@ namespace Unit06.Game.Directing
             Text text = new Text(Constants.LEVEL_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
                 Constants.ALIGN_LEFT, Constants.WHITE);
             Point position = new Point(Constants.HUD_MARGIN, Constants.HUD_MARGIN);
-
-            Label label = new Label(text, position);
+            Point velocity = new Point(0, 0);
+            
+            Label label = new Label(text, position, velocity);
             cast.AddActor(Constants.LEVEL_GROUP, label);
         }
 
@@ -296,8 +294,9 @@ namespace Unit06.Game.Directing
                 Constants.ALIGN_RIGHT, Constants.WHITE);
             Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN, 
                 Constants.HUD_MARGIN);
+            Point velocity = new Point(0, 0);
 
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, velocity);
             cast.AddActor(Constants.TOWER_HEALTH_GROUP, label);   
         }
 
@@ -310,8 +309,9 @@ namespace Unit06.Game.Directing
             Text text = new Text(Constants.SCORE_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
                 Constants.ALIGN_CENTER, Constants.WHITE);
             Point position = new Point(Constants.CENTER_X, Constants.HUD_MARGIN);
+            Point velocity = new Point(0, 0);
             
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, velocity);
             cast.AddActor(Constants.SCORE_GROUP, label);   
         }
 
@@ -360,7 +360,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWEnemy(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawEnemyHealthBar(VideoService));
+            // script.AddAction(Constants.OUTPUT, new DrawEnemyHealthBar(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
@@ -379,6 +379,7 @@ namespace Unit06.Game.Directing
         private void AddUpdateActions(Script script)
         {
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
+            script.AddAction(Constants.UPDATE, new MoveEnemyHealthBar());
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
               
         }

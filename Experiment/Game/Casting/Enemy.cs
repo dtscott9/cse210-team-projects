@@ -7,7 +7,6 @@ namespace Unit06.Game.Casting
 
     public class Enemy : Actor
     {
-        private int _health = 20;
         private int _damageDealt = 10;
         private int _xCoordinate;
         private int _yCoordinate;
@@ -20,7 +19,7 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Enemy(Body body, Image image, bool debug = false) : base(debug)
+        public Enemy(Body body, Image image, Label label, bool debug = false) : base(debug)
         {
             this.body = body;
             this.image = image;
@@ -62,10 +61,7 @@ namespace Unit06.Game.Casting
         // {
         //     _health = health;
         // }
-        public int GetHealth()
-        {
-            return _health;
-        }
+    
 
         // public void SetDamageDealt(int damageDealt)
         // {

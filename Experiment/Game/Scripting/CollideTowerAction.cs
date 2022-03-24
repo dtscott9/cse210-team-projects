@@ -27,14 +27,15 @@ namespace Unit06.Game.Scripting
 
                 if (physicsService.HasCollided(enemyBody, towerBody))
                 {
-                 
+                 cast.RemoveActor(Constants.ENEMY_HEALTH_GROUP, label);
                     int health = tower.GetHealth();
                     int damage = enemy.GetDamageDealt();
                     
                     tower.TakeDamage(damage);
 
-                    cast.RemoveActor(Constants.ENEMY_HEALTH_GROUP, label);
+                    
                     cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
+                    
                     
 
                     if (health == 10)

@@ -7,14 +7,16 @@ namespace Unit06.Game.Casting
     {
         private Text text;
         private Point position;
+        private Point velocity;
 
         /// <summary>
         /// Constructs a new instance of Label.
         /// </summary>
-        public Label(Text text, Point position) : base(false)
+        public Label(Text text, Point position, Point velocity) : base(false)
         {
             this.text = text;
             this.position = position;
+            this.velocity = velocity;
         }
 
         /// <summary>
@@ -33,6 +35,20 @@ namespace Unit06.Game.Casting
         public Point GetPosition()
         {
             return position;
+        }
+
+        public void SetPosition(Point position)
+        {
+            this.position = position;
+        }
+
+        public Point GetVelocity()
+        {
+            return velocity;
+        }
+        public void SetVelocity(Point velocity)
+        {
+            this.velocity = velocity;
         }
     }
 }

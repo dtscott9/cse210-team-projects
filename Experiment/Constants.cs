@@ -127,6 +127,7 @@ namespace Unit06
         public static int ENEMY_HEALTH = 20;
         public static string ENEMY_HEALTH_GROUP = "enemy_health";
         public static string ENEMY_HEALTH_FORMAT = "{0}/20";
+        public static int ENEMY_FONT_SIZE = 25;
 
 
         // DIALOG
