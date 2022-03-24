@@ -4,12 +4,11 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class TurretFireAction : Action
+    public class ProjectileFireAction : Action
     {
 
-        public TurretFireAction(AudioService audioService)
+        public ProjectileFireAction(AudioService audioService)
         {
-
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
@@ -24,7 +23,7 @@ namespace Unit06.Game.Scripting
 
                     Point position = new Point(x, y);
                     Point size = new Point(Constants.TOWER_WIDTH, Constants.TOWER_HEIGHT);
-                    Point velocity = new Point(0, 0);
+                    Point velocity = new Point(10, 0);
 
                     Body body = new Body(position, size, velocity);
                     Image image = new Image(Constants.PROJECTILE_IMAGE);

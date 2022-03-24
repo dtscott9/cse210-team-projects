@@ -45,9 +45,7 @@ namespace Unit06.Game.Casting
         }
 
         internal Text GetHealthBarText()
-        {
-            
-            
+        {       
             _healthBarText.SetValue($"{_health}/20");
             return _healthBarText;
         }

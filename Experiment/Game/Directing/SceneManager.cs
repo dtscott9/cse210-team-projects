@@ -47,7 +47,7 @@ namespace Unit06.Game.Directing
         }
 
         private void PrepareNewGame(Cast cast, Script script)
-        {   
+        {
             AddTurret(cast);
             AddTower(cast);
             AddWallTop(cast);
@@ -58,7 +58,7 @@ namespace Unit06.Game.Directing
             AddStats(cast);
             AddScore(cast);
             AddLevel(cast);
-         
+
             script.ClearAllActions();
             AddInitActions(script);
             AddLoadActions(script);
@@ -74,7 +74,7 @@ namespace Unit06.Game.Directing
         private void PrepareNextLevel(Cast cast, Script script)
         {
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
-            
+
             script.ClearAllActions();
 
             TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 2, DateTime.Now);
@@ -87,26 +87,26 @@ namespace Unit06.Game.Directing
         }
 
         private void PrepareTryAgain(Cast cast, Script script)
-        {    
+        {
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
-            
+
             TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 2, DateTime.Now);
             script.AddAction(Constants.INPUT, ta);
-      
+
             AddOutputActions(script);
         }
 
         private void PrepareInPlay(Cast cast, Script script)
-        {    
+        {
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
 
             AddUpdateActions(script);
             AddOutputActions(script);
-        
+
         }
 
         private void PrepareGameOver(Cast cast, Script script)
@@ -131,31 +131,31 @@ namespace Unit06.Game.Directing
 
             for (int t = 0; t < Constants.TURRET_COUNT; t++)
             {
-            int[] yCor = {Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25, 502};
-            Random random1 = new Random();
-            Random random2 = new Random();
-            int randx = random1.Next(0, Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH);
-            int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH;
-            int randy = random2.Next(yCor[0], yCor[1]);
-            if (randy <= 340)
-            {
-                randy = yCor[0];
-            }
-            else
-            {
-                randy = yCor[1];
-            }
-            int y = Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25;
-        
-            Point position = new Point(randx, randy);
-            Point size = new Point(Constants.TURRET_WIDTH, Constants.TURRET_HEIGHT);
-            Point velocity = new Point(0, 0);
-        
-            Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.TURRET_IMAGE);
-            Turret ball = new Turret(body, image, false);
-        
-            cast.AddActor(Constants.TURRET_GROUP, ball);
+                int[] yCor = { Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25, 502 };
+                Random random1 = new Random();
+                Random random2 = new Random();
+                int randx = random1.Next(0, Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH);
+                int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH;
+                int randy = random2.Next(yCor[0], yCor[1]);
+                if (randy <= 340)
+                {
+                    randy = yCor[0];
+                }
+                else
+                {
+                    randy = yCor[1];
+                }
+                int y = Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25;
+
+                Point position = new Point(randx, randy);
+                Point size = new Point(Constants.TURRET_WIDTH, Constants.TURRET_HEIGHT);
+                Point velocity = new Point(0, 0);
+
+                Body body = new Body(position, size, velocity);
+                Image image = new Image(Constants.TURRET_IMAGE);
+                Turret ball = new Turret(body, image, false);
+
+                cast.AddActor(Constants.TURRET_GROUP, ball);
             }
         }
 
@@ -210,27 +210,38 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.WALL_GROUP, wallBottom);
         }
 
+        private void AddProjectile(Cast cast)
+        {
+            foreach (Turret turret in cast.GetActors(Constants.TURRET_GROUP))
+            {
+                Body body = turret.GetBody();
+
+                Rectangle rectangle = body.GetRectangle();
+                Point size = rectangle.GetSize();
+                Point pos = rectangle.GetPosition();
+            }
+        }
         private void AddEnemy(Cast cast)
-        {   
+        {
             for (int e = 0; e < Constants.ENEMY_WAVE_1; e++)
             {
-            Random random1 = new Random();
-            Random random2 = new Random();
-            int randx = random1.Next(-1050, -100);
-            int randY = random2.Next(200, 400);
-            int x = randx;
-            int y = randY;
-            Random random3 = new Random();
-            int randXVel = random3.Next(1, 2);
+                Random random1 = new Random();
+                Random random2 = new Random();
+                int randx = random1.Next(-1050, -100);
+                int randY = random2.Next(200, 400);
+                int x = randx;
+                int y = randY;
+                Random random3 = new Random();
+                int randXVel = random3.Next(1, 2);
 
-            Point position = new Point(x, y);
-            Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
-            Point velocity = new Point(2, 0);
+                Point position = new Point(x, y);
+                Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
+                Point velocity = new Point(2, 0);
 
-            Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.ENEMY_IMAGE);
-            Enemy enemy = new Enemy(body, image,false);
-            cast.AddActor(Constants.ENEMY_GROUP, enemy);
+                Body body = new Body(position, size, velocity);
+                Image image = new Image(Constants.ENEMY_IMAGE);
+                Enemy enemy = new Enemy(body, image, false);
+                cast.AddActor(Constants.ENEMY_GROUP, enemy);
             }
         }
 
@@ -238,23 +249,23 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.DIALOG_GROUP);
 
-            Text text = new Text(message, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(message, Constants.FONT_FILE, Constants.FONT_SIZE,
                 Constants.ALIGN_CENTER, Constants.WHITE);
             Point position = new Point(Constants.CENTER_X, Constants.CENTER_Y);
             Point velocity = new Point(0, 0);
             Label label = new Label(text, position, velocity);
-            cast.AddActor(Constants.DIALOG_GROUP, label);   
+            cast.AddActor(Constants.DIALOG_GROUP, label);
         }
 
         private void AddLevel(Cast cast)
         {
             cast.ClearActors(Constants.LEVEL_GROUP);
 
-            Text text = new Text(Constants.LEVEL_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(Constants.LEVEL_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
                 Constants.ALIGN_LEFT, Constants.WHITE);
             Point position = new Point(Constants.HUD_MARGIN, Constants.HUD_MARGIN);
             Point velocity = new Point(0, 0);
-            
+
             Label label = new Label(text, position, velocity);
             cast.AddActor(Constants.LEVEL_GROUP, label);
         }
@@ -263,27 +274,27 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.TOWER_HEALTH_GROUP);
 
-            Text text = new Text(Constants.TOWER_HEALTH_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(Constants.TOWER_HEALTH_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
                 Constants.ALIGN_RIGHT, Constants.WHITE);
-            Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN, 
+            Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN,
                 Constants.HUD_MARGIN);
             Point velocity = new Point(0, 0);
 
             Label label = new Label(text, position, velocity);
-            cast.AddActor(Constants.TOWER_HEALTH_GROUP, label);   
+            cast.AddActor(Constants.TOWER_HEALTH_GROUP, label);
         }
 
         private void AddScore(Cast cast)
         {
             cast.ClearActors(Constants.SCORE_GROUP);
 
-            Text text = new Text(Constants.SCORE_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(Constants.SCORE_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
                 Constants.ALIGN_CENTER, Constants.WHITE);
             Point position = new Point(Constants.CENTER_X, Constants.HUD_MARGIN);
             Point velocity = new Point(0, 0);
-            
+
             Label label = new Label(text, position, velocity);
-            cast.AddActor(Constants.SCORE_GROUP, label);   
+            cast.AddActor(Constants.SCORE_GROUP, label);
         }
 
         private void AddStats(Cast cast)
@@ -296,7 +307,7 @@ namespace Unit06.Game.Directing
         private List<List<string>> LoadLevel(string filename)
         {
             List<List<string>> data = new List<List<string>>();
-            using(StreamReader reader = new StreamReader(filename))
+            using (StreamReader reader = new StreamReader(filename))
             {
                 while (!reader.EndOfStream)
                 {
@@ -313,7 +324,7 @@ namespace Unit06.Game.Directing
         // -----------------------------------------------------------------------------------------
         private void AddInitActions(Script script)
         {
-            script.AddAction(Constants.INITIALIZE, new InitializeDevicesAction(AudioService, 
+            script.AddAction(Constants.INITIALIZE, new InitializeDevicesAction(AudioService,
                 VideoService));
         }
 
@@ -330,6 +341,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWEnemy(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawProjectile(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             // script.AddAction(Constants.OUTPUT, new DrawProjectileAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
@@ -342,7 +354,7 @@ namespace Unit06.Game.Directing
 
         private void AddReleaseActions(Script script)
         {
-            script.AddAction(Constants.RELEASE, new ReleaseDevicesAction(AudioService, 
+            script.AddAction(Constants.RELEASE, new ReleaseDevicesAction(AudioService,
                 VideoService));
         }
 
@@ -350,12 +362,12 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
             script.AddAction(Constants.UPDATE, new MoveProjectileAction());
+            script.AddAction(Constants.UPDATE, new ProjectileFireAction(AudioService));
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new TurretFireAction(AudioService));
         }
 
         private void AddEnemyHealth(Cast cast)
-        {   
-        } 
+        {
+        }
     }
 }

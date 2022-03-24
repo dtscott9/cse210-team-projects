@@ -7,7 +7,7 @@ namespace Unit06.Game.Scripting
     public class DrawWEnemy : Action
     {
         private VideoService videoService;
-        
+
         public DrawWEnemy(VideoService videoService)
         {
             this.videoService = videoService;
@@ -15,18 +15,18 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            foreach(Enemy enemy in cast.GetActors(Constants.ENEMY_GROUP))
+            foreach (Enemy enemy in cast.GetActors(Constants.ENEMY_GROUP))
             {
-            Body body = enemy.GetBody();
+                Body body = enemy.GetBody();
 
-            Rectangle rectangle = body.GetRectangle();
-            Point size = rectangle.GetSize();
-            Point pos = rectangle.GetPosition();
-            videoService.DrawRectangle(size, pos, Constants.WHITE, false);
-            
-            Text healthBarText = enemy.GetHealthBarText();
+                Rectangle rectangle = body.GetRectangle();
+                Point size = rectangle.GetSize();
+                Point pos = rectangle.GetPosition();
+                videoService.DrawRectangle(size, pos, Constants.WHITE, false);
 
-            videoService.DrawText(healthBarText, pos);
+                Text healthBarText = enemy.GetHealthBarText();
+
+                videoService.DrawText(healthBarText, pos);
             }
 
             // Image image = wall.GetImage();

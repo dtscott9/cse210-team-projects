@@ -4,11 +4,11 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class DrawProjectileAction : Action
+    public class DrawProjectile : Action
     {
         private VideoService videoService;
 
-        public DrawProjectileAction(VideoService videoService)
+        public DrawProjectile(VideoService videoService)
         {
             this.videoService = videoService;
         }

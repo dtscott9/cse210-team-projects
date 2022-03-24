@@ -32,10 +32,7 @@ namespace Unit06.Game.Scripting
                     
                     tower.TakeDamage(damage);
 
-                    
                     cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
-                    
-                    
 
                     if (health == 10)
                     {
