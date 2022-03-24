@@ -27,7 +27,7 @@ namespace Unit06.Game.Scripting
 
                 if (physicsService.HasCollided(enemyBody, towerBody))
                 {
-                 cast.RemoveActor(Constants.ENEMY_HEALTH_GROUP, label);
+                    cast.RemoveActor(Constants.ENEMY_HEALTH_GROUP, label);
                     int health = tower.GetHealth();
                     int damage = enemy.GetDamageDealt();
                     
@@ -41,7 +41,6 @@ namespace Unit06.Game.Scripting
                     if (health == 10)
                     {
                         callback.OnNext(Constants.GAME_OVER);
-
                     }
                 }
             }
