@@ -96,6 +96,9 @@ namespace Unit06
         public static string LEVEL_FORMAT = "WAVE: {0}";
         public static string SCORE_FORMAT = "GOLD: {0}";
 
+
+
+
         // TURRET
         public static string TURRET_GROUP = "turrets";
         public static string TURRET_IMAGE = "Assets/Images/000.png";
@@ -131,6 +134,7 @@ namespace Unit06
         public static string PROJECTILE_GROUP = "projectile";
         public static int PROJECTILE_WIDTH = 5;
         public static int PROJECTILE_HEIGHT = 5;
+        public static string PROJECTILE_IMAGE = "";
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";

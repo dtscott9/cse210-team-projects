@@ -331,6 +331,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWEnemy(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
+            // script.AddAction(Constants.OUTPUT, new DrawProjectileAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
 
