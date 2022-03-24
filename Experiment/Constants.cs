@@ -103,6 +103,7 @@ namespace Unit06
         public static int TURRET_HEIGHT = 28;
         public static int TURRET_VELOCITY = 6;
         public static int TURRET_COUNT = 3;
+        public static int TURRET_ONE_COUNTDOWN = 20;
 
         // TOWER
         public static string TOWER_GROUP = "towers";
@@ -126,7 +127,10 @@ namespace Unit06
         public static int ENEMY_WAVE_1 = 10;
         public static int ENEMY_FONT_SIZE = 25;
 
-
+        //Projectile
+        public static string PROJECTILE_GROUP = "projectile";
+        public static int PROJECTILE_WIDTH = 5;
+        public static int PROJECTILE_HEIGHT = 5;
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";

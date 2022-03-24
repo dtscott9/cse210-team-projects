@@ -10,6 +10,7 @@ namespace Unit06.Game.Casting
         private Point radius;
         private static Random random = new Random();
         private int damageDealt = 10;
+        private int _countDown = Constants.TURRET_ONE_COUNTDOWN;
 
         private Body body;
         private Image image;
@@ -46,6 +47,29 @@ namespace Unit06.Game.Casting
             return radius;
         }
 
+        public void CountDown()
+        {
+            _countDown -= 1;
+        }
+
+        public bool ShouldFire()
+        {
+            bool ShouldFire;
+
+            if(_countDown <= 0)
+            {
+                ShouldFire = true;
+            } else
+            {
+                ShouldFire = false;
+            }
+            return ShouldFire;
+        }
+
+        public void ResetCountdown()
+        {
+            _countDown = Constants.TURRET_ONE_COUNTDOWN;
+        }
       
     }
 }

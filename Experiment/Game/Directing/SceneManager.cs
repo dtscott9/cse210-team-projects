@@ -374,7 +374,8 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
-              
+            script.AddAction(Constants.UPDATE, new TurretFireAction(AudioService));
+            
         }
 
 
