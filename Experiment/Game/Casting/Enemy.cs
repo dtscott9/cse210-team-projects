@@ -66,10 +66,6 @@ namespace Unit06.Game.Casting
             return image;
         }
 
-      
-
-    
-
         // public void SetDamageDealt(int damageDealt)
         // {
         //     _damageDealt = damageDealt;

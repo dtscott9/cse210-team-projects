@@ -18,7 +18,6 @@ namespace Unit06.Game.Directing
             Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, Constants.BLACK);
 
 
-
         public SceneManager()
         {
         }
@@ -48,8 +47,7 @@ namespace Unit06.Game.Directing
         }
 
         private void PrepareNewGame(Cast cast, Script script)
-        {
-            
+        {   
             AddTurret(cast);
             AddTower(cast);
             AddWallTop(cast);
@@ -61,7 +59,6 @@ namespace Unit06.Game.Directing
             AddScore(cast);
             AddLevel(cast);
          
-
             script.ClearAllActions();
             AddInitActions(script);
             AddLoadActions(script);
@@ -74,17 +71,10 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-      
-
         private void PrepareNextLevel(Cast cast, Script script)
         {
-           
-
-
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
             
-            
-
             script.ClearAllActions();
 
             TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 2, DateTime.Now);
@@ -97,9 +87,7 @@ namespace Unit06.Game.Directing
         }
 
         private void PrepareTryAgain(Cast cast, Script script)
-        {
-            
-            
+        {    
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -111,13 +99,10 @@ namespace Unit06.Game.Directing
         }
 
         private void PrepareInPlay(Cast cast, Script script)
-        {
-            
+        {    
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
-
-
 
             AddUpdateActions(script);
             AddOutputActions(script);
@@ -126,8 +111,6 @@ namespace Unit06.Game.Directing
 
         private void PrepareGameOver(Cast cast, Script script)
         {
-           
-           
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
             script.ClearAllActions();
@@ -196,8 +179,6 @@ namespace Unit06.Game.Directing
 
         private void AddWallTop(Cast cast)
         {
-        
-
             int x = 0;
             int y = 0;
 
@@ -246,13 +227,10 @@ namespace Unit06.Game.Directing
             Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
             Point velocity = new Point(2, 0);
 
-
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.ENEMY_IMAGE);
             Enemy enemy = new Enemy(body, image,false);
             cast.AddActor(Constants.ENEMY_GROUP, enemy);
- 
-
             }
         }
 
@@ -295,8 +273,6 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.TOWER_HEALTH_GROUP, label);   
         }
 
-  
-
         private void AddScore(Cast cast)
         {
             cast.ClearActors(Constants.SCORE_GROUP);
@@ -335,7 +311,6 @@ namespace Unit06.Game.Directing
         // -----------------------------------------------------------------------------------------
         // scriptig methods
         // -----------------------------------------------------------------------------------------
-
         private void AddInitActions(Script script)
         {
             script.AddAction(Constants.INITIALIZE, new InitializeDevicesAction(AudioService, 
@@ -373,19 +348,13 @@ namespace Unit06.Game.Directing
         private void AddUpdateActions(Script script)
         {
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
+            script.AddAction(Constants.UPDATE, new MoveProjectileAction());
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new TurretFireAction(AudioService));
-            
         }
-
 
         private void AddEnemyHealth(Cast cast)
-        {
-            
-        }
-
-
-
- 
+        {   
+        } 
     }
 }

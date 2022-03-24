@@ -7,7 +7,7 @@ namespace Unit06.Game.Scripting
     public class DrawProjectileAction : Action
     {
         private VideoService videoService;
-        
+
         public DrawProjectileAction(VideoService videoService)
         {
             this.videoService = videoService;
@@ -15,14 +15,16 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
-            Body body = projectile.GetBody();
+            foreach (Projectile projectile in cast.GetActors(Constants.PROJECTILE_GROUP))
+            {
+                // Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
+                Body body = projectile.GetBody();
 
-            Rectangle rectangle = body.GetRectangle();
-            Point size = rectangle.GetSize();
-            Point pos = rectangle.GetPosition();
-            videoService.DrawRectangle(size, pos, Constants.GREEN, false);
-
+                Rectangle rectangle = body.GetRectangle();
+                Point size = rectangle.GetSize();
+                Point pos = rectangle.GetPosition();
+                videoService.DrawRectangle(size, pos, Constants.GREEN, false);
+            }
 
             // Image image = ball.GetImage();
             // Point position = body.GetPosition();
