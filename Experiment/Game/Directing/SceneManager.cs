@@ -244,11 +244,7 @@ namespace Unit06.Game.Directing
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
-            Point velocity = new Point(1, 0);
-
-            Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.ENEMY_IMAGE);
-            Enemy enemy = new Enemy(body, image, false);
+            Point velocity = new Point(7, 0);
 
             Text text = new Text(Constants.ENEMY_HEALTH_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
             Constants.ALIGN_CENTER, Constants.WHITE);
@@ -257,6 +253,12 @@ namespace Unit06.Game.Directing
 
             Label label = new Label(text, pos);
             cast.AddActor(Constants.ENEMY_HEALTH_GROUP, label);  
+
+            
+
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.ENEMY_IMAGE);
+            Enemy enemy = new Enemy(body, image,false);
 
             cast.AddActor(Constants.ENEMY_GROUP, enemy);
             }
@@ -358,6 +360,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWEnemy(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawEnemyHealthBar(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }

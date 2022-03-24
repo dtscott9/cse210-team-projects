@@ -15,6 +15,7 @@ namespace Unit06.Game.Casting
 
         private Body body;
         private Image image;
+        private Label _healthBar;
 
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -50,6 +51,11 @@ namespace Unit06.Game.Casting
         public Image GetImage()
         {
             return image;
+        }
+
+        public Label GetLabel()
+        {
+            return _healthBar;
         }
 
         // public void SetHealth(int health)
