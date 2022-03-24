@@ -19,6 +19,17 @@ namespace Unit06.Game.Scripting
                 if(turret.ShouldFire())
                 {
                     Console.WriteLine("success");
+                    int x = 50;
+                    int y = 50;
+
+                    Point position = new Point(x, y);
+                    Point size = new Point(Constants.TOWER_WIDTH, Constants.TOWER_HEIGHT);
+                    Point velocity = new Point(0, 0);
+
+                    Body body = new Body(position, size, velocity);
+                    Image image = new Image(Constants.PROJECTILE_IMAGE);
+                    Projectile projectile = new Projectile(body, image, false);
+                    cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
                     turret.ResetCountdown();
                 }
                 turret.CountDown();
