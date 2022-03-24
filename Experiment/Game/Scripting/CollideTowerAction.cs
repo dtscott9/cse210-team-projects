@@ -18,7 +18,7 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Label label = (Label)cast.GetFirstActor(Constants.ENEMY_HEALTH_GROUP);
+            
             Tower tower = (Tower)cast.GetFirstActor(Constants.TOWER_GROUP);
             foreach(Enemy enemy in cast.GetActors(Constants.ENEMY_GROUP))
             {
@@ -27,7 +27,6 @@ namespace Unit06.Game.Scripting
 
                 if (physicsService.HasCollided(enemyBody, towerBody))
                 {
-                    cast.RemoveActor(Constants.ENEMY_HEALTH_GROUP, label);
                     int health = tower.GetHealth();
                     int damage = enemy.GetDamageDealt();
                     

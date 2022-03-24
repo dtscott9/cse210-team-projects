@@ -11,18 +11,19 @@ namespace Unit06.Game.Casting
         private int _xCoordinate;
         private int _yCoordinate;
 
-
+        private int _health = 18;
         private Body body;
         private Image image;
-        private Label _healthBar;
-
+        private Text _healthBarText; 
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Enemy(Body body, Image image, Label label, bool debug = false) : base(debug)
+        public Enemy(Body body, Image image, bool debug = false) : base(debug)
         {
             this.body = body;
             this.image = image;
+            _healthBarText = new Text($"{_health}/20", Constants.FONT_FILE, Constants.ENEMY_FONT_SIZE, Constants.ALIGN_CENTER, Constants.WHITE);
+
         }
 
         /// <summary>
@@ -43,6 +44,19 @@ namespace Unit06.Game.Casting
             return body;
         }
 
+        internal Text GetHealthBarText()
+        {
+            
+            
+            _healthBarText.SetValue($"{_health}/20");
+            return _healthBarText;
+        }
+
+        public void TakeDamage(int ammount)
+        {
+            _health -= ammount;
+        }
+
         /// <summary>
         /// Gets the image.
         /// </summary>
@@ -52,15 +66,8 @@ namespace Unit06.Game.Casting
             return image;
         }
 
-        public Label GetLabel()
-        {
-            return _healthBar;
-        }
+      
 
-        // public void SetHealth(int health)
-        // {
-        //     _health = health;
-        // }
     
 
         // public void SetDamageDealt(int damageDealt)

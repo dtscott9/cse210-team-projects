@@ -246,15 +246,10 @@ namespace Unit06.Game.Directing
             Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
             Point velocity = new Point(2, 0);
 
-            Point Pos = new Point(x, y+50);
-            Text text = new Text(Constants.ENEMY_HEALTH_FORMAT, Constants.FONT_FILE, Constants.ENEMY_FONT_SIZE, 
-            Constants.ALIGN_CENTER, Constants.WHITE);
-            Label label = new Label(text, Pos, velocity);
-            cast.AddActor(Constants.ENEMY_HEALTH_GROUP, label); 
 
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.ENEMY_IMAGE);
-            Enemy enemy = new Enemy(body, image, label, false);
+            Enemy enemy = new Enemy(body, image,false);
             cast.AddActor(Constants.ENEMY_GROUP, enemy);
  
 
@@ -360,7 +355,6 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWall(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawWEnemy(VideoService));
-            // script.AddAction(Constants.OUTPUT, new DrawEnemyHealthBar(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
@@ -379,7 +373,6 @@ namespace Unit06.Game.Directing
         private void AddUpdateActions(Script script)
         {
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
-            script.AddAction(Constants.UPDATE, new MoveEnemyHealthBar());
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
               
         }
