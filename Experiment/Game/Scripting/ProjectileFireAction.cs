@@ -19,7 +19,7 @@ namespace Unit06.Game.Scripting
                 if(turret.ShouldFire())
                 {
                     Console.WriteLine("success");
-                
+                    
                     Point position = Tbody.GetPosition();
                     Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
                     Point velocity = new Point(0, 10);
