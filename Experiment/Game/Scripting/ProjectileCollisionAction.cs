@@ -36,7 +36,7 @@ namespace Unit06.Game.Scripting
 
                         cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
 
-                        if (health == 0)
+                        if (health == 10)
                         {
                             cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
                         }
