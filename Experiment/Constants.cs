@@ -98,16 +98,6 @@ namespace Unit06
 
 
 
-
-        // TURRET
-        public static string TURRET_GROUP = "turrets";
-        public static string TURRET_IMAGE = "Assets/Images/000.png";
-        public static int TURRET_WIDTH = 28;
-        public static int TURRET_HEIGHT = 28;
-        public static int TURRET_VELOCITY = 6;
-        public static int TURRET_COUNT = 3;
-        public static int TURRET_ONE_COUNTDOWN = 20;
-
         // TOWER
         public static string TOWER_GROUP = "towers";
         public static string TOWER_IMAGE = "";
@@ -121,6 +111,16 @@ namespace Unit06
         public static string WALL_IMAGE = " ";
         public static int WALL_WIDTH = Constants.SCREEN_WIDTH;
         public static int WALL_HEIGHT = 150;
+
+         // TURRET
+         
+        public static string TURRET_GROUP = "turrets";
+        public static string TURRET_IMAGE = "Assets/Images/000.png";
+        public static int TURRET_WIDTH = 28;
+        public static int TURRET_HEIGHT = 28;
+        public static int TURRET_VELOCITY = 6;
+        public static int TURRET_COUNT = 3;
+        public static int TURRET_ONE_COUNTDOWN = 20;
 
         // ENEMY
         public static string ENEMY_GROUP = "enemies";

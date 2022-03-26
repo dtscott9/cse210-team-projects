@@ -11,19 +11,18 @@ namespace Unit06.Game.Scripting
         {
         }
 
-        public void Execute(Cast cast, Script script, ActionCallback callback)
+        public async void Execute(Cast cast, Script script, ActionCallback callback)
         {
             foreach(Turret turret in cast.GetActors(Constants.TURRET_GROUP))
             {
+                Body Tbody = turret.GetBody();
                 if(turret.ShouldFire())
                 {
                     Console.WriteLine("success");
-                    int x = 50;
-                    int y = 50;
-
-                    Point position = new Point(x, y);
-                    Point size = new Point(Constants.TOWER_WIDTH, Constants.TOWER_HEIGHT);
-                    Point velocity = new Point(10, 0);
+                
+                    Point position = Tbody.GetPosition();
+                    Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
+                    Point velocity = new Point(0, 10);
 
                     Body body = new Body(position, size, velocity);
                     Image image = new Image(Constants.PROJECTILE_IMAGE);
