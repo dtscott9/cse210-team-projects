@@ -11,7 +11,7 @@ namespace Unit06.Game.Casting
         private int _xCoordinate;
         private int _yCoordinate;
 
-        private int _health = 18;
+        private int _health = 20;
         private Body body;
         private Image image;
         private Text _healthBarText; 
@@ -72,6 +72,11 @@ namespace Unit06.Game.Casting
         public int GetDamageDealt()
         {
             return _damageDealt;
+        }
+
+        public int GetHealth()
+        {
+            return _health;
         }
 
 

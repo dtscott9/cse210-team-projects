@@ -136,7 +136,7 @@ namespace Unit06.Game.Directing
                 Random random2 = new Random();
                 int randx = random1.Next(0, Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH);
                 int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH;
-                int randy = random2.Next(yCor[0], yCor[1]);
+                int randy = yCor[0];
                 if (randy <= 340)
                 {
                     randy = yCor[0];
@@ -147,7 +147,7 @@ namespace Unit06.Game.Directing
                 }
                 int y = Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25;
 
-                Point position = new Point(randx, randy);
+                Point position = new Point(0, 0);
                 Point size = new Point(Constants.TURRET_WIDTH, Constants.TURRET_HEIGHT);
                 Point velocity = new Point(0, 0);
 
@@ -364,6 +364,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveProjectileAction());
             script.AddAction(Constants.UPDATE, new ProjectileFireAction(AudioService));
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new TowerCollision(PhysicsService, AudioService));
         }
 
         private void AddEnemyHealth(Cast cast)
