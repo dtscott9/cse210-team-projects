@@ -29,7 +29,9 @@ namespace Unit06.Game.Scripting
 
                         Point position = Tbody.GetPosition();
                         Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
-                        Point velocity = ePosition;
+                        int velocityX = ePosition.GetX() / 200;
+                        int velocityY = ePosition.GetY() / 200;
+                        Point velocity = new Point(velocityX, velocityY);
 
 
                         Body body = new Body(position, size, velocity);
