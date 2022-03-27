@@ -7,17 +7,17 @@ namespace Unit06.Game.Casting
     {
         private int level;
         private int lives;
-        private int score;
+        private int goldCount;
 
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Stats(int level = 1, int lives = 3, int score = 0, 
+        public Stats(int level = 1, int lives = 3, int goldCount = 0, 
                 bool debug = false) : base(debug)
         {
             this.level = level;
             this.lives = lives;
-            this.score = score;
+            this.goldCount = goldCount;
         }
 
         /// <summary>
@@ -39,10 +39,10 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Adds the given points to the score.
         /// </summary>
-        /// <param name="points">The given points.</param>
-        public void AddPoints(int points)
+        /// <param name="goldCount">The given points.</param>
+        public void AddGold(int gold)
         {
-            score += points;
+            goldCount += gold;
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Unit06.Game.Casting
         /// <returns>The score.</returns>
         public int GetScore()
         {
-            return score;
+            return goldCount;
         }
 
         /// <summary>
@@ -82,6 +82,11 @@ namespace Unit06.Game.Casting
             {
                 lives = 0;
             }
+        }
+
+        public void AddEnemyWave()
+        {
+            Constants.ENEMY_WAVE += 5;
         }
         
     }

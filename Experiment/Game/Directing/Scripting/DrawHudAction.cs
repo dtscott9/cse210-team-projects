@@ -19,7 +19,7 @@ namespace Unit06.Game.Scripting
             Tower tower = (Tower)cast.GetFirstActor(Constants.TOWER_GROUP);
             // Enemy enemy = (Enemy)cast.GetFirstActor(Constants.ENEMY_GROUP);
             DrawLabel(cast, Constants.LEVEL_GROUP, Constants.LEVEL_FORMAT, stats.GetLevel());
-            DrawLabel(cast, Constants.SCORE_GROUP, Constants.SCORE_FORMAT, stats.GetScore());
+            DrawLabel(cast, Constants.GOLD_GROUP, Constants.GOLD_FORMAT, stats.GetScore());
             DrawLabel(cast, Constants.TOWER_HEALTH_GROUP, Constants.TOWER_HEALTH_FORMAT, tower.GetHealth());
             // DrawLabel(cast, Constants.ENEMY_HEALTH_GROUP, Constants.ENEMY_HEALTH_FORMAT, enemy.GetHealth());
         }
