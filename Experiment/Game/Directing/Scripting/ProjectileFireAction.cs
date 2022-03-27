@@ -39,13 +39,9 @@ namespace Unit06.Game.Scripting
                     Projectile projectile = new Projectile(body, image, false);
                     cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
                     turret.ResetCountdown();
-
-
                 }
                 turret.CountDown();
             }
         }
-
     }
-
 }
