@@ -147,7 +147,7 @@ namespace Unit06.Game.Directing
                 }
                 int y = Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25;
 
-                Point position = new Point(0, 0);
+                Point position = new Point(randx, randy);
                 Point size = new Point(Constants.TURRET_WIDTH, Constants.TURRET_HEIGHT);
                 Point velocity = new Point(0, 0);
 

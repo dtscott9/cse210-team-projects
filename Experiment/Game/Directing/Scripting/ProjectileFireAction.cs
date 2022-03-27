@@ -44,7 +44,6 @@ namespace Unit06.Game.Scripting
                 }
                 turret.CountDown();
             }
-
         }
 
     }
