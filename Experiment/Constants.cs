@@ -120,7 +120,7 @@ namespace Unit06
         public static int TURRET_HEIGHT = 28;
         public static int TURRET_VELOCITY = 6;
         public static int TURRET_COUNT = 3;
-        public static int TURRET_ONE_COUNTDOWN = 20;
+        public static int TURRET_ONE_COUNTDOWN = 50;
 
         // ENEMY
         public static string ENEMY_GROUP = "enemies";
