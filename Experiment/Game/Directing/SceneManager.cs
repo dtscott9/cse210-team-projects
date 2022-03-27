@@ -161,7 +161,7 @@ namespace Unit06.Game.Directing
                 Random random2 = new Random();
                 int randx = random1.Next(0, Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH);
                 int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH;
-                int randy = yCor[0];
+                int randy = random2.Next(yCor[0], yCor[1]);
                 if (randy <= 340)
                 {
                     randy = yCor[0];
