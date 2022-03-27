@@ -10,6 +10,7 @@ namespace Unit06.Game.Casting
         private int _damageDealt = 10;
         private int _xCoordinate;
         private int _yCoordinate;
+        private int _goldDropped;
 
         private int _health = 20;
         private Body body;
@@ -18,12 +19,12 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Enemy(Body body, Image image, bool debug = false) : base(debug)
+        public Enemy(Body body, Image image, int _goldDropped, bool debug = false) : base(debug)
         {
             this.body = body;
             this.image = image;
             _healthBarText = new Text($"{_health}/20", Constants.FONT_FILE, Constants.ENEMY_FONT_SIZE, Constants.ALIGN_CENTER, Constants.WHITE);
-
+            this._goldDropped = _goldDropped;
         }
 
         /// <summary>
@@ -77,6 +78,11 @@ namespace Unit06.Game.Casting
         public int GetHealth()
         {
             return _health;
+        }
+
+        public int GetGoldDropped()
+        {
+            return _goldDropped;
         }
 
 

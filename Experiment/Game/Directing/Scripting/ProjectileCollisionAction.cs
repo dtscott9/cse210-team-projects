@@ -26,12 +26,12 @@ namespace Unit06.Game.Scripting
                 {
                     Body enemyBody = enemy.GetBody();
                     Body proBody = projectile.GetBody();
-
+                    Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
                     if (physicsService.HasCollided(enemyBody, proBody))
                     {
                         int health = enemy.GetHealth();
                         int damage = enemy.GetDamageDealt();
-
+                        int points = enemy.GetGoldDropped();
                         enemy.TakeDamage(damage);
 
                         cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
@@ -39,6 +39,7 @@ namespace Unit06.Game.Scripting
                         if (health == 10)
                         {
                             cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
+                            stats.AddGold(points);
                         }
                     }
                 }

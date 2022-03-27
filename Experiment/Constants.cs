@@ -92,9 +92,9 @@ namespace Unit06
         public static int HUD_MARGIN = 15;
         public static string LEVEL_GROUP = "level";
         public static string LIVES_GROUP = "lives";
-        public static string SCORE_GROUP = "score";
+        public static string GOLD_GROUP = "gold";
         public static string LEVEL_FORMAT = "WAVE: {0}";
-        public static string SCORE_FORMAT = "GOLD: {0}";
+        public static string GOLD_FORMAT = "GOLD: {0}";
 
 
 
@@ -120,15 +120,16 @@ namespace Unit06
         public static int TURRET_HEIGHT = 28;
         public static int TURRET_VELOCITY = 6;
         public static int TURRET_COUNT = 3;
-        public static int TURRET_ONE_COUNTDOWN = 20;
+        public static int TURRET_ONE_COUNTDOWN = 70;
 
         // ENEMY
         public static string ENEMY_GROUP = "enemies";
         public static string ENEMY_IMAGE = "";
         public static int ENEMY_WIDTH = 50;
         public static int ENEMY_HEIGHT = 60;
-        public static int ENEMY_WAVE_1 = 10;
+        public static int ENEMY_WAVE = 10;
         public static int ENEMY_FONT_SIZE = 25;
+        public static int GOLD_DROPPED = 50;
 
         //Projectile
         public static string PROJECTILE_GROUP = "projectile";
@@ -140,6 +141,7 @@ namespace Unit06
         public static string ENTER_TO_START = "PRESS ENTER TO START";
         public static string PREP_TO_LAUNCH = "DEFEND THE TOWER!";
         public static string WAS_GOOD_GAME = "TOWER DESTROYED \n GAME OVER";
+        public static string NEW_WAVE = "NEW ENEMY WAVE INCOMING";
 
     }
 }
