@@ -45,6 +45,11 @@ namespace Unit06.Game.Casting
             goldCount += gold;
         }
 
+        public void SubtractGold (int gold)
+        {
+            goldCount -= gold;
+        }
+
         /// <summary>
         /// Gets the level.
         /// </summary>
@@ -67,7 +72,7 @@ namespace Unit06.Game.Casting
         /// Gets the score.
         /// </summary>
         /// <returns>The score.</returns>
-        public int GetScore()
+        public int GetGoldCount()
         {
             return goldCount;
         }

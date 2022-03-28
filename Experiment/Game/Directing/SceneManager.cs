@@ -151,24 +151,22 @@ namespace Unit06.Game.Directing
         // -----------------------------------------------------------------------------------------
 
         private void AddTurret(Cast cast)
-        {
+        {   
             cast.ClearActors(Constants.TURRET_GROUP);
-
             for (int t = 0; t < Constants.TURRET_COUNT; t++)
             {
-                int[] yCor = { Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25, 502 };
                 Random random1 = new Random();
                 Random random2 = new Random();
                 int randx = random1.Next(0, Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH);
                 int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH;
-                int randy = random2.Next(yCor[0], yCor[1]);
+                int randy = random2.Next(0, 500);
                 if (randy <= 340)
                 {
-                    randy = yCor[0];
+                    randy = Constants.TOWER_PLACEMENT_Y_1;
                 }
                 else
                 {
-                    randy = yCor[1];
+                    randy = Constants.TOWER_PLACEMENT_Y_2;
                 }
                 int y = Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25;
 
@@ -178,9 +176,8 @@ namespace Unit06.Game.Directing
 
                 Body body = new Body(position, size, velocity);
                 Image image = new Image(Constants.TURRET_IMAGE);
-                Turret ball = new Turret(body, image, false);
-
-                cast.AddActor(Constants.TURRET_GROUP, ball);
+                Turret turret = new Turret(body, image, false);
+                cast.AddActor(Constants.TURRET_GROUP, turret);
             }
         }
 
@@ -380,6 +377,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new TowerCollision(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());
+            script.AddAction(Constants.UPDATE, new PlaceTurret(MouseService));
         }
 
 

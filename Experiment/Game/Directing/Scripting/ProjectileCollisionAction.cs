@@ -31,7 +31,7 @@ namespace Unit06.Game.Scripting
                     {
                         int health = enemy.GetHealth();
                         int damage = enemy.GetDamageDealt();
-                        int points = enemy.GetGoldDropped();
+                        int gold = enemy.GetGoldDropped();
                         enemy.TakeDamage(damage);
 
                         cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
@@ -39,7 +39,7 @@ namespace Unit06.Game.Scripting
                         if (health == 10)
                         {
                             cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
-                            stats.AddGold(points);
+                            stats.AddGold(gold);
                         }
                     }
                 }
