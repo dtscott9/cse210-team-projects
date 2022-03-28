@@ -49,7 +49,5 @@ namespace Unit06.Game.Scripting
                 }
             }
         }
-
     }
-
 }
