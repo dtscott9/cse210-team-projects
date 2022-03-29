@@ -75,6 +75,7 @@ namespace Unit06.Game.Directing
         private void PrepareNextLevel(Cast cast, Script script)
         {
             cast.ClearActors(Constants.ENEMY_GROUP);
+            cast.ClearActors(Constants.PROJECTILE_GROUP);
             AddTower(cast);
             AddWallTop(cast);
             AddWallBottom(cast);
@@ -131,6 +132,7 @@ namespace Unit06.Game.Directing
         private void PrepareGameOver(Cast cast, Script script)
         {
             cast.ClearActors(Constants.ENEMY_GROUP);
+            cast.ClearActors(Constants.PROJECTILE_GROUP);
             AddEnemy(cast);
             AddTower(cast);
             AddWallTop(cast);

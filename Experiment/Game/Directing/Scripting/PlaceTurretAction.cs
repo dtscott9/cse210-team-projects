@@ -25,7 +25,8 @@ namespace Unit06.Game.Scripting
             if (mouseService.IsButtonReleased(Constants.LEFT))
             {
                 if (mouseY >= Constants.TOWER_PLACEMENT_Y_1 && mouseY <= Constants.TOWER_PLACEMENT_Y_1 + 20
-                || mouseY <= Constants.TOWER_PLACEMENT_Y_2 && mouseY >= Constants.TOWER_PLACEMENT_Y_2 - 20)
+                || mouseY <= Constants.TOWER_PLACEMENT_Y_2 && mouseY >= Constants.TOWER_PLACEMENT_Y_2 - 20
+                || mouseY >= Constants.TOWER_PLACEMENT_Y_2 && mouseY <= Constants.TOWER_PLACEMENT_Y_2 + 20)
                 {
                     if (AvailableGold >= 100)
                     {
