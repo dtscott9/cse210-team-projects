@@ -148,6 +148,14 @@ namespace Unit06
         public static int PROJECTILE_WIDTH = 5;
         public static int PROJECTILE_HEIGHT = 5;
         public static string PROJECTILE_IMAGE = "Assets/Images/Weapons/Small/Cannon/turret_01_bullet_01.png";
+        public static List<string> PROJECTILE_IMAGES_1
+            = new List<string>() {
+                "Assets/Images/Weapons/Small/Cannon/bulletAnimation/bullet_1_animation_1.png",
+                "Assets/Images/Weapons/Small/Cannon/bulletAnimation/bullet_1_animation_2.png",
+                "Assets/Images/Weapons/Small/Cannon/bulletAnimation/bullet_1_animation_3.png",
+                "Assets/Images/Weapons/Small/Cannon/bulletAnimation/bullet_1_animation_4.png",
+                "Assets/Images/Weapons/Small/Cannon/bulletAnimation/bullet_1_animation_5.png",
+            };
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";

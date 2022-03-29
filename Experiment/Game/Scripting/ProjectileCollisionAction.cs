@@ -5,12 +5,12 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class TowerCollision : Action
+    public class CollideBulletAction : Action
     {
         private AudioService audioService;
         private PhysicsService physicsService;
 
-        public TowerCollision(PhysicsService physicsService, AudioService audioService)
+        public CollideBulletAction(PhysicsService physicsService, AudioService audioService)
         {
             this.physicsService = physicsService;
             this.audioService = audioService;
