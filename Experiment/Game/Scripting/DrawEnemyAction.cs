@@ -18,20 +18,24 @@ namespace Unit06.Game.Scripting
             foreach (Enemy enemy in cast.GetActors(Constants.ENEMY_GROUP))
             {
                 Body body = enemy.GetBody();
-
-                Rectangle rectangle = body.GetRectangle();
-                Point size = rectangle.GetSize();
-                Point pos = rectangle.GetPosition();
-                videoService.DrawRectangle(size, pos, Constants.WHITE, false);
-
                 Text healthBarText = enemy.GetHealthBarText();
+                if (enemy.IsDebug())
+                {
+                    Rectangle rectangle = body.GetRectangle();
+                    Point size = rectangle.GetSize();
+                    Point pos = rectangle.GetPosition();
+                    videoService.DrawRectangle(size, pos, Constants.WHITE, false);
+                    videoService.DrawText(healthBarText, pos);
+                }
+                
+                
+                Animation animation = enemy.GetAnimation();
+                Image image = animation.NextImage();
+                Point position = body.GetPosition();
+                videoService.DrawImage(image, position);
+                videoService.DrawText(healthBarText, position);
 
-                videoService.DrawText(healthBarText, pos);
             }
-
-            // Image image = wall.GetImage();
-            // Point position = body.GetPosition();
-            // videoService.DrawImage(image, position);
         }
 
     }

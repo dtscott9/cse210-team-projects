@@ -123,16 +123,24 @@ namespace Unit06
         public static int TURRET_VELOCITY = 6;
         public static int TURRET_COUNT = 3;
         public static int TURRET_ONE_COUNTDOWN = 125;
-        public static int TURRET_PLACEMENT_Y_1 = 85;
+        public static int TURRET_PLACEMENT_Y_1 = 80;
         public static int TURRET_PLACEMENT_Y_2 = 540;
 
         // ENEMY
         public static string ENEMY_GROUP = "enemies";
-        public static string ENEMY_IMAGE = "";
+        public static List<string> ENEMY_IMAGES =
+        new List<string>() {
+            "Assets/Images/1 Drones/1/Walk_1.png",
+            "Assets/Images/1 Drones/1/Walk_2.png",
+            "Assets/Images/1 Drones/1/Walk_3.png",
+            "Assets/Images/1 Drones/1/Walk_4.png"
+            
+        };
+        public static int ENEMY_RATE = 6;
         public static int ENEMY_WIDTH = 50;
         public static int ENEMY_HEIGHT = 60;
         public static int ENEMY_WAVE = 10;
-        public static int ENEMY_FONT_SIZE = 25;
+        public static int ENEMY_FONT_SIZE = 20;
         public static int GOLD_DROPPED = 50;
 
         //Projectile
