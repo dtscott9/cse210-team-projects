@@ -35,7 +35,7 @@ namespace Unit06.Game.Scripting
                         Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
                         int velocityX = ePosition.GetX() / 20;
                         int velocityY = ePosition.GetY() / 20;
-                        Point velocity = new Point(velocityX - velx, velocityY - vely);
+                        Point velocity = new Point((velocityX - velx) + 4, velocityY - vely);
 
                         Body body = new Body(position, size, velocity);
                         Image image = new Image(Constants.PROJECTILE_IMAGE);

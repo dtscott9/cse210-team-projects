@@ -115,7 +115,9 @@ namespace Unit06
          // TURRET
          
         public static string TURRET_GROUP = "turrets";
-        public static string TURRET_IMAGE = "Assets/Images/Weapons/Medium/Cannon/turret_01_mk1.png";
+        public static string TURRET_IMAGE_UP = "Assets/Images/Weapons/Medium/Cannon/turret_01_mk1_up.png";
+        public static string TURRET_IMAGE_DOWN = "Assets/Images/Weapons/Medium/Cannon/turret_01_mk1_down.png";
+        
         public static int TURRET_WIDTH = 28;
         public static int TURRET_HEIGHT = 28;
         public static int TURRET_VELOCITY = 6;
