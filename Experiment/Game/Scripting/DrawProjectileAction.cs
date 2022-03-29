@@ -19,16 +19,18 @@ namespace Unit06.Game.Scripting
             {
                 // Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
                 Body body = projectile.GetBody();
+                if (projectile.IsDebug())
+                {
+                    Rectangle rectangle = body.GetRectangle();
+                    Point size = rectangle.GetSize();
+                    Point pos = rectangle.GetPosition();
+                    videoService.DrawRectangle(size, pos, Constants.GREEN, false);
+                }
 
-                Rectangle rectangle = body.GetRectangle();
-                Point size = rectangle.GetSize();
-                Point pos = rectangle.GetPosition();
-                videoService.DrawRectangle(size, pos, Constants.GREEN, false);
+                Image image = projectile.GetImage();
+                Point position = body.GetPosition();
+                videoService.DrawImage(image, position);
             }
-
-            // Image image = ball.GetImage();
-            // Point position = body.GetPosition();
-            // videoService.DrawImage(image, position);
         }
     }
 }

@@ -115,7 +115,7 @@ namespace Unit06
          // TURRET
          
         public static string TURRET_GROUP = "turrets";
-        public static string TURRET_IMAGE = "Assets/Images/000.png";
+        public static string TURRET_IMAGE = "Assets/Images/Weapons/Medium/Cannon/turret_01_mk1.png";
         public static int TURRET_WIDTH = 28;
         public static int TURRET_HEIGHT = 28;
         public static int TURRET_VELOCITY = 6;
@@ -137,7 +137,7 @@ namespace Unit06
         public static string PROJECTILE_GROUP = "projectile";
         public static int PROJECTILE_WIDTH = 5;
         public static int PROJECTILE_HEIGHT = 5;
-        public static string PROJECTILE_IMAGE = "";
+        public static string PROJECTILE_IMAGE = "Assets/Images/Weapons/Small/Cannon/turret_01_bullet_01.png";
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
