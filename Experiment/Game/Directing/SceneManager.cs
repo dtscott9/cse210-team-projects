@@ -221,7 +221,7 @@ namespace Unit06.Game.Directing
         {
 
             int x = 0;
-            int y = 530;
+            int y = 580;
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.WALL_WIDTH, Constants.WALL_HEIGHT);
