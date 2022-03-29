@@ -30,13 +30,16 @@ namespace Unit06.Game.Scripting
                 {
                     if (AvailableGold >= 100)
                     {
+                        Image image = Constants.TURRET_IMAGE_DOWN;
                         if (mouseY <= 340)
                         {
                             mouseY = Constants.TURRET_PLACEMENT_Y_1;
+                            image = Constants.TURRET_IMAGE_DOWN;
                         }
                         else
                         {
                             mouseY = Constants.TURRET_PLACEMENT_Y_2;
+                            image = Constants.TURRET_IMAGE_DOWN;
                         }
                         int cost = 100;
                         Point position = new Point(mouseX, mouseY);
@@ -44,7 +47,7 @@ namespace Unit06.Game.Scripting
                         Point velocity = new Point(0, 0);
 
                         Body body = new Body(position, size, velocity);
-                        Image image = new Image(Constants.TURRET_IMAGE);
+                        
                         Turret turret = new Turret(body, image, false);
                         cast.AddActor(Constants.TURRET_GROUP, turret);
                         stats.SubtractGold(cost);

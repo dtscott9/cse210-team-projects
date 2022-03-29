@@ -162,13 +162,16 @@ namespace Unit06.Game.Directing
                 int randx = random1.Next(0, Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH);
                 int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH - Constants.TURRET_WIDTH;
                 int randy = random2.Next(0, 500);
+                Image image = Constants.TURRET_IMAGE_DOWN;
                 if (randy <= 340)
                 {
                     randy = Constants.TURRET_PLACEMENT_Y_1;
+                    image = Constants.TURRET_IMAGE_DOWN;
                 }
                 else
                 {
                     randy = Constants.TURRET_PLACEMENT_Y_2;
+                    image = Constants.TURRET_IMAGE_UP;
                 }
                 int y = Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25;
 
@@ -177,7 +180,7 @@ namespace Unit06.Game.Directing
                 Point velocity = new Point(0, 0);
 
                 Body body = new Body(position, size, velocity);
-                Image image = new Image(Constants.TURRET_IMAGE);
+               
                 Turret turret = new Turret(body, image, false);
                 cast.AddActor(Constants.TURRET_GROUP, turret);
             }
