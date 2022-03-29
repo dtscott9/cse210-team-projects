@@ -105,8 +105,6 @@ namespace Unit06
         public static int TOWER_HEIGHT = 381;
         public static string TOWER_HEALTH_GROUP = "tower_health";
         public static string TOWER_HEALTH_FORMAT = "HEALTH: {0}/100";
-        public static int TOWER_PLACEMENT_Y_1 = 153;
-        public static int TOWER_PLACEMENT_Y_2 = 502;
 
         // WALL
         public static string WALL_GROUP = "walls";
@@ -123,6 +121,8 @@ namespace Unit06
         public static int TURRET_VELOCITY = 6;
         public static int TURRET_COUNT = 3;
         public static int TURRET_ONE_COUNTDOWN = 125;
+        public static int TURRET_PLACEMENT_Y_1 = 153;
+        public static int TURRET_PLACEMENT_Y_2 = 502;
 
         // ENEMY
         public static string ENEMY_GROUP = "enemies";

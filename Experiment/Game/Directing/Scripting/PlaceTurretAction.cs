@@ -24,19 +24,19 @@ namespace Unit06.Game.Scripting
             int AvailableGold = stats.GetGoldCount();
             if (mouseService.IsButtonReleased(Constants.LEFT))
             {
-                if (mouseY >= Constants.TOWER_PLACEMENT_Y_1 && mouseY <= Constants.TOWER_PLACEMENT_Y_1 + 20
-                || mouseY <= Constants.TOWER_PLACEMENT_Y_2 && mouseY >= Constants.TOWER_PLACEMENT_Y_2 - 20
-                || mouseY >= Constants.TOWER_PLACEMENT_Y_2 && mouseY <= Constants.TOWER_PLACEMENT_Y_2 + 20)
+                if (mouseY >= Constants.TURRET_PLACEMENT_Y_1 && mouseY <= Constants.TURRET_PLACEMENT_Y_1 + 20
+                || mouseY <= Constants.TURRET_PLACEMENT_Y_2 && mouseY >= Constants.TURRET_PLACEMENT_Y_2 - 20
+                || mouseY >= Constants.TURRET_PLACEMENT_Y_2 && mouseY <= Constants.TURRET_PLACEMENT_Y_2 + 20)
                 {
                     if (AvailableGold >= 100)
                     {
                         if (mouseY <= 340)
                         {
-                            mouseY = Constants.TOWER_PLACEMENT_Y_1;
+                            mouseY = Constants.TURRET_PLACEMENT_Y_1;
                         }
                         else
                         {
-                            mouseY = Constants.TOWER_PLACEMENT_Y_2;
+                            mouseY = Constants.TURRET_PLACEMENT_Y_2;
                         }
                         int cost = 100;
                         Point position = new Point(mouseX, mouseY);

@@ -164,11 +164,11 @@ namespace Unit06.Game.Directing
                 int randy = random2.Next(0, 500);
                 if (randy <= 340)
                 {
-                    randy = Constants.TOWER_PLACEMENT_Y_1;
+                    randy = Constants.TURRET_PLACEMENT_Y_1;
                 }
                 else
                 {
-                    randy = Constants.TOWER_PLACEMENT_Y_2;
+                    randy = Constants.TURRET_PLACEMENT_Y_2;
                 }
                 int y = Constants.WALL_HEIGHT + Constants.TURRET_HEIGHT - 25;
 
