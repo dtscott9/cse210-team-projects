@@ -19,6 +19,7 @@ namespace Unit06
         public static int SCREEN_HEIGHT = 680;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
+        public static Image BACKGROUND_IMAGE = new Image("Assets/Images/Background/stars_texture.png");
 
         // FIELD
         public static int FIELD_TOP = 60;
@@ -108,7 +109,8 @@ namespace Unit06
 
         // WALL
         public static string WALL_GROUP = "walls";
-        public static string WALL_IMAGE = " ";
+        public static string WALL_BOTTOM_IMAGE = "Assets/Images/Background/wall_bottom.png";
+        public static string WALL_TOP_IMAGE = "Assets/Images/Background/wall_top.png";
         public static int WALL_WIDTH = Constants.SCREEN_WIDTH;
         public static int WALL_HEIGHT = 100;
 
@@ -123,7 +125,7 @@ namespace Unit06
         public static int TURRET_VELOCITY = 6;
         public static int TURRET_COUNT = 3;
         public static int TURRET_ONE_COUNTDOWN = 125;
-        public static int TURRET_PLACEMENT_Y_1 = 80;
+        public static int TURRET_PLACEMENT_Y_1 = 90;
         public static int TURRET_PLACEMENT_Y_2 = 540;
 
         // ENEMY
