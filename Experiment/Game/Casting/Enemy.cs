@@ -14,15 +14,15 @@ namespace Unit06.Game.Casting
 
         private int _health = 20;
         private Body body;
-        private Image image;
+        private Animation animation;
         private Text _healthBarText; 
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Enemy(Body body, Image image, int _goldDropped, bool debug = false) : base(debug)
+        public Enemy(Body body, Animation animation, int _goldDropped, bool debug = false) : base(debug)
         {
             this.body = body;
-            this.image = image;
+            this.animation = animation;
             _healthBarText = new Text($"{_health}/20", Constants.FONT_FILE, Constants.ENEMY_FONT_SIZE, Constants.ALIGN_CENTER, Constants.WHITE);
             this._goldDropped = _goldDropped;
         }
@@ -60,9 +60,9 @@ namespace Unit06.Game.Casting
         /// Gets the image.
         /// </summary>
         /// <returns>The image.</returns>
-        public Image GetImage()
+        public Animation GetAnimation()
         {
-            return image;
+            return animation;
         }
 
         // public void SetDamageDealt(int damageDealt)

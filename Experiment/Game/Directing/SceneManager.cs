@@ -256,8 +256,8 @@ namespace Unit06.Game.Directing
 
                 int points = Constants.GOLD_DROPPED;
                 Body body = new Body(position, size, velocity);
-                Image image = new Image(Constants.ENEMY_IMAGE);
-                Enemy enemy = new Enemy(body, image, points, false);
+                Animation animation = new Animation(Constants.ENEMY_IMAGES, Constants.ENEMY_RATE, 0);
+                Enemy enemy = new Enemy(body, animation, points, false);
                 cast.AddActor(Constants.ENEMY_GROUP, enemy);
             }
         }
