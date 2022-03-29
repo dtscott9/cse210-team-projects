@@ -123,8 +123,8 @@ namespace Unit06
         public static int TURRET_VELOCITY = 6;
         public static int TURRET_COUNT = 3;
         public static int TURRET_ONE_COUNTDOWN = 125;
-        public static int TURRET_PLACEMENT_Y_1 = 103;
-        public static int TURRET_PLACEMENT_Y_2 = 530;
+        public static int TURRET_PLACEMENT_Y_1 = 85;
+        public static int TURRET_PLACEMENT_Y_2 = 540;
 
         // ENEMY
         public static string ENEMY_GROUP = "enemies";

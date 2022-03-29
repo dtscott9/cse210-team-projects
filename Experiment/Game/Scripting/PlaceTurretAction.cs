@@ -39,7 +39,7 @@ namespace Unit06.Game.Scripting
                         else
                         {
                             mouseY = Constants.TURRET_PLACEMENT_Y_2;
-                            image = Constants.TURRET_IMAGE_DOWN;
+                            image = Constants.TURRET_IMAGE_UP;
                         }
                         int cost = 100;
                         Point position = new Point(mouseX, mouseY);
