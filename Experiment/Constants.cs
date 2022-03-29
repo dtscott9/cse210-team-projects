@@ -110,7 +110,7 @@ namespace Unit06
         public static string WALL_GROUP = "walls";
         public static string WALL_IMAGE = " ";
         public static int WALL_WIDTH = Constants.SCREEN_WIDTH;
-        public static int WALL_HEIGHT = 150;
+        public static int WALL_HEIGHT = 100;
 
          // TURRET
          
@@ -121,8 +121,8 @@ namespace Unit06
         public static int TURRET_VELOCITY = 6;
         public static int TURRET_COUNT = 3;
         public static int TURRET_ONE_COUNTDOWN = 125;
-        public static int TURRET_PLACEMENT_Y_1 = 153;
-        public static int TURRET_PLACEMENT_Y_2 = 502;
+        public static int TURRET_PLACEMENT_Y_1 = 103;
+        public static int TURRET_PLACEMENT_Y_2 = 530;
 
         // ENEMY
         public static string ENEMY_GROUP = "enemies";
