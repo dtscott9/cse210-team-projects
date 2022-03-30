@@ -5,13 +5,14 @@ using Unit06.Game.Services;
 namespace Unit06.Game.Scripting
 {
     public class PlaceTurret : Action
-    {
-        private VideoService videoService;
+    {   
+        private AudioService audioService;
         private MouseService mouseService;
 
-        public PlaceTurret(MouseService mouseService)
+        public PlaceTurret(MouseService mouseService, AudioService audioService)
         {
             this.mouseService = mouseService;
+            this.audioService = audioService;
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
@@ -50,6 +51,9 @@ namespace Unit06.Game.Scripting
                         
                         Turret turret = new Turret(body, image, false);
                         cast.AddActor(Constants.TURRET_GROUP, turret);
+                        Sound sound = new Sound(Constants.PURCHASE_SOUND);
+                        audioService.PlaySound(sound);
+
                         stats.SubtractGold(cost);
                     }
                 }

@@ -19,6 +19,7 @@ namespace Unit06
         public static int SCREEN_HEIGHT = 680;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
+        public static Image BACKGROUND_IMAGE = new Image("Assets/Images/Background/stars_texture.png");
 
         // FIELD
         public static int FIELD_TOP = 60;
@@ -31,8 +32,8 @@ namespace Unit06
         public static int FONT_SIZE = 32;
 
         // SOUND
-        public static string BOUNCE_SOUND = "Assets/Sounds/boing.wav";
-        public static string WELCOME_SOUND = "Assets/Sounds/start.wav";
+        public static string EXPLOSION_SOUND = "Assets/Sounds/explosion.wav";
+        public static string PURCHASE_SOUND = "Assets/Sounds/purchase.wav";
         public static string OVER_SOUND = "Assets/Sounds/over.wav";
 
         // TEXT
@@ -108,7 +109,8 @@ namespace Unit06
 
         // WALL
         public static string WALL_GROUP = "walls";
-        public static string WALL_IMAGE = " ";
+        public static string WALL_BOTTOM_IMAGE = "Assets/Images/Background/wall_bottom.png";
+        public static string WALL_TOP_IMAGE = "Assets/Images/Background/wall_top.png";
         public static int WALL_WIDTH = Constants.SCREEN_WIDTH;
         public static int WALL_HEIGHT = 100;
 
@@ -122,8 +124,8 @@ namespace Unit06
         public static int TURRET_HEIGHT = 28;
         public static int TURRET_VELOCITY = 50;
         public static int TURRET_COUNT = 3;
-        public static int TURRET_ONE_COUNTDOWN = 100;
-        public static int TURRET_PLACEMENT_Y_1 = 80;
+        public static int TURRET_ONE_COUNTDOWN = 125;
+        public static int TURRET_PLACEMENT_Y_1 = 90;
         public static int TURRET_PLACEMENT_Y_2 = 540;
 
         // ENEMY
@@ -160,8 +162,8 @@ namespace Unit06
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
-        public static string PREP_TO_LAUNCH = "DEFEND THE TOWER!";
-        public static string WAS_GOOD_GAME = "TOWER DESTROYED \n GAME OVER";
+        public static string PREP_TO_LAUNCH = "DEFEND THE STATION!";
+        public static string WAS_GOOD_GAME = "THE STATION HAS FALLEN \n GAME OVER";
         public static string NEW_WAVE = "NEW ENEMY WAVE INCOMING";
 
     }

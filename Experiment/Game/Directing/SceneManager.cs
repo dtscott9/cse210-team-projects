@@ -51,7 +51,6 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.ENEMY_GROUP);
             AddTurret(cast);
             AddTower(cast);
-            AddWallTop(cast);
             AddWallBottom(cast);
             AddEnemy(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
@@ -59,6 +58,7 @@ namespace Unit06.Game.Directing
             AddStats(cast);
             AddScore(cast);
             AddLevel(cast);
+            AddWallTop(cast);
 
             script.ClearAllActions();
             AddInitActions(script);
@@ -90,8 +90,8 @@ namespace Unit06.Game.Directing
 
             AddOutputActions(script);
 
-            PlaySoundAction sa = new PlaySoundAction(AudioService, Constants.WELCOME_SOUND);
-            script.AddAction(Constants.OUTPUT, sa);
+            // PlaySoundAction sa = new PlaySoundAction(AudioService, Constants.PURCHASE_SOUND);
+            // script.AddAction(Constants.OUTPUT, sa);
         }
 
         private void PrepareTryAgain(Cast cast, Script script)
@@ -206,15 +206,15 @@ namespace Unit06.Game.Directing
 
         private void AddWallTop(Cast cast)
         {
-            int x = 0;
-            int y = 0;
+            int x = -10;
+            int y = 56;
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.WALL_WIDTH, Constants.WALL_HEIGHT);
             Point velocity = new Point(0, 0);
 
             Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.WALL_IMAGE);
+            Image image = new Image(Constants.WALL_TOP_IMAGE);
             Wall wallTop = new Wall(body, image, false);
 
             cast.AddActor(Constants.WALL_GROUP, wallTop);
@@ -231,8 +231,8 @@ namespace Unit06.Game.Directing
             Point velocity = new Point(0, 0);
 
             Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.WALL_IMAGE);
-            Wall wallBottom = new Wall(body, image, false);
+            Image image = new Image(Constants.WALL_BOTTOM_IMAGE);
+            Wall wallBottom = new Wall(body, image, true);
 
             cast.AddActor(Constants.WALL_GROUP, wallBottom);
         }
@@ -382,7 +382,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CollideBulletAction(PhysicsService, AudioService, VideoService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());
-            script.AddAction(Constants.UPDATE, new PlaceTurret(MouseService));
+            script.AddAction(Constants.UPDATE, new PlaceTurret(MouseService, AudioService));
         }
 
 
