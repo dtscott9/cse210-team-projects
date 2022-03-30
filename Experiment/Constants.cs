@@ -120,9 +120,9 @@ namespace Unit06
         
         public static int TURRET_WIDTH = 28;
         public static int TURRET_HEIGHT = 28;
-        public static int TURRET_VELOCITY = 6;
+        public static int TURRET_VELOCITY = 50;
         public static int TURRET_COUNT = 3;
-        public static int TURRET_ONE_COUNTDOWN = 125;
+        public static int TURRET_ONE_COUNTDOWN = 100;
         public static int TURRET_PLACEMENT_Y_1 = 80;
         public static int TURRET_PLACEMENT_Y_2 = 540;
 
@@ -156,6 +156,7 @@ namespace Unit06
                 "Assets/Images/Weapons/Small/Cannon/bulletAnimation/bullet_1_animation_4.png",
                 "Assets/Images/Weapons/Small/Cannon/bulletAnimation/bullet_1_animation_5.png",
             };
+        public static int PROJECTILE_RATE = 6;
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";

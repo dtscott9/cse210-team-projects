@@ -380,7 +380,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveProjectileAction());
             script.AddAction(Constants.UPDATE, new ProjectileFireAction(AudioService));
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideBulletAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CollideBulletAction(PhysicsService, AudioService, VideoService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());
             script.AddAction(Constants.UPDATE, new PlaceTurret(MouseService));
         }

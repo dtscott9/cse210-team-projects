@@ -9,17 +9,17 @@ namespace Unit06.Game.Scripting
     {
         private AudioService audioService;
         private PhysicsService physicsService;
+        private VideoService videoService;
 
-        public CollideBulletAction(PhysicsService physicsService, AudioService audioService)
+        public CollideBulletAction(PhysicsService physicsService, AudioService audioService, VideoService videoService)
         {
             this.physicsService = physicsService;
             this.audioService = audioService;
+            this.videoService = videoService;
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-
-
             foreach (Projectile projectile in cast.GetActors(Constants.PROJECTILE_GROUP))
             {
                 foreach (Enemy enemy in cast.GetActors(Constants.ENEMY_GROUP))
@@ -34,6 +34,24 @@ namespace Unit06.Game.Scripting
                         int gold = enemy.GetGoldDropped();
                         enemy.TakeDamage(damage);
 
+
+                        // videoService.DrawImage(image, proPosition);
+
+                        // // Animation animation = new Animation(Constants.PROJECTILE_IMAGES_1, Constants.PROJECTILE_RATE, 0);
+                        // // Projectile projectile1 = new Projectile(proBody, animation, projectile.GetImage());
+                        // Animation animation = proBody.GetAnimation();
+                        // Image image = animation.NextImage();
+                        // Point proPosition = proBody.GetPosition();
+                        // Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
+
+
+                        // Body body = new Body(proPosition, size, );
+                        // // Image image = new Image(Constants.PROJECTILE_IMAGE);
+                        // Animation animation = new Animation(Constants.PROJECTILE_IMAGES_1, Constants.PROJECTILE_RATE, 0);
+                        // Projectile projectile = new Projectile(body, animation, image, false);
+
+                        // cast.AddActor(Constants.RACKET_GROUP, racket);
+                        // cast.AddActor(Constants.PROJECTILE_GROUP, projectile1);
                         cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
 
                         if (health == 10)
