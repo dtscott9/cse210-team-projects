@@ -162,7 +162,7 @@ namespace Unit06
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
         public static string PREP_TO_LAUNCH = "DEFEND THE STATION!";
-        public static string WAS_GOOD_GAME = "TOWER DESTROYED \n GAME OVER";
+        public static string WAS_GOOD_GAME = "THE STATION HAS FALLEN \n GAME OVER";
         public static string NEW_WAVE = "NEW ENEMY WAVE INCOMING";
 
     }
