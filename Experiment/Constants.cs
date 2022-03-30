@@ -32,8 +32,8 @@ namespace Unit06
         public static int FONT_SIZE = 32;
 
         // SOUND
-        public static string BOUNCE_SOUND = "Assets/Sounds/boing.wav";
-        public static string WELCOME_SOUND = "Assets/Sounds/start.wav";
+        public static string EXPLOSION_SOUND = "Assets/Sounds/explosion.wav";
+        public static string PURCHASE_SOUND = "Assets/Sounds/purchase.wav";
         public static string OVER_SOUND = "Assets/Sounds/over.wav";
 
         // TEXT
@@ -161,7 +161,7 @@ namespace Unit06
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
-        public static string PREP_TO_LAUNCH = "DEFEND THE TOWER!";
+        public static string PREP_TO_LAUNCH = "DEFEND THE STATION!";
         public static string WAS_GOOD_GAME = "TOWER DESTROYED \n GAME OVER";
         public static string NEW_WAVE = "NEW ENEMY WAVE INCOMING";
 

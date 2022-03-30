@@ -39,6 +39,8 @@ namespace Unit06.Game.Scripting
                         if (health == 10)
                         {
                             cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
+                            Sound sound = new Sound(Constants.EXPLOSION_SOUND);
+                            audioService.PlaySound(sound);
                             stats.AddGold(gold);
                         }
                     }

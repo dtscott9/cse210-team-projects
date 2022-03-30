@@ -90,8 +90,8 @@ namespace Unit06.Game.Directing
 
             AddOutputActions(script);
 
-            PlaySoundAction sa = new PlaySoundAction(AudioService, Constants.WELCOME_SOUND);
-            script.AddAction(Constants.OUTPUT, sa);
+            // PlaySoundAction sa = new PlaySoundAction(AudioService, Constants.PURCHASE_SOUND);
+            // script.AddAction(Constants.OUTPUT, sa);
         }
 
         private void PrepareTryAgain(Cast cast, Script script)
@@ -382,7 +382,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new CollideTowerAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CollideBulletAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());
-            script.AddAction(Constants.UPDATE, new PlaceTurret(MouseService));
+            script.AddAction(Constants.UPDATE, new PlaceTurret(MouseService, AudioService));
         }
 
 
