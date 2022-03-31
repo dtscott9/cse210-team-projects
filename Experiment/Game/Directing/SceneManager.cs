@@ -190,7 +190,7 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.TOWER_GROUP);
 
-            int x = Constants.SCREEN_WIDTH - Constants.TOWER_WIDTH;
+            int x = Constants.SCREEN_WIDTH + Constants.TOWER_WIDTH;
             int y = 150;
 
             Point position = new Point(x, y);
@@ -232,7 +232,7 @@ namespace Unit06.Game.Directing
 
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.WALL_BOTTOM_IMAGE);
-            Wall wallBottom = new Wall(body, image, true);
+            Wall wallBottom = new Wall(body, image, false);
 
             cast.AddActor(Constants.WALL_GROUP, wallBottom);
         }
