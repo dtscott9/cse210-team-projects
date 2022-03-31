@@ -18,7 +18,7 @@ namespace Unit06.Game.Scripting
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
             Point mouseCor = mouseService.GetCoordinates();
-            int mouseX = mouseCor.GetX();
+            int mouseX = mouseCor.GetX() - 25;
             int mouseY = mouseCor.GetY();
             bool placeTurretBool = true;
 
