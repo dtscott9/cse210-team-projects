@@ -124,7 +124,7 @@ namespace Unit06
         public static int TURRET_HEIGHT = 28;
         public static int TURRET_VELOCITY = 50;
         public static int TURRET_COUNT = 3;
-        public static int TURRET_ONE_COUNTDOWN = 20;
+        public static int TURRET_ONE_COUNTDOWN = 200;
         public static int TURRET_PLACEMENT_Y_1 = 90;
         public static int TURRET_PLACEMENT_Y_2 = 540;
 
