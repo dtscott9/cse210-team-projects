@@ -17,9 +17,9 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            // audioService.LoadSounds("Assets/Sounds");
-            // videoService.LoadFonts("Assets/Fonts");
-            // videoService.LoadImages("Assets/Images");
+            audioService.LoadSounds("Assets/Sounds");
+            videoService.LoadFonts("Assets/Fonts");
+            videoService.LoadImages("Assets/Images");
         }
     }
 }
