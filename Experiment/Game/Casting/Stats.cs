@@ -91,7 +91,7 @@ namespace Unit06.Game.Casting
 
         public void AddEnemyWave()
         {
-            Constants.ENEMY_WAVE *= 2;
+            Constants.ENEMY_WAVE += 10;
         }
         
     }
