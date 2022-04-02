@@ -27,7 +27,8 @@ namespace Unit06.Game.Scripting
                 Body body = turret.GetBody();
                 Point turretPosition = body.GetPosition();
                 int turretX = turretPosition.GetX();
-                if (Math.Abs(turretX - mouseX) <= 30)
+                int turretY = turretPosition.GetY();
+                if (Math.Abs(turretX - mouseX) <= 30 && Math.Abs(turretY - mouseY) <= 30)
                 {
                     placeTurretBool = false;
                 }
