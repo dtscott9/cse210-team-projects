@@ -13,8 +13,9 @@ namespace Unit06.Game.Scripting
         private string turrets = Constants.PROJECTILE_GROUP;
         private string lazer_turrets = Constants.PROJECTILE_GROUP_2;
         private string plasma_turrets = Constants.PROJECTILE_GROUP_3;
-        private int plasma_Enemy_H = 20;
+        private int plasma_Enemy_H = 30;
         private int turret_Enemy_H = 10;
+        private int lazer_Enemy_H = 20;
 
         public CollideBulletAction(PhysicsService physicsService, AudioService audioService, VideoService videoService)
         {
@@ -26,7 +27,7 @@ namespace Unit06.Game.Scripting
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
             ProCollision(cast, turrets, Constants.PROJECTILE_DMG, turret_Enemy_H);
-            ProCollision(cast, lazer_turrets, Constants.PROJECTILE_DMG, turret_Enemy_H);
+            ProCollision(cast, lazer_turrets, Constants.LAZER_DMG, lazer_Enemy_H);
             ProCollision(cast, plasma_turrets, Constants.PLASMA_DMG, plasma_Enemy_H);
         }
         public void ProCollision(Cast cast, string constants, int damage, int re_health)

@@ -207,9 +207,10 @@ namespace Unit06
         public static int PROJECTILE_DMG = 10;
         public static int LAZER_PRO_WIDTH = 45;
         public static int LAZER_PRO_HEIGHT = 100;
+        public static int LAZER_DMG = 20;
         public static int PLASMA_PRO_WIDTH = 25;
         public static int PLASMA_PRO_HEIGHT = 25;
-        public static int PLASMA_DMG = 20;
+        public static int PLASMA_DMG = 30;
         public static string PROJECTILE_IMAGE = "Assets/Images/Weapons/Small/Cannon/turret_01_bullet_01.png";
         public static List<string> PROJECTILE_IMAGES_1
             = new List<string>() {
