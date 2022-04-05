@@ -4,13 +4,14 @@ using System.Collections.Generic;
 
 namespace Unit06.Game.Casting
 {
-    
+
     public class Turret : Actor
     {
-        private Point radius;
+
         private static Random random = new Random();
-        private int damageDealt = 10;
-        private int _countDown = Constants.TURRET_ONE_COUNTDOWN;
+        private int _bulletCountDown = Constants.TURRET_COUNTDOWN;
+        private int _lazerCountDown = Constants.LAZER_COUNTDOWN;
+        private int _plasmaCountDown = Constants.PLASMA_COUNTDOWN;
 
         private Body body;
         private Image image;
@@ -42,34 +43,69 @@ namespace Unit06.Game.Casting
             return image;
         }
 
-        public Point GetRadius()
-        {
-            return radius;
-        }
 
         public void CountDown()
         {
-            _countDown -= 1;
+            _bulletCountDown -= 1;
+            _lazerCountDown -= 1;
+            _plasmaCountDown -= 1;
         }
 
-        public bool ShouldFire()
+        public bool ShouldFireBullet()
         {
             bool ShouldFire;
 
-            if(_countDown <= 0)
+            if (_bulletCountDown <= 0)
             {
                 ShouldFire = true;
-            } else
+            }
+            else
+            {
+                ShouldFire = false;
+            }
+            return ShouldFire;
+        }
+        public bool ShouldFireLazer()
+        {
+            bool ShouldFire;
+
+            if (_lazerCountDown <= 0)
+            {
+                ShouldFire = true;
+            }
+            else
             {
                 ShouldFire = false;
             }
             return ShouldFire;
         }
 
-        public void ResetCountdown()
+        public bool ShouldFirePlasma()
         {
-            _countDown = Constants.TURRET_ONE_COUNTDOWN;
+            bool ShouldFire;
+
+            if (_plasmaCountDown <= 0)
+            {
+                ShouldFire = true;
+            }
+            else
+            {
+                ShouldFire = false;
+            }
+            return ShouldFire;
         }
-      
+        public void ResetBulletCountdown()
+        {
+            _bulletCountDown = Constants.TURRET_COUNTDOWN;
+        }
+        public void ResetLazerCountdown()
+        {
+            _lazerCountDown = Constants.LAZER_COUNTDOWN;
+        }
+        public void ResetPlasmaCountdown()
+        {
+            _plasmaCountDown = Constants.PLASMA_COUNTDOWN;
+        }
+
     }
 }

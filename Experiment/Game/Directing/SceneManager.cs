@@ -47,8 +47,11 @@ namespace Unit06.Game.Directing
         }
 
         private void PrepareNewGame(Cast cast, Script script)
-        {   Constants.ENEMY_WAVE = 10;
+        {
+            Constants.ENEMY_WAVE = 10;
             cast.ClearActors(Constants.ENEMY_GROUP);
+            cast.ClearActors(Constants.LAZER_GROUP);
+            cast.ClearActors(Constants.PLASMA_GROUP);
             AddTurret(cast);
             AddTower(cast);
             AddWallBottom(cast);
@@ -59,6 +62,9 @@ namespace Unit06.Game.Directing
             AddScore(cast);
             AddLevel(cast);
             AddWallTop(cast);
+            AddDefaultButton(cast);
+            AddLazerButton(cast);
+            AddPlasmaButton(cast);
 
             script.ClearAllActions();
             AddInitActions(script);
@@ -82,6 +88,9 @@ namespace Unit06.Game.Directing
             AddEnemy(cast);
             AddTowerHealth(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
+            AddDefaultButton(cast);
+            AddLazerButton(cast);
+            AddPlasmaButton(cast);
 
             script.ClearAllActions();
 
@@ -97,7 +106,7 @@ namespace Unit06.Game.Directing
         private void PrepareTryAgain(Cast cast, Script script)
         {
             cast.ClearActors(Constants.ENEMY_GROUP);
-            
+
             AddTurret(cast);
             AddTower(cast);
             AddWallTop(cast);
@@ -153,7 +162,7 @@ namespace Unit06.Game.Directing
         // -----------------------------------------------------------------------------------------
 
         private void AddTurret(Cast cast)
-        {   
+        {
             cast.ClearActors(Constants.TURRET_GROUP);
             for (int t = 0; t < Constants.TURRET_COUNT; t++)
             {
@@ -180,7 +189,7 @@ namespace Unit06.Game.Directing
                 Point velocity = new Point(0, 0);
 
                 Body body = new Body(position, size, velocity);
-               
+
                 Turret turret = new Turret(body, image, false);
                 cast.AddActor(Constants.TURRET_GROUP, turret);
             }
@@ -321,6 +330,46 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.STATS_GROUP, stats);
         }
 
+        private void AddDefaultButton(Cast cast)
+        {
+
+            Point position = new Point(150, Constants.BUTTON_Y);
+            Point size = new Point(Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
+            Point velocity = new Point(0, 0);
+
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.BUTTON_IMAGE);
+            Button button = new Button(body, image, true);
+
+            cast.AddActor(Constants.BUTTON_GROUP, button);
+        }
+
+        private void AddLazerButton(Cast cast)
+        {
+
+            Point position = new Point(220, Constants.BUTTON_Y);
+            Point size = new Point(Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
+            Point velocity = new Point(0, 0);
+
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.BUTTON_IMAGE_2);
+            Button button = new Button(body, image, true);
+
+            cast.AddActor(Constants.BUTTON_GROUP, button);
+        }
+        private void AddPlasmaButton(Cast cast)
+        {
+
+            Point position = new Point(290, Constants.BUTTON_Y);
+            Point size = new Point(Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
+            Point velocity = new Point(0, 0);
+
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.BUTTON_IMAGE_3);
+            Button button = new Button(body, image, true);
+
+            cast.AddActor(Constants.BUTTON_GROUP, button);
+        }
         private List<List<string>> LoadLevel(string filename)
         {
             List<List<string>> data = new List<List<string>>();
@@ -360,6 +409,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawWEnemy(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawProjectile(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawButton(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
 

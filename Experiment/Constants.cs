@@ -119,15 +119,29 @@ namespace Unit06
         public static string TURRET_GROUP = "turrets";
         public static Image TURRET_IMAGE_UP = new Image("Assets/Images/Weapons/Medium/Cannon/turret_01_mk1_up.png");
         public static Image TURRET_IMAGE_DOWN = new Image("Assets/Images/Weapons/Medium/Cannon/turret_01_mk1_down.png");
-        
         public static int TURRET_WIDTH = 28;
         public static int TURRET_HEIGHT = 28;
         public static int TURRET_VELOCITY = 50;
         public static int TURRET_COUNT = 3;
-        public static int TURRET_ONE_COUNTDOWN = 125;
+        public static int TURRET_COUNTDOWN = 125;
         public static int TURRET_PLACEMENT_Y_1 = 90;
         public static int TURRET_PLACEMENT_Y_2 = 540;
 
+        // LAZER
+        public static string LAZER_GROUP = "lazer";
+        public static Image LAZER_IMAGE_UP = new Image("Assets/Images/Weapons/Medium/Laser/turret_02_mk1_up.png");
+        public static Image LAZER_IMAGE_DOWN = new Image("Assets/Images/Weapons/Medium/Laser/turret_02_mk1_down.png");
+        public static int LAZER_WIDTH = 30;
+        public static int LAZER_HEIGHT = 30;
+        public static int LAZER_COUNTDOWN = 200;
+
+        // PLASMA
+        public static string PLASMA_GROUP = "plasma";
+        public static Image PLASMA_IMAGE_UP = new Image("Assets/Images/Weapons/Medium/Plasma/turret_04_mk1_up.png");
+        public static Image PLASMA_IMAGE_DOWN = new Image("Assets/Images/Weapons/Medium/Plasma/turret_04_mk1_down.png");
+        public static int PLASMA_WIDTH = 30;
+        public static int PLASMA_HEIGHT = 30;
+        public static int PLASMA_COUNTDOWN = 50;
         // ENEMY
         public static string ENEMY_GROUP = "enemies";
         public static List<string> ENEMY_IMAGES =
@@ -145,10 +159,14 @@ namespace Unit06
         public static int ENEMY_FONT_SIZE = 20;
         public static int GOLD_DROPPED = 50;
 
-        //Projectile
+        //PROJECTILE
         public static string PROJECTILE_GROUP = "projectile";
         public static int PROJECTILE_WIDTH = 5;
         public static int PROJECTILE_HEIGHT = 5;
+        public static int LAZER_PRO_WIDTH = 45;
+        public static int LAZER_PRO_HEIGHT = 100;
+        public static int PLASMA_PRO_WIDTH = 25;
+        public static int PLASMA_PRO_HEIGHT = 25;
         public static string PROJECTILE_IMAGE = "Assets/Images/Weapons/Small/Cannon/turret_01_bullet_01.png";
         public static List<string> PROJECTILE_IMAGES_1
             = new List<string>() {
@@ -158,7 +176,33 @@ namespace Unit06
                 "Assets/Images/Weapons/Small/Cannon/bulletAnimation/bullet_1_animation_4.png",
                 "Assets/Images/Weapons/Small/Cannon/bulletAnimation/bullet_1_animation_5.png",
             };
+        public static List<string> PROJECTILE_IMAGES_2 = new List<string>(){
+            "Assets/Images/Weapons/Lazer_frames/lazer_fr_1.png",
+            "Assets/Images/Weapons/Lazer_frames/lazer_fr_2.png",
+            "Assets/Images/Weapons/Lazer_frames/lazer_fr_3.png",
+            "Assets/Images/Weapons/Lazer_frames/lazer_fr_4.png",
+            "Assets/Images/Weapons/Lazer_frames/lazer_fr_5.png",
+        };
+        public static List<string> PROJECTILE_IMAGES_3 = new List<string>(){
+            "Assets/Images/Weapons/plasma_frames/plasma_fr_1.png",
+            "Assets/Images/Weapons/plasma_frames/plasma_fr_2.png",
+            "Assets/Images/Weapons/plasma_frames/plasma_fr_3.png",
+            "Assets/Images/Weapons/plasma_frames/plasma_fr_4.png",
+            "Assets/Images/Weapons/plasma_frames/plasma_fr_5.png",
+            "Assets/Images/Weapons/plasma_frames/plasma_fr_6.png",
+            "Assets/Images/Weapons/plasma_frames/plasma_fr_7.png",
+        };
         public static int PROJECTILE_RATE = 6;
+
+        // BUTTON
+
+        public static string BUTTON_GROUP = "button";
+        public static string BUTTON_IMAGE = "Assets/Images/buttons/turretButton.png";
+        public static string BUTTON_IMAGE_2 = "Assets/Images/buttons/lazerButton.png";
+        public static string BUTTON_IMAGE_3 = "Assets/Images/buttons/plasmaButton.png";
+        public static int BUTTON_Y = Constants.HUD_MARGIN - 14;
+        public static int BUTTON_WIDTH = 50;
+        public static int BUTTON_HEIGHT = 50;
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
