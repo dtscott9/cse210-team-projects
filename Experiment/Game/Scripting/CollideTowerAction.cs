@@ -33,6 +33,8 @@ namespace Unit06.Game.Scripting
                     audioService.PlaySound(sound);
 
                     tower.TakeDamage(damage);
+                    Sound sound = new Sound(Constants.EXPLOSION_SOUND);
+                    audioService.PlaySound(sound);
 
                     cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
 
