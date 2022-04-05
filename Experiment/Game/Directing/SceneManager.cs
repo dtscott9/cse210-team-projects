@@ -104,8 +104,6 @@ namespace Unit06.Game.Directing
 
             AddOutputActions(script);
 
-            // PlaySoundAction sa = new PlaySoundAction(AudioService, Constants.PURCHASE_SOUND);
-            // script.AddAction(Constants.OUTPUT, sa);
         }
 
         private void PrepareTryAgain(Cast cast, Script script)

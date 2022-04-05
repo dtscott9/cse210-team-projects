@@ -12,7 +12,7 @@ namespace Unit06.Game.Casting
         private int _yCoordinate;
         private int _goldDropped;
 
-        private int _health = 20;
+        private int _health = 30;
         private Body body;
         private Animation animation;
         private Text _healthBarText; 
@@ -23,7 +23,7 @@ namespace Unit06.Game.Casting
         {
             this.body = body;
             this.animation = animation;
-            _healthBarText = new Text($"{_health}/20", Constants.FONT_FILE, Constants.ENEMY_FONT_SIZE, Constants.ALIGN_CENTER, Constants.WHITE);
+            _healthBarText = new Text($"{_health}/30", Constants.FONT_FILE, Constants.ENEMY_FONT_SIZE, Constants.ALIGN_CENTER, Constants.WHITE);
             this._goldDropped = _goldDropped;
         }
 
@@ -47,7 +47,7 @@ namespace Unit06.Game.Casting
 
         internal Text GetHealthBarText()
         {       
-            _healthBarText.SetValue($"{_health}/20");
+            _healthBarText.SetValue($"{_health}/30");
             return _healthBarText;
         }
 

@@ -11,7 +11,7 @@ namespace Unit06
         // ----------------------------------------------------------------------------------------- 
 
         // GAME
-        public static string GAME_NAME = "TOWER DEFENSE";
+        public static string GAME_NAME = "SHIP DEFENSE";
         public static int FRAME_RATE = 60;
 
         // SCREEN
@@ -248,8 +248,8 @@ namespace Unit06
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
-        public static string PREP_TO_LAUNCH = "DEFEND THE STATION!";
-        public static string WAS_GOOD_GAME = "THE STATION HAS FALLEN \n GAME OVER";
+        public static string PREP_TO_LAUNCH = "DEFEND THE SHIP!";
+        public static string WAS_GOOD_GAME = "THE SHIP HAS FALLEN \n GAME OVER";
         public static string NEW_WAVE = "NEW ENEMY WAVE INCOMING";
 
     }

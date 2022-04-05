@@ -17,7 +17,6 @@ namespace Unit06.Game.Scripting
         {
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
             Tower tower = (Tower)cast.GetFirstActor(Constants.TOWER_GROUP);
-            // Enemy enemy = (Enemy)cast.GetFirstActor(Constants.ENEMY_GROUP);
             DrawLabel(cast, Constants.LEVEL_GROUP, Constants.LEVEL_FORMAT, stats.GetLevel());
             DrawLabel(cast, Constants.GOLD_GROUP, Constants.GOLD_FORMAT, stats.GetGoldCount());
             DrawLabel(cast, Constants.TOWER_HEALTH_GROUP, Constants.TOWER_HEALTH_FORMAT, tower.GetHealth());
