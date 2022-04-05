@@ -91,7 +91,35 @@ namespace Unit06.Game.Casting
 
         public void AddEnemyWave()
         {
-            Constants.ENEMY_WAVE += 10;
+            if (level <=9)
+            {
+            
+            Constants.ENEMY_WAVE += 5;
+            }
+            else if (level >= 10 && level <= 19)
+            {
+                Constants.ENEMY_WAVE += 10;
+            }
+            else if (level >= 20 && level <= 29)
+            {
+                Constants.ENEMY_WAVE += 25;
+            }
+            else if (level >= 30 && level <= 39)
+            {
+                Constants.ENEMY_WAVE += 50;
+            }
+            else if (level >= 40 && level <= 49)
+            {
+                Constants.ENEMY_WAVE += 75;
+            }
+            else if (level >= 50 && level <= 99)
+            {
+                Constants.ENEMY_WAVE += 100;
+            }
+            else if (level >= 100)
+            {
+                Constants.ENEMY_WAVE += 500;
+            }
         }
         
     }
