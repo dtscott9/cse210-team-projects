@@ -47,7 +47,7 @@ namespace Unit06.Game.Scripting
 
             {
                 if (mouseService.IsButtonReleased(Constants.LEFT))
-                    if (AvailableGold >= 100)
+                    if (AvailableGold >= turretCost)
                     {
 
                         {
@@ -63,7 +63,7 @@ namespace Unit06.Game.Scripting
             else if (mouseY >= 0 && mouseY <= 50 && mouseX >= 175 && mouseX <= 250)
             {
                 if (mouseService.IsButtonReleased(Constants.LEFT))
-                    if (AvailableGold >= 100)
+                    if (AvailableGold >= lazerCost)
                     {
                         {
                             placeLazer = true;
@@ -76,7 +76,7 @@ namespace Unit06.Game.Scripting
             {
                 if (mouseService.IsButtonReleased(Constants.LEFT))
                 {
-                    if (AvailableGold >= 100)
+                    if (AvailableGold >= plasmaCost)
                     {
                         placePlasma = true;
                         Console.WriteLine("Button3 Clicked");
