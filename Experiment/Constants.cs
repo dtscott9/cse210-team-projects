@@ -20,6 +20,7 @@ namespace Unit06
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
         public static Image BACKGROUND_IMAGE = new Image("Assets/Images/Background/stars_texture.png");
+        public static string BACKGROUND_IMAGE_GROUP = "background";
 
         // FIELD
         public static int FIELD_TOP = 60;

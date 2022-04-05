@@ -55,6 +55,7 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.PROJECTILE_GROUP);
             cast.ClearActors(Constants.PROJECTILE_GROUP_2);
             cast.ClearActors(Constants.PROJECTILE_GROUP_3);
+            AddBackground(cast);
             AddTurret(cast);
             AddTower(cast);
             AddWallBottom(cast);
@@ -166,6 +167,20 @@ namespace Unit06.Game.Directing
         // casting methods
         // -----------------------------------------------------------------------------------------
 
+        private void AddBackground(Cast cast)
+        {
+            cast.ClearActors(Constants.BACKGROUND_IMAGE_GROUP);
+
+            Point position = new Point(0, 0);
+            Point size = new Point(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+            Point velocity = new Point(0, 0);
+
+            Body body = new Body(position, size, velocity);
+            Image image = Constants.BACKGROUND_IMAGE;
+            BackgroundImg background = new BackgroundImg(body, image, false);
+
+            cast.AddActor(Constants.BACKGROUND_IMAGE_GROUP, background);
+        }
         private void AddTurret(Cast cast)
         {
             cast.ClearActors(Constants.TURRET_GROUP);
@@ -407,6 +422,7 @@ namespace Unit06.Game.Directing
         private void AddOutputActions(Script script)
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawBackgroundImage(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawTurret(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawTower(VideoService));
