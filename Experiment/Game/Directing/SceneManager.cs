@@ -52,6 +52,9 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.ENEMY_GROUP);
             cast.ClearActors(Constants.LAZER_GROUP);
             cast.ClearActors(Constants.PLASMA_GROUP);
+            cast.ClearActors(Constants.PROJECTILE_GROUP);
+            cast.ClearActors(Constants.PROJECTILE_GROUP_2);
+            cast.ClearActors(Constants.PROJECTILE_GROUP_3);
             AddTurret(cast);
             AddTower(cast);
             AddWallBottom(cast);
@@ -82,6 +85,8 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.ENEMY_GROUP);
             cast.ClearActors(Constants.PROJECTILE_GROUP);
+            cast.ClearActors(Constants.PROJECTILE_GROUP_2);
+            cast.ClearActors(Constants.PROJECTILE_GROUP_3);
             AddTower(cast);
             AddWallTop(cast);
             AddWallBottom(cast);
@@ -142,6 +147,8 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.ENEMY_GROUP);
             cast.ClearActors(Constants.PROJECTILE_GROUP);
+            cast.ClearActors(Constants.PROJECTILE_GROUP_2);
+            cast.ClearActors(Constants.PROJECTILE_GROUP_3);
             AddEnemy(cast);
             AddTower(cast);
             AddWallTop(cast);
@@ -215,16 +222,16 @@ namespace Unit06.Game.Directing
 
         private void AddWallTop(Cast cast)
         {
-            int x = -10;
-            int y = 56;
+            int x = Constants.WALL_TOP_X;
+            int y = Constants.WALL_TOP_Y;
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.WALL_WIDTH, Constants.WALL_HEIGHT);
             Point velocity = new Point(0, 0);
 
             Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.WALL_TOP_IMAGE);
-            Wall wallTop = new Wall(body, image, false);
+            Animation animation = new Animation(Constants.WALL_TOP, 5, 0);
+            Wall wallTop = new Wall(body, animation, false);
 
             cast.AddActor(Constants.WALL_GROUP, wallTop);
         }
@@ -232,16 +239,16 @@ namespace Unit06.Game.Directing
         private void AddWallBottom(Cast cast)
         {
 
-            int x = 0;
-            int y = 580;
+            int x = Constants.WALL_BOTTOM_X;
+            int y = Constants.WALL_BOTTOM_Y;
 
             Point position = new Point(x, y);
             Point size = new Point(Constants.WALL_WIDTH, Constants.WALL_HEIGHT);
             Point velocity = new Point(0, 0);
 
             Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.WALL_BOTTOM_IMAGE);
-            Wall wallBottom = new Wall(body, image, false);
+            Animation animation = new Animation(Constants.WALL_BOTTOM, 5, 0);
+            Wall wallBottom = new Wall(body, animation, false);
 
             cast.AddActor(Constants.WALL_GROUP, wallBottom);
         }

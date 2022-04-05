@@ -109,8 +109,9 @@ namespace Unit06.Game.Scripting
                         Image image = new Image(Constants.PROJECTILE_IMAGE);
                         Animation animation = new Animation(Constants.PROJECTILE_IMAGES_2, Constants.PROJECTILE_RATE, 0);
                         Projectile projectile = new Projectile(body, animation, image, false);
-                        cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
+                        cast.AddActor(Constants.PROJECTILE_GROUP_2, projectile);
                         turret.ResetLazerCountdown();
+
                     }
                     turret.CountDown();
                 }
@@ -154,7 +155,7 @@ namespace Unit06.Game.Scripting
                         Image image = new Image(Constants.PROJECTILE_IMAGE);
                         Animation animation = new Animation(Constants.PROJECTILE_IMAGES_3, Constants.PROJECTILE_RATE, 0);
                         Projectile projectile = new Projectile(body, animation, image, false);
-                        cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
+                        cast.AddActor(Constants.PROJECTILE_GROUP_3, projectile);
                         turret.ResetPlasmaCountdown();
                     }
                     turret.CountDown();

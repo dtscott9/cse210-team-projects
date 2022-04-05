@@ -7,6 +7,9 @@ namespace Unit06.Game.Scripting
     public class DrawProjectile : Action
     {
         private VideoService videoService;
+        private string turrets = Constants.PROJECTILE_GROUP;
+        private string lazer_turrets = Constants.PROJECTILE_GROUP_2;
+        private string plasma_turrets = Constants.PROJECTILE_GROUP_3;
 
         public DrawProjectile(VideoService videoService)
         {
@@ -15,9 +18,14 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            foreach (Projectile projectile in cast.GetActors(Constants.PROJECTILE_GROUP))
+            ProjectileDrawn(cast, turrets);
+            ProjectileDrawn(cast, lazer_turrets);
+            ProjectileDrawn(cast, plasma_turrets);
+        }
+        public void ProjectileDrawn(Cast cast, string constants)
+        {
+                foreach (Projectile projectile in cast.GetActors(constants))
             {
-                // Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
                 Body body = projectile.GetBody();
                 if (projectile.IsDebug())
                 {
@@ -27,7 +35,7 @@ namespace Unit06.Game.Scripting
                     videoService.DrawRectangle(size, pos, Constants.GREEN, false);
                 }
 
-                // Image image = projectile.GetImage();
+            
                 Point position = body.GetPosition();
                 Animation animation = projectile.GetAnimation();
                 Image image = animation.NextImage();

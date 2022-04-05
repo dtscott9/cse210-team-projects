@@ -47,7 +47,7 @@ namespace Unit06
         public static Color WHITE = new Color(255, 255, 255);
         public static Color PURPLE = new Color(255, 0, 255);
         public static Color BLUE = new Color(0, 0, 255);
-        public static Color GREEN = new Color(34,139,34);
+        public static Color GREEN = new Color(34, 139, 34);
 
         // KEYS
         public static string LEFT = "left";
@@ -109,13 +109,51 @@ namespace Unit06
 
         // WALL
         public static string WALL_GROUP = "walls";
-        public static string WALL_BOTTOM_IMAGE = "Assets/Images/Background/wall_bottom.png";
-        public static string WALL_TOP_IMAGE = "Assets/Images/Background/wall_top.png";
+        public static int WALL_TOP_X = -10;
+        public static int WALL_TOP_Y = 56;
+        public static int WALL_BOTTOM_X = 0;
+        public static int WALL_BOTTOM_Y = 580;
+        public static List<string> WALL_BOTTOM = new List<string>()
+        {
+            "Assets/Images/Background/wall_bottom.png"
+        };
+        public static List<string> IDLE_BOTTOM_1 = new List<string>()
+        {
+
+        };
+        public static List<string> IDLE_BOTTOM_2 = new List<string>()
+        {
+
+        };
+        public static List<string> IDLE_BOTTOM_3 = new List<string>()
+        {
+
+        };
+        public static List<string> WALL_TOP = new List<string>()
+        {
+            "Assets/Images/Background/wall_top.png"
+        };
+        public static List<string> IDLE_TOP_1 = new List<string>()
+        {
+            "Assets/Images/wall_frames/top_frames/idle1_fr_1.png",
+            "Assets/Images/wall_frames/top_frames/idle1_fr_2.png",
+            "Assets/Images/wall_frames/top_frames/idle1_fr_3.png",
+            "Assets/Images/wall_frames/top_frames/idle1_fr_2.png",
+          
+        };
+        public static List<string> IDLE_TOP_2 = new List<string>()
+        {
+          
+        };
+        public static List<string> IDLE_TOP_3 = new List<string>()
+        {
+           
+        };
         public static int WALL_WIDTH = Constants.SCREEN_WIDTH;
         public static int WALL_HEIGHT = 100;
 
-         // TURRET
-         
+        // TURRET
+
         public static string TURRET_GROUP = "turrets";
         public static Image TURRET_IMAGE_UP = new Image("Assets/Images/Weapons/Medium/Cannon/turret_01_mk1_up.png");
         public static Image TURRET_IMAGE_DOWN = new Image("Assets/Images/Weapons/Medium/Cannon/turret_01_mk1_down.png");
@@ -133,7 +171,7 @@ namespace Unit06
         public static Image LAZER_IMAGE_DOWN = new Image("Assets/Images/Weapons/Medium/Laser/turret_02_mk1_down.png");
         public static int LAZER_WIDTH = 30;
         public static int LAZER_HEIGHT = 30;
-        public static int LAZER_COUNTDOWN = 200;
+        public static int LAZER_COUNTDOWN = 150;
 
         // PLASMA
         public static string PLASMA_GROUP = "plasma";
@@ -150,7 +188,7 @@ namespace Unit06
             "Assets/Images/1 Drones/1/Walk_2.png",
             "Assets/Images/1 Drones/1/Walk_3.png",
             "Assets/Images/1 Drones/1/Walk_4.png"
-            
+
         };
         public static int ENEMY_RATE = 6;
         public static int ENEMY_WIDTH = 50;
@@ -161,12 +199,16 @@ namespace Unit06
 
         //PROJECTILE
         public static string PROJECTILE_GROUP = "projectile";
+        public static string PROJECTILE_GROUP_2 = "projectile2";
+        public static string PROJECTILE_GROUP_3 = "projectile3";
         public static int PROJECTILE_WIDTH = 5;
         public static int PROJECTILE_HEIGHT = 5;
+        public static int PROJECTILE_DMG = 10;
         public static int LAZER_PRO_WIDTH = 45;
         public static int LAZER_PRO_HEIGHT = 100;
         public static int PLASMA_PRO_WIDTH = 25;
         public static int PLASMA_PRO_HEIGHT = 25;
+        public static int PLASMA_DMG = 20;
         public static string PROJECTILE_IMAGE = "Assets/Images/Weapons/Small/Cannon/turret_01_bullet_01.png";
         public static List<string> PROJECTILE_IMAGES_1
             = new List<string>() {

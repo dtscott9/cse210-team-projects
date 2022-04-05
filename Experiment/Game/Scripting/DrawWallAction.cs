@@ -26,7 +26,8 @@ namespace Unit06.Game.Scripting
                     videoService.DrawRectangle(size, pos, Constants.GREEN, false);
                 }
 
-                Image image = wall.GetImage();
+                Animation animation = wall.GetAnimation();
+                Image image = animation.NextImage();
                 Point position = body.GetPosition();
                 videoService.DrawImage(image, position);
             }

@@ -9,15 +9,15 @@ namespace Unit06.Game.Casting
     {
 
         private Body body;
-        private Image image;
+        private Animation animation;
 
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Wall(Body body, Image image, bool debug = false) : base(debug)
+        public Wall(Body body, Animation animation, bool debug = false) : base(debug)
         {
             this.body = body;
-            this.image = image;
+            this.animation = animation;
         }
 
         /// <summary>
@@ -33,9 +33,11 @@ namespace Unit06.Game.Casting
         /// Gets the image.
         /// </summary>
         /// <returns>The image.</returns>
-        public Image GetImage()
+
+
+        public Animation GetAnimation()
         {
-            return image;
+            return animation;
         }
     }
 }
